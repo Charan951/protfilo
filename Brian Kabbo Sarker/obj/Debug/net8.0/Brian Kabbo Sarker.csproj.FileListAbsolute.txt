@@ -1,0 +1,33 @@
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.AssemblyInfoInputs.cache
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.AssemblyInfo.cs
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.csproj.CoreCompileInputs.cache
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.RazorAssemblyInfo.cache
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.RazorAssemblyInfo.cs
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\appsettings.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\Brian Kabbo Sarker.staticwebassets.runtime.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\Brian Kabbo Sarker.staticwebassets.endpoints.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\Brian Kabbo Sarker.exe
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\Brian Kabbo Sarker.deps.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\Brian Kabbo Sarker.runtimeconfig.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\Brian Kabbo Sarker.dll
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\bin\Debug\net8.0\Brian Kabbo Sarker.pdb
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\scopedcss\bundle\Brian Kabbo Sarker.styles.css
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\scopedcss\projectbundle\Brian Kabbo Sarker.bundle.scp.css
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.dll
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\refint\Brian Kabbo Sarker.dll
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.pdb
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.genruntimeconfig.cache
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\ref\Brian Kabbo Sarker.dll

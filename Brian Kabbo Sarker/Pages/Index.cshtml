@@ -1,0 +1,80 @@
+﻿@page
+@model Brian_Kabbo_Sarker.IndexModel
+@{
+    ViewData["Title"] = "Brian Kabbo Sarker";
+}
+
+<!-- Home Section -->
+<section id="home" class="flex flex-col items-center justify-center min-h-screen text-center bg-transparent"
+         data-aos="fade-up">
+    <img src="~/images/Profile Photo.jpg" alt="Brian Kabbo Sarker"
+         class="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl border-4 border-slate-800 object-cover mb-6" />
+
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-3 text-slate-800">
+        Hi, I’m Brian Kabbo Sarker 👋
+    </h1>
+
+    <p class="text-lg md:text-xl mb-6 max-w-lg text-slate-700">
+        Aspiring Software Developer Crafting with .NET
+    </p>
+
+    <!-- Buttons Side by Side -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="~/files/Brian_Kabbo_Sarker_CV.pdf" download class="glass-btn">
+            Download CV
+        </a>
+        <a href="#showcase" class="glass-btn">
+            View My Work
+        </a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="flex flex-col items-center justify-center py-16 text-center bg-vintage-rose/30"
+         data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-800">About Me</h2>
+    <p class="mb-4 max-w-xl text-slate-700">
+        Hi, I’m <strong>Brian Kabbo Sarker</strong>, a trainee software developer working with
+        <strong>.NET, C#, HTML, CSS, and JavaScript</strong>. I’m also starting to learn TypeScript 🚀.
+    </p>
+    <p class="max-w-xl text-slate-700">
+        I enjoy building creative and playful websites while keeping them functional and professional.
+    </p>
+</section>
+
+<!-- Showcase Section -->
+<section id="showcase" class="py-16 bg-transparent"
+         data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Projects</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="project-card bg-vintage-teal/20 p-6 rounded-xl shadow transition" data-aos="fade-right">
+            <h3 class="text-2xl font-semibold mb-2 text-slate-800">Project 1</h3>
+            <p class="text-slate-700">
+                A .NET web app built with Razor Pages, showcasing minimal design and responsive layout.
+            </p>
+        </div>
+
+        <div class="project-card bg-vintage-teal/20 p-6 rounded-xl shadow transition" data-aos="fade-left">
+            <h3 class="text-2xl font-semibold mb-2 text-slate-800">Project 2</h3>
+            <p class="text-slate-700">
+                A creative project where I combined C#, JavaScript, and Tailwind CSS for a modern UI.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="flex flex-col items-center justify-center py-16 text-center bg-vintage-sand/40"
+         data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-800">Get In Touch</h2>
+    <p class="mb-6 max-w-lg text-slate-700">I’d love to hear from you! You can reach me via email or social media.</p>
+    <a href="mailto:your.email@example.com" class="glass-btn">
+        Say Hello
+    </a>
+</section>
+
+<footer class="py-6 text-center text-slate-700 border-t border-slate-400">
+    &copy; 2025 - Brian Kabbo Sarker
+</footer>

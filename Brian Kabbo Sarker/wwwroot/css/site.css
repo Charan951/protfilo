@@ -1,0 +1,50 @@
+﻿/* Animated Gradient Background (base) */
+.bg-vintage-gradient {
+    background: linear-gradient(-45deg, #fdf6e3, #e3d5ca, #d6e2e9, #f5ebe0);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    transition: background-position 0.1s linear; /* for mouse movement */
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glass Button */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    color: #2f2f2f;
+    padding: 0.75rem 2rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+    .glass-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+/* Project Card Hover Effects */
+.project-card {
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+}
+
+    .project-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
