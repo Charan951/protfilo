@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Brian Kabbo Sarker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00166f6c143b433b62955f18cc8e75c2f185b304")]
 [assembly: System.Reflection.AssemblyProductAttribute("Brian Kabbo Sarker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Brian Kabbo Sarker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

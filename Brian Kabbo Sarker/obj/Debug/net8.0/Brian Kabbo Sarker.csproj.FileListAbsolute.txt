@@ -31,3 +31,4 @@ C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Ka
 C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.pdb
 C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.genruntimeconfig.cache
 C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\ref\Brian Kabbo Sarker.dll
+C:\Users\NOC-02\Documents\Kabbo Essentials\Brian Kabbo Sarker Portfolio\Brian Kabbo Sarker\obj\Debug\net8.0\Brian Kabbo Sarker.sourcelink.json

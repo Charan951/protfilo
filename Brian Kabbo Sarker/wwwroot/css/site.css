@@ -1,50 +1,34 @@
-﻿/* Animated Gradient Background (base) */
-.bg-vintage-gradient {
-    background: linear-gradient(-45deg, #fdf6e3, #e3d5ca, #d6e2e9, #f5ebe0);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    transition: background-position 0.1s linear; /* for mouse movement */
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Glass Button */
+﻿/* Glass Button */
 .glass-btn {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #7CF5FF;
     backdrop-filter: blur(10px);
-    color: #2f2f2f;
+    color: #e6f1ff;
     padding: 0.75rem 2rem;
     border-radius: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
     .glass-btn:hover {
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(124,245,255,0.1);
         transform: translateY(-3px) scale(1.03);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        box-shadow: 0 8px 25px rgba(124,245,255,0.5);
     }
 
 /* Project Card Hover Effects */
 .project-card {
     transition: all 0.3s ease;
     border-radius: 1rem;
+    background-color: rgba(255,255,255,0.05);
 }
 
     .project-card:hover {
         transform: translateY(-6px) scale(1.03);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        box-shadow: 0 10px 25px rgba(124,245,255,0.3);
     }
+
+/* Headings highlight */
+h1, h2, h3 {
+    color: #64ffda;
+}
