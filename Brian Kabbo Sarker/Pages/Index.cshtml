@@ -5,20 +5,20 @@
 }
 
 <!-- Home Section -->
-<section id="home" class="flex flex-col items-center justify-center min-h-screen text-center"
-         data-aos="fade-up">
-    <img src="~/images/Profile Photo.jpg" alt="Brian Kabbo Sarker"
-         class="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl border-4 border-[#7CF5FF] object-cover mb-6" />
+<section id="home" class="min-h-screen flex flex-col items-center text-center pt-32 space-y-6" data-aos="fade-up">
+
+
+    <img src="~/images/profile-photo.jpg" alt="Brian Kabbo Sarker"
+        class="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl border-4 border-[#7CF5FF] object-cover mb-6" />
 
     <h1 class="text-4xl md:text-5xl font-extrabold mb-3 text-[#64ffda]">
         Hi, I’m Brian Kabbo Sarker 👋
     </h1>
 
-    <p class="text-lg md:text-xl mb-6 max-w-lg">
-        Aspiring Software Developer Crafting with .NET
+    <p class="text-lg md:text-xl mb-6 max-w-lg text-[#FFF1F1]">
+        Software Developer Crafting with .NET
     </p>
 
-    <!-- Buttons Side by Side -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="~/files/Brian_Kabbo_Sarker_CV.pdf" download class="glass-btn">
             Download CV
@@ -30,23 +30,151 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="flex flex-col items-center justify-center py-16 text-center bg-transparent"
-         data-aos="fade-up">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#64ffda]">About Me</h2>
-    <p class="mb-4 max-w-xl">
-        Hi, I’m <strong>Brian Kabbo Sarker</strong>, a trainee software developer working with
-        <strong>.NET, C#, HTML, CSS, and JavaScript</strong>. I’m also starting to learn TypeScript 🚀.
-    </p>
-    <p class="max-w-xl">
-        I enjoy building creative and playful websites while keeping them functional and professional.
-    </p>
+<section id="about" class="py-16 max-w-6xl mx-auto" data-aos="fade-up">
+
+    <!-- Heading -->
+    <h2
+        class="text-3xl md:text-4xl font-extrabold uppercase tracking-wider text-[#FFF1F1] text-center mb-12 flex items-center justify-center">
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] mr-3"></span>
+        ABOUT
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] ml-3"></span>
+    </h2>
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+
+        <!-- Bio and Skills (Left) -->
+        <div class="md:w-1/2 space-y-6 order-2 md:order-1">
+            <p class="text-[#e6f1ff] text-lg">
+                Hi, I’m <span class="text-[#64ffda] font-semibold">Brian Kabbo Sarker</span> - a passionate software
+                developer who enjoys crafting modern, playful, and professional web experiences. I graduated in Computer
+                Science & Engineering from <span class="text-[#64ffda] font-semibold">Green University of
+                    Bangladesh</span>.
+            </p>
+
+            <p class="text-[#e6f1ff] text-lg">
+                I specialize in creating interactive UI effects, responsive layouts, and full-stack web applications
+                that leave a lasting impression.
+            </p>
+
+            <!-- Skills -->
+            <div>
+                <h3 class="text-xl text-[#64ffda] font-semibold mb-3">Languages & Technologies</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">C#</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">HTML</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">CSS</span>
+                    <span
+                        class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">JavaScript</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">Python</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">MySQL</span>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl text-[#64ffda] font-semibold mb-3">Currently Learning</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span
+                        class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">TypeScript</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">React</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Photo (Right) -->
+        <div class="md:w-1/2 flex justify-center order-1 md:order-2">
+            <img src="~/images/profile-photo.jpg" alt="Brian Kabbo Sarker"
+                class="w-48 h-48 md:w-80 md:h-80 rounded-xl shadow-2xl border-4 border-[#7CF5FF] object-cover transform transition-transform duration-500 hover:scale-105" />
+        </div>
+
+    </div>
 </section>
+
+
+
+<!-- Experience Section -->
+<section id="experience" class="py-16 max-w-6xl mx-auto px-6" data-aos="fade-up">
+
+    <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-wider
+               text-[#FFF1F1] text-center mb-12 flex items-center justify-center">
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] mr-3"></span>
+        EXPERIENCE
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] ml-3"></span>
+    </h2>
+
+    <div class="flex flex-col md:flex-row gap-10">
+
+        <!-- Sidebar -->
+        <div class="flex md:flex-col md:w-1/4 gap-3 md:sticky md:top-36">
+
+            <button class="experience-tab active-tab" data-company="company1">
+                The Christian Co-Operative Credit Union
+            </button>
+
+            <button class="experience-tab" data-company="company2">
+                Wellessia
+            </button>
+
+            <button class="experience-tab" data-company="company3">
+                Babuland LTD
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="md:w-3/4 md:pl-6 space-y-10">
+
+            <!-- Company 1 -->
+            <div class="company-content" id="company1">
+                <p class="experience-role">
+                    Nov 2024 – Present | Trainee Software Developer (Full Time)
+                </p>
+
+                <ul class="experience-list">
+                    <li>Working on internal tools and web applications using .NET and C#.</li>
+                    <li>Collaborating with teams to implement modern UI and backend solutions.</li>
+                    <li>Learning and contributing to real-world enterprise projects.</li>
+                </ul>
+            </div>
+
+            <!-- Company 2 -->
+            <div class="company-content hidden" id="company2">
+                <p class="experience-role">
+                    Aug 2024 – Nov 2024 | Video Editor (Full Time)
+                </p>
+
+                <ul class="experience-list">
+                    <li>Created promotional and tutorial videos for marketing campaigns.</li>
+                    <li>Edited and optimized video content for social media platforms.</li>
+                    <li>Worked with the creative team to enhance visual storytelling.</li>
+                </ul>
+            </div>
+
+            <!-- Company 3 -->
+            <div class="company-content hidden" id="company3">
+                <p class="experience-role">
+                    May 2022 – Oct 2023 | Compliance Associate (Part-Time)
+                </p>
+
+                <ul class="experience-list">
+                    <li>Supported software projects with backend and frontend tasks.</li>
+                    <li>Assisted in database management and UI updates.</li>
+                    <li>Contributed to multiple small-scale development initiatives.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
 <!-- Showcase Section -->
 <section id="showcase" class="py-16 bg-transparent" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#64ffda]">Projects</h2>
-    </div>
+    <h2
+        class="text-3xl md:text-4xl font-extrabold uppercase tracking-wider text-[#FFF1F1] text-center mb-8 flex items-center justify-center">
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] mr-3"></span>
+        Showcase
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] ml-3"></span>
+    </h2>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <div class="project-card p-6 rounded-xl shadow transition" data-aos="fade-right">
             <h3 class="text-2xl font-semibold mb-2 text-[#64ffda]">Project 1</h3>
@@ -66,14 +194,23 @@
 
 <!-- Contact Section -->
 <section id="contact" class="flex flex-col items-center justify-center py-16 text-center bg-transparent"
-         data-aos="fade-up">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#64ffda]">Get In Touch</h2>
-    <p class="mb-6 max-w-lg">I’d love to hear from you! You can reach me via email or social media.</p>
+    data-aos="fade-up">
+    <h2
+        class="text-3xl md:text-4xl font-extrabold uppercase tracking-wider text-[#FFF1F1] text-center mb-8 flex items-center justify-center">
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] mr-3"></span>
+        CONTACT
+        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] ml-3"></span>
+    </h2>
+    <p class="mb-6 max-w-lg text-[#e6f1ff]">I’d love to hear from you! You can reach me via email or social media.</p>
     <a href="mailto:your.email@example.com" class="glass-btn">
         Say Hello
     </a>
 </section>
 
-<footer class="py-6 text-center border-t border-[#7CF5FF]">
-    &copy; 2025 - Brian Kabbo Sarker
+<footer class="py-6 text-center border-t border-[#7CF5FF] text-[#e6f1ff]">
+    Created by Brian Kabbo Sarker &copy; 2025 - All rights reserved
 </footer>
+
+@section Scripts {
+    <!-- Script moved to layout.js to avoid duplication -->
+}

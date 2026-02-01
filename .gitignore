@@ -1,1 +1,15 @@
-.vs
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# System Files
+Thumbs.db
+Desktop.ini
