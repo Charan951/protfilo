@@ -86,24 +86,42 @@ body {
     opacity: 1;
 }
 /* Experience Tabs */
+/* Experience Tabs */
 .experience-tab {
     padding: 0.75rem 1rem;
-    border-left: 4px solid transparent;
     text-align: left;
     color: #e6f1ff;
     font-weight: 600;
     transition: all 0.3s ease;
+    
+    /* Mobile First: Bottom Border */
+    border-bottom: 2px solid transparent;
+    border-left: none;
 }
 
     .experience-tab:hover {
         color: #64ffda;
+        background: rgba(100, 255, 218, 0.05);
     }
 
     .experience-tab.active-tab {
-        border-left-color: #64ffda;
         color: #64ffda;
         background: rgba(100, 255, 218, 0.05);
+        border-bottom-color: #64ffda;
     }
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .experience-tab {
+        border-bottom: none;
+        border-left: 2px solid transparent; /* Keeping consistent width */
+    }
+
+    .experience-tab.active-tab {
+        border-bottom-color: transparent;
+        border-left-color: #64ffda;
+    }
+}
 
 /* Role / Date Line */
 .experience-role {

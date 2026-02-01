@@ -38,7 +38,7 @@
             tab.addEventListener("click", () => {
                 const target = tab.dataset.company;
 
-                tabs.forEach(t => t.classList.remove("active-tab"));
+                tabs.forEach(t => t.classList.remove("text-[#64ffda]", "active-tab"));
                 tab.classList.add("active-tab");
 
                 contents.forEach(content => {
