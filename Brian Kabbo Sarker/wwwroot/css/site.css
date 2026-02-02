@@ -230,11 +230,12 @@ pre,
     opacity: 0;
     animation: fadeSlideUp 0.8s ease forwards;
     animation-delay: 0.2s;
-    transition: color 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
 }
 
 .hero-name:hover {
-    color: #64ffda;
+    transform: translateY(-4px);
 }
 
 /* ===================================
@@ -341,6 +342,53 @@ pre,
 }
 
 /* ===================================
+   SCROLL DOWN INDICATOR
+   =================================== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64ffda;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards, bounce 2s ease-in-out infinite;
+    animation-delay: 0.8s, 1.5s;
+}
+
+.scroll-text {
+    font-family: "Inter", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.scroll-arrow {
+    color: #64ffda;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(8px);
+    }
+}
+
+.scroll-indicator:hover {
+    opacity: 0.7;
+}
+
+/* ===================================
    SCROLL ANIMATIONS
    =================================== */
 @keyframes fadeSlideUp {
@@ -406,6 +454,86 @@ pre,
 
 .skill-badge:active {
     transform: translateY(-2px);
+}
+
+/* ===================================
+   GET IN TOUCH BUTTON
+   =================================== */
+.get-in-touch-btn {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    border-radius: 9999px;
+    color: #64ffda;
+    font-family: "Inter", "IBM Plex Sans", sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+}
+
+.get-in-touch-btn.show {
+    opacity: 1;
+    animation: bounceIn 0.6s ease-out;
+}
+
+.get-in-touch-btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    border-color: #64ffda;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.25),
+        0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   NAVBAR ACTIVE STATES
+   =================================== */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #64ffda;
+    transition: width 0.3s ease;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 /* ===================================

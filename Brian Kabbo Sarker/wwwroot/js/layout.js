@@ -191,4 +191,65 @@
         observer.observe(el);
     });
 
+    /* ======================
+       Active Navbar Links
+    ====================== */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+
+    function updateActiveNav() {
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (window.scrollY >= (sectionTop - 200)) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Initial call
+
+    /* ======================
+       Get in Touch Button Bounce
+    ====================== */
+    const getInTouchBtn = document.getElementById('get-in-touch-btn');
+
+    if (getInTouchBtn) {
+        const showGetInTouchBtn = () => {
+            if (window.scrollY > 300) {
+                getInTouchBtn.classList.add('show');
+            } else {
+                getInTouchBtn.classList.remove('show');
+            }
+        };
+
+        window.addEventListener('scroll', showGetInTouchBtn);
+        showGetInTouchBtn(); // Initial call
+    }
+
+    /* ======================
+       Scroll Indicator Click
+    ====================== */
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
 });
