@@ -103,17 +103,6 @@ h3 {
 
 /* Utility and Layout Effects */
 
-body {
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    font-family: "Playfair Display", serif;
-    background-color: #0a192f;
-    color: #e6f1ff;
-    position: relative;
-    /* Ensure body is relative for fixed particles */
-}
-
 /* Particles Container */
 #particles-js {
     position: fixed;
@@ -126,52 +115,302 @@ body {
     /* Ensure clicks pass through */
 }
 
-/* Typed Cursor */
-.typed-cursor {
-    color: #64ffda;
-    font-size: 1.5rem;
-    /* Smaller cursor for subtitle */
+/* ===================================
+   ANIMATED BACKGROUND CANVAS
+   =================================== */
+.hero-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
 }
 
-/* Balance / Massive Typography */
-.text-massive {
-    font-size: clamp(4rem, 12vw, 15rem);
-    /* Responsive massive text */
-    line-height: 0.85;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
+/* Cursor Glow Effect - Enhanced */
+.cursor-glow {
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(100, 255, 218, 0.08) 0%, rgba(138, 99, 210, 0.05) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+/* ===================================
+   GLOBAL TYPOGRAPHY SYSTEM
+   =================================== */
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Inter", "IBM Plex Sans", sans-serif;
+    background-color: #0a0a1a;
     color: #e6f1ff;
-    display: block;
+    position: relative;
 }
 
-.text-massive-outline {
-    font-size: clamp(4rem, 12vw, 15rem);
-    line-height: 0.85;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
+/* Apply typography to all headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", "Sora", "Inter", sans-serif;
     color: #e6f1ff;
-    /* Make solid for high visibility */
-    -webkit-text-stroke: 0;
-    display: block;
-    opacity: 1;
-    /* Full opacity */
 }
 
+/* Body and paragraph text */
+p,
+li,
+span,
+div {
+    font-family: "Inter", "IBM Plex Sans", sans-serif;
+}
+
+/* Code and technical text */
+code,
+pre,
+.code-text {
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* ===================================
+   HERO SECTION LAYOUT
+   =================================== */
 .hero-balance {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Center align items */
     text-align: center;
-    /* Center text */
     min-height: 100vh;
     width: 100%;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding: 2rem 5vw;
+    position: relative;
+    z-index: 1;
 }
+
+/* Hero Text Container */
+.hero-text-container {
+    margin-bottom: 3rem;
+}
+
+/* ===================================
+   HERO GREETING
+   =================================== */
+.hero-greeting {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: #8892b0;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 0.1s;
+}
+
+/* ===================================
+   HERO NAME
+   =================================== */
+.hero-name {
+    font-family: "Poppins", "Sora", sans-serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+    transition: color 0.3s ease;
+}
+
+.hero-name:hover {
+    color: #64ffda;
+}
+
+/* ===================================
+   HERO IDENTITY
+   =================================== */
+.hero-identity {
+    font-family: "Inter", "IBM Plex Sans", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 500;
+    color: #8892b0;
+    margin-top: 1.5rem;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.identity-text {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.dotnet-highlight {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    color: #64ffda;
+    background: rgba(100, 255, 218, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dotnet-highlight:hover {
+    background: rgba(100, 255, 218, 0.2);
+    border-color: #64ffda;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
+}
+
+/* ===================================
+   CRYSTAL GLASS BUTTONS
+   =================================== */
+.hero-cta-stack {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.crystal-glass-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    color: #64ffda;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.crystal-glass-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.crystal-glass-btn:hover::before {
+    left: 100%;
+}
+
+.crystal-glass-btn:hover {
+    background: rgba(100, 255, 218, 0.08);
+    border-color: #64ffda;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.crystal-glass-btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   SCROLL ANIMATIONS
+   =================================== */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section Reveal on Scroll */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================
+   SKILL BADGES
+   =================================== */
+.skill-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    color: #64ffda;
+    font-size: 0.875rem;
+    font-family: "Inter", "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    background: rgba(100, 255, 218, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-badge:hover {
+    transform: translateY(-4px);
+    border-color: #64ffda;
+    background: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.25),
+        0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.skill-badge:active {
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   LEGACY GLASS BUTTON (keeping for other sections)
+   =================================== */
 
 .hero-subtitle {
     font-family: 'Courier New', Courier, monospace;
