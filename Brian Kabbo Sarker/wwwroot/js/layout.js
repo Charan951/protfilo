@@ -37,9 +37,13 @@
                         mobileMenu.classList.add("hidden");
                     }
 
-                    targetElement.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
+                    const offset = 80; // Navbar height + cushion
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
                     });
                 }
             });
@@ -200,14 +204,17 @@
     function updateActiveNav() {
         let currentSection = '';
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (window.scrollY >= (sectionTop - 200)) {
-                currentSection = section.getAttribute('id');
-            }
-        });
+        // Handle bottom of page
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
+            currentSection = sections[sections.length - 1].getAttribute('id');
+        } else {
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= (sectionTop - 250)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+        }
 
         navLinks.forEach(link => {
             link.classList.remove('active');
