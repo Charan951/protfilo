@@ -70,4 +70,29 @@
         });
     }
 
+    /* ======================
+       Typed.js Initialization
+    ====================== */
+    if (document.getElementById("typed-name")) {
+        new Typed("#typed-name", {
+            strings: [
+                "Brian Kabbo Sarker",
+                "a .NET Developer",
+                "a Tech Enthusiast",
+                "a Creative Coder"
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|', // Revert to standard pipe
+            autoInsertCss: true
+        });
+    }
+
+    /* ======================
+       Typed.js Initialization
+    ====================== */
+
 });

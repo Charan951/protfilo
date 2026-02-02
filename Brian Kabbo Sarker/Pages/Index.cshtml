@@ -5,28 +5,31 @@
 }
 
 <!-- Home Section -->
-<section id="home" class="min-h-screen flex flex-col items-center text-center pt-32 space-y-6" data-aos="fade-up">
+<section id="home" class="hero-balance" data-aos="fade-in">
 
+    <!-- Stacked Massive Text -->
+    <div class="flex flex-col select-none">
+        <span class="text-massive" data-aos="fade-right" data-aos-delay="100">BRIAN</span>
+        <span class="text-massive-outline" data-aos="fade-right" data-aos-delay="200">KABBO</span>
+        <span class="text-massive" data-aos="fade-right" data-aos-delay="300">SARKER</span>
+    </div>
 
-    <img src="~/images/profile-photo.jpg" alt="Brian Kabbo Sarker"
-        class="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl border-4 border-[#7CF5FF] object-cover mb-6" />
+    <!-- Tech Subtitle -->
+    <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="500">
+        > <span id="typed-name"></span>
+    </div>
 
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-3 text-[#64ffda]">
-        Hi, I’m Brian Kabbo Sarker 👋
-    </h1>
-
-    <p class="text-lg md:text-xl mb-6 max-w-lg text-[#FFF1F1]">
-        Software Developer Crafting with .NET
-    </p>
-
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="~/files/Brian_Kabbo_Sarker_CV.pdf" download class="glass-btn">
+    <!-- CTA Stack -->
+    <div class="mt-12 flex gap-6" data-aos="fade-up" data-aos-delay="600">
+        <a href="#showcase" class="glass-btn">
+            View Work
+        </a>
+        <a href="~/files/Brian_Kabbo_Sarker_CV.pdf" download
+            class="text-[#e6f1ff] hover:text-[#64ffda] underline underline-offset-8 decoration-1 py-3 transition-colors">
             Download CV
         </a>
-        <a href="#showcase" class="glass-btn">
-            View My Work
-        </a>
     </div>
+
 </section>
 
 <!-- About Section -->
@@ -60,13 +63,18 @@
             <div>
                 <h3 class="text-xl text-[#64ffda] font-semibold mb-3">Languages & Technologies</h3>
                 <div class="flex flex-wrap gap-3">
-                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">C#</span>
-                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">HTML</span>
-                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">CSS</span>
-                    <span
-                        class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">JavaScript</span>
-                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">Python</span>
-                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm">MySQL</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm"
+                        data-aos="zoom-in" data-aos-delay="100">C#</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm"
+                        data-aos="zoom-in" data-aos-delay="200">HTML</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm"
+                        data-aos="zoom-in" data-aos-delay="300">CSS</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm"
+                        data-aos="zoom-in" data-aos-delay="400">JavaScript</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm"
+                        data-aos="zoom-in" data-aos-delay="500">Python</span>
+                    <span class="px-3 py-1 rounded-full border border-[#64ffda] text-[#64ffda] text-sm"
+                        data-aos="zoom-in" data-aos-delay="600">MySQL</span>
                 </div>
             </div>
 
@@ -175,40 +183,59 @@
         <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] ml-3"></span>
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="project-card p-6 rounded-xl shadow transition" data-aos="fade-right">
-            <h3 class="text-2xl font-semibold mb-2 text-[#64ffda]">Project 1</h3>
-            <p>
-                A .NET web app built with Razor Pages, showcasing minimal design and responsive layout.
-            </p>
-        </div>
+    <div class="project-list" data-aos="fade-up">
 
-        <div class="project-card p-6 rounded-xl shadow transition" data-aos="fade-left">
-            <h3 class="text-2xl font-semibold mb-2 text-[#64ffda]">Project 2</h3>
-            <p>
-                A creative project where I combined C#, JavaScript, and Tailwind CSS for a modern UI.
-            </p>
-        </div>
+        <!-- Project 1 -->
+        <a href="#" class="project-item group">
+            <div class="flex flex-col">
+                <span class="project-title">Project One</span>
+                <span class="text-sm text-[#8892b0] mt-1 group-hover:text-[#64ffda] transition-colors">.NET Web App /
+                    Razor Pages</span>
+            </div>
+            <span class="project-meta hidden md:block">2024</span>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="#" class="project-item group">
+            <div class="flex flex-col">
+                <span class="project-title">Project Two</span>
+                <span class="text-sm text-[#8892b0] mt-1 group-hover:text-[#64ffda] transition-colors">Interactive UI /
+                    C# & JS</span>
+            </div>
+            <span class="project-meta hidden md:block">2023</span>
+        </a>
+
+        <!-- Project 3 (Placeholder for balance vibe) -->
+        <a href="#" class="project-item group">
+            <div class="flex flex-col">
+                <span class="project-title">Portfolio V1</span>
+                <span class="text-sm text-[#8892b0] mt-1 group-hover:text-[#64ffda] transition-colors">Personal Brand /
+                    Design</span>
+            </div>
+            <span class="project-meta hidden md:block">2022</span>
+        </a>
+
     </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="flex flex-col items-center justify-center py-16 text-center bg-transparent"
-    data-aos="fade-up">
-    <h2
-        class="text-3xl md:text-4xl font-extrabold uppercase tracking-wider text-[#FFF1F1] text-center mb-8 flex items-center justify-center">
-        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] mr-3"></span>
-        CONTACT
-        <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] ml-3"></span>
-    </h2>
-    <p class="mb-6 max-w-lg text-[#e6f1ff]">I’d love to hear from you! You can reach me via email or social media.</p>
-    <a href="mailto:your.email@example.com" class="glass-btn">
-        Say Hello
+<!-- Big Footer / Contact -->
+<section id="contact" class="big-footer" data-aos="fade-up">
+    <p class="text-[#64ffda] uppercase tracking-widest mb-4">Have a project?</p>
+
+    <a href="mailto:your.email@example.com" class="group">
+        <h2 class="text-footer-massive">
+            LET'S<br>TALK
+        </h2>
     </a>
+
+    <div class="flex gap-4 mt-8">
+        <a href="mailto:your.email@example.com" class="glass-btn">Email Me</a>
+        <a href="https://linkedin.com" target="_blank" class="glass-btn">LinkedIn</a>
+    </div>
 </section>
 
-<footer class="py-6 text-center border-t border-[#7CF5FF] text-[#e6f1ff]">
-    Created by Brian Kabbo Sarker &copy; 2025 - All rights reserved
+<footer class="py-6 text-center border-t border-[#64ffda]/30 text-[#e6f1ff] opacity-60">
+    &copy; 2025 Brian Kabbo Sarker. Crafted with .NET
 </footer>
 
 @section Scripts {

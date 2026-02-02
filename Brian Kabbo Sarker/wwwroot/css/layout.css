@@ -1,11 +1,9 @@
 ﻿#navbar {
+    /* Removed container background/border to avoid "box" effect around the pill */
+    /* Ensure glass effect is visible if background is applied */
     backdrop-filter: blur(12px);
-    background: rgba(10, 25, 47, 0.85);
-    /* Darker background for better contrast */
-    border: 1px solid rgba(124, 245, 255, 0.3);
     transition: all 0.4s ease;
     z-index: 50;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 #navbar a {
