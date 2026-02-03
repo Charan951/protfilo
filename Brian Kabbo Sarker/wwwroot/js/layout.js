@@ -234,7 +234,9 @@
 
     if (getInTouchBtn) {
         const showGetInTouchBtn = () => {
-            if (window.scrollY > 300) {
+            const currentSection = document.querySelector('.nav-link.active')?.getAttribute('href')?.substring(1);
+
+            if (window.scrollY > 300 && currentSection !== 'contact') {
                 getInTouchBtn.classList.add('show');
             } else {
                 getInTouchBtn.classList.remove('show');

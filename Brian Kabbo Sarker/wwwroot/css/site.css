@@ -21,76 +21,9 @@
 
 
 
-/* Project Cards */
-
-/* Project Interactive List */
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-    max-width: 60rem;
-    /* max-w-4xl equiv */
-    margin: 0 auto;
-}
-
-.project-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    text-decoration: none;
-    /* Ensure no underline */
-}
-
-.project-item:first-child {
-    border-top: 1px solid rgba(100, 255, 218, 0.2);
-}
-
-.project-item:hover {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    background: rgba(100, 255, 218, 0.05);
-    border-color: #64ffda;
-}
-
-.project-title {
-    font-size: 2rem;
-    font-weight: 400;
-    /* Lighter weight for premium feel */
-    color: #e6f1ff;
-    transition: color 0.3s ease;
-}
-
-.project-meta {
-    font-size: 1rem;
-    color: #8892b0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.project-item:hover .project-title {
-    color: #64ffda;
-}
-
-.project-item::after {
-    content: '→';
-    position: absolute;
-    right: 2rem;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.3s ease;
-    color: #64ffda;
-    font-size: 1.5rem;
-}
-
-.project-item:hover::after {
-    opacity: 1;
-    transform: translateX(0);
+/* Global Transitions */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Headings */
@@ -516,25 +449,20 @@ pre,
    =================================== */
 .nav-link {
     position: relative;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 9999px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #64ffda;
-    transition: width 0.3s ease;
+.nav-link.active {
+    background: rgba(100, 255, 218, 0.1);
+    color: #64ffda !important;
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.05);
 }
 
-.nav-link.active::after {
-    width: 100%;
-}
-
-.nav-link:hover::after {
-    width: 100%;
+.nav-link:hover {
+    background: rgba(100, 255, 218, 0.05);
+    color: #64ffda !important;
 }
 
 /* ===================================
@@ -674,4 +602,127 @@ pre,
 .experience-tab::before,
 .timeline-dot {
     display: none !important;
+}
+
+/* ===================================
+   EDITORIAL BENTO SHOWCASE
+   =================================== */
+.project-card {
+    position: relative;
+    display: block;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
+    z-index: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(100, 255, 218, 0.2);
+}
+
+.project-content {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-title {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    order: 1;
+}
+
+.project-stack-label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #8892b0;
+    margin-bottom: 1rem;
+    order: 2;
+}
+
+.project-card-desc {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    color: #8892b0;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 90%;
+    order: 3;
+}
+
+.project-stack-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(100, 255, 218, 0.7);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    order: 4;
+}
+
+/* Glass Overlay Effect */
+.project-glass-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: flex-end;
+    padding: 2.5rem;
+    opacity: 0;
+    z-index: 5;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.project-card:hover .project-glass-overlay {
+    opacity: 1;
+}
+
+.view-work-cta {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #64ffda;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    transform: translateY(20px);
+    transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-card:hover .view-work-cta {
+    transform: translateY(0);
+}
+
+.cta-arrow {
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* Featured Card md:col-span-2 adjustments */
+.project-card.md\:col-span-2 .project-card-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.project-card.md\:col-span-2 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(100, 255, 218, 0.02) 100%);
 }

@@ -119,7 +119,6 @@
             <div class="flex flex-wrap gap-3">
                 <span class="skill-badge">Git</span>
                 <span class="skill-badge">GitHub</span>
-                <span class="skill-badge">VS Code</span>
             </div>
         </div>
     </div>
@@ -209,36 +208,49 @@
         <span class="border-t border-[#64ffda]/50 flex-[0_0_60px] ml-3"></span>
     </h2>
 
-    <div class="project-list" data-aos="fade-up">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto" data-aos="fade-up">
 
-        <!-- Project 1 -->
-        <a href="#" class="project-item group">
-            <div class="flex flex-col">
-                <span class="project-title">Project One</span>
-                <span class="text-sm text-[#8892b0] mt-1 group-hover:text-[#64ffda] transition-colors">.NET Web App /
-                    Razor Pages</span>
+        <!-- Project 1 (Featured - Large) -->
+        <a href="#" class="project-card md:col-span-2 group">
+            <div class="project-content p-8 md:p-12">
+                <span class="project-stack-label">.NET Web App / Razor Pages</span>
+                <h3 class="project-card-title">Project One</h3>
+                <p class="project-card-desc">A professional enterprise-grade platform built with performance and
+                    scalability in mind.</p>
+                <div class="project-stack-tag">C# • SQL Server • JS</div>
             </div>
-            <span class="project-meta hidden md:block">2024</span>
+
+            <div class="project-glass-overlay">
+                <span class="view-work-cta">View Work <span class="cta-arrow">→</span></span>
+            </div>
         </a>
 
         <!-- Project 2 -->
-        <a href="#" class="project-item group">
-            <div class="flex flex-col">
-                <span class="project-title">Project Two</span>
-                <span class="text-sm text-[#8892b0] mt-1 group-hover:text-[#64ffda] transition-colors">Interactive UI /
-                    C# & JS</span>
+        <a href="#" class="project-card group">
+            <div class="project-content p-8">
+                <span class="project-stack-label">Interactive UI / C# & JS</span>
+                <h3 class="project-card-title">Project Two</h3>
+                <p class="project-card-desc">Real-time data visualization dashboard with interactive components.</p>
+                <div class="project-stack-tag">React • .NET • Tailwind</div>
             </div>
-            <span class="project-meta hidden md:block">2023</span>
+
+            <div class="project-glass-overlay">
+                <span class="view-work-cta">View Work <span class="cta-arrow">→</span></span>
+            </div>
         </a>
 
-        <!-- Project 3 (Placeholder for balance vibe) -->
-        <a href="#" class="project-item group">
-            <div class="flex flex-col">
-                <span class="project-title">Portfolio V1</span>
-                <span class="text-sm text-[#8892b0] mt-1 group-hover:text-[#64ffda] transition-colors">Personal Brand /
-                    Design</span>
+        <!-- Project 3 -->
+        <a href="#" class="project-card group">
+            <div class="project-content p-8">
+                <span class="project-stack-label">Personal Brand / Design</span>
+                <h3 class="project-card-title">Portfolio V1</h3>
+                <p class="project-card-desc">Modern minimalist portfolio design focusing on typography and motion.</p>
+                <div class="project-stack-tag">HTML • CSS • JS</div>
             </div>
-            <span class="project-meta hidden md:block">2022</span>
+
+            <div class="project-glass-overlay">
+                <span class="view-work-cta">View Work <span class="cta-arrow">→</span></span>
+            </div>
         </a>
 
     </div>
