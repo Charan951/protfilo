@@ -605,11 +605,12 @@ pre,
 }
 
 /* ===================================
-   EDITORIAL BENTO SHOWCASE
+   EDITORIAL GRID SHOWCASE
    =================================== */
 .project-card {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 20px;
@@ -617,6 +618,7 @@ pre,
     text-decoration: none;
     transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
     z-index: 1;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -630,6 +632,7 @@ pre,
     background: transparent;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .project-card-title {
@@ -716,13 +719,4 @@ pre,
 
 .project-card:hover .cta-arrow {
     transform: translateX(4px);
-}
-
-/* Featured Card md:col-span-2 adjustments */
-.project-card.md\:col-span-2 .project-card-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-}
-
-.project-card.md\:col-span-2 {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(100, 255, 218, 0.02) 100%);
 }
