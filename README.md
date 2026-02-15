@@ -2,13 +2,11 @@
 
 This personal portfolio was built with modern tech, clean architecture, and minimal emotional damage from debugging. This is built to showcase my software development skills, projects, and technical expertise.
 
----
 
 ## 🚀 Overview
 
 This project is fully responsive. Developed from scratch using a hybrid modern web stack. It highlights my projects, experience, technical skills, and development philosophy.
 
----
 
 ## ✨ Key Features
 
@@ -90,13 +88,13 @@ This project follows modern software engineering best practices:
 Clone the repository:
 
 ```
-git clone https://github.com/yourusername/portfolio.git
+https://github.com/briankabbo/brian-kabbo-sarker-portfolio
 ```
 
 Navigate to the project directory:
 
 ```
-cd portfolio
+cd 
 ```
 
 Run the application:
@@ -108,7 +106,7 @@ dotnet run
 Open in browser:
 
 ```
-https://localhost:5001
+https:
 ```
 
 ---
