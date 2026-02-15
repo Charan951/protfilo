@@ -113,6 +113,4 @@ This portfolio represents my continuous learning journey and passion for buildin
 If you found this project helpful or interesting, consider giving it a star.
 
 
----
-⚙️ Getting Started
----
+⚙️ Just Getting Started
