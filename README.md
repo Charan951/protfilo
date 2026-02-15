@@ -36,8 +36,6 @@ This project is fully responsive. Developed from scratch using a hybrid modern w
 * Separation of concerns between UI, logic, and styling
 * Built with scalability and future extensibility in mind
 
----
-
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -61,8 +59,6 @@ This project is fully responsive. Developed from scratch using a hybrid modern w
 * Git and GitHub
 * Modern browser DevTools
 
----
-
 ## 🧩 Architecture Principles
 
 This project follows modern software engineering best practices:
@@ -73,7 +69,6 @@ This project follows modern software engineering best practices:
 * Clean separation between presentation and logic
 * Performance‑first development approach
 
----
 
 ## 📱 Responsive Design
 
@@ -85,7 +80,6 @@ The portfolio is fully responsive and optimized for:
 
 It uses modern CSS techniques and responsive layouts to ensure a consistent user experience across all screen sizes.
 
----
 
 ## 🎯 Project Goals
 
@@ -97,7 +91,6 @@ This portfolio was built to:
 * Reflect clean code and scalable architecture principles
 * Serve as a professional representation of my development work
 
----
 
 ## 🔮 Future Improvements
 
@@ -109,18 +102,17 @@ Planned enhancements include:
 * Accessibility improvements
 * Advanced GitHub analytics integration
 
----
-⚙️ Getting Started
----
-
 ## 🤝 Contact
 
 If you'd like to connect, collaborate, or discuss opportunities, please feel free to reach out via the contact section of the portfolio.
-
----
 
 ## ⭐ Acknowledgment
 
 This portfolio represents my continuous learning journey and passion for building modern, creative, and scalable software solutions.
 
 If you found this project helpful or interesting, consider giving it a star.
+
+
+---
+⚙️ Getting Started
+---
