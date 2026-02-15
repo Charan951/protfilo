@@ -74,42 +74,6 @@ This project follows modern software engineering best practices:
 * Performance‑first development approach
 
 ---
-⚙️ Getting Started
-
-### Prerequisites
-
-* .NET SDK
-* Node.js (if modifying React/TypeScript components)
-* Git
-* Modern web browser
-
-### Installation
-
-Clone the repository:
-
-```
-https://github.com/briankabbo/brian-kabbo-sarker-portfolio
-```
-
-Navigate to the project directory:
-
-```
-cd 
-```
-
-Run the application:
-
-```
-dotnet run
-```
-
-Open in browser:
-
-```
-https:
-```
-
----
 
 ## 📱 Responsive Design
 
@@ -146,27 +110,12 @@ Planned enhancements include:
 * Advanced GitHub analytics integration
 
 ---
-
-## 📈 Performance and Optimization
-
-Key optimization strategies implemented:
-
-* Efficient asset loading
-* Optimized CSS and JavaScript
-* Minimal render‑blocking resources
-* Clean and efficient DOM structure
-
+⚙️ Getting Started
 ---
 
 ## 🤝 Contact
 
 If you'd like to connect, collaborate, or discuss opportunities, please feel free to reach out via the contact section of the portfolio.
-
----
-
-## 📄 License
-
-This project is open‑source and available for learning and inspiration.
 
 ---
 
