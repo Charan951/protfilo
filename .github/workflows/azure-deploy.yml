@@ -1,0 +1,50 @@
+name: Deploy to Azure App Service
+
+on:
+  push:
+    branches:
+      - Portfolio     # triggers on every push to the Portfolio branch
+  workflow_dispatch:  # allows manual trigger from GitHub Actions UI
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  # ⬇️ Set this to your Azure App Service name (e.g. brian-kabbo-sarker)
+  AZURE_WEBAPP_NAME: 'brian-kabbo-sarker'
+  PROJECT_PATH: 'Brian Kabbo Sarker/Brian Kabbo Sarker.csproj'
+  PUBLISH_DIR: './publish'
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up .NET 8
+      - name: Set up .NET ${{ env.DOTNET_VERSION }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      # 3. Restore NuGet packages
+      - name: Restore dependencies
+        run: dotnet restore "${{ env.PROJECT_PATH }}"
+
+      # 4. Build in Release mode
+      - name: Build
+        run: dotnet build "${{ env.PROJECT_PATH }}" --configuration Release --no-restore
+
+      # 5. Publish to output folder
+      - name: Publish
+        run: dotnet publish "${{ env.PROJECT_PATH }}" --configuration Release --output "${{ env.PUBLISH_DIR }}" --no-build
+
+      # 6. Deploy to Azure App Service using Publish Profile
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.PUBLISH_DIR }}
