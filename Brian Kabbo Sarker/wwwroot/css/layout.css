@@ -1,6 +1,4 @@
-﻿/* ===================================
-   NAVBAR GLASS STYLING
-   =================================== */
+﻿/* NAVBAR GLASS STYLING */
 #navbar {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
