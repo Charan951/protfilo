@@ -1,0 +1,20 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<section class="hero-balance">
+    <div class="hero-text-container" style="text-align:center;">
+        <p class="hero-greeting">Oops — something went wrong.</p>
+        <h1 class="hero-name" style="font-size:clamp(4rem,12vw,9rem); color:#e6f1ff;">500</h1>
+        <p class="hero-identity" style="margin-top:1rem;">
+            An unexpected error occurred. Please try again later.
+        </p>
+        <div class="hero-cta-stack" style="margin-top:2.5rem;">
+            <a href="/" class="crystal-glass-btn">
+                <span class="btn-text">← Back to Home</span>
+            </a>
+        </div>
+    </div>
+</section>

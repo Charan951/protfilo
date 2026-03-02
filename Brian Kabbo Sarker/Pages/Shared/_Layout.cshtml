@@ -4,13 +4,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Brian_Kabbo_Sarker</title>
+    <title>@ViewData["Title"] - Brian Kabbo Sarker</title>
 
-    <!-- Google Fonts -->
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Brian Kabbo Sarker — Software Developer specialising in .NET and C# web applications. Based in Bangladesh." />
+    <meta name="author" content="Brian Kabbo Sarker" />
+    <meta property="og:title" content="Brian Kabbo Sarker" />
+    <meta property="og:description"
+        content="Software Developer building interactive and reliable web applications with .NET and C#." />
+    <meta property="og:image" content="/images/profile-photo.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Brian Kabbo Sarker" />
+    <meta name="twitter:description"
+        content="Software Developer building interactive and reliable web applications with .NET and C#." />
+
+    <!-- Google Fonts — Poppins (headings), Inter (body), JetBrains Mono (code) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CDN -->
@@ -51,7 +65,8 @@
             <div class="text-[#64ffda] font-bold text-xl">BKS</div>
 
             <!-- Hamburger Button -->
-            <button id="mobile-menu-btn" class="text-[#e6f1ff] focus:outline-none">
+            <button id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="mobile-menu" class="text-[#e6f1ff] focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
@@ -83,7 +98,6 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <script src="~/js/layout.js" asp-append-version="true"></script>
     <script>

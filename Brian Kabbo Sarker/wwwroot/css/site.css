@@ -21,32 +21,6 @@
 
 
 
-/* Global Transitions */
-* {
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-/* Headings */
-
-h1,
-h2,
-h3 {
-    color: #64ffda;
-}
-
-/* Utility and Layout Effects */
-
-/* Particles Container */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    pointer-events: none;
-    /* Ensure clicks pass through */
-}
 
 /* ===================================
    ANIMATED BACKGROUND CANVAS
@@ -81,7 +55,6 @@ h3 {
 body {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
     font-family: "Inter", "IBM Plex Sans", sans-serif;
     background-color: #0a0a1a;
     color: #e6f1ff;
@@ -469,19 +442,7 @@ pre,
    LEGACY GLASS BUTTON (keeping for other sections)
    =================================== */
 
-.hero-subtitle {
-    font-family: 'Courier New', Courier, monospace;
-    color: #64ffda;
-    font-size: 1.25rem;
-    margin-top: 2rem;
-    letter-spacing: 1px;
-    background: rgba(10, 25, 47, 0.8);
-    padding: 0.5rem 1rem;
-    backdrop-filter: blur(4px);
-    border-left: 3px solid #64ffda;
-}
 
-/* Big Footer */
 .big-footer {
     display: flex;
     flex-direction: column;
@@ -506,14 +467,7 @@ pre,
     color: #64ffda;
 }
 
-.hero-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-}
+
 
 /* Experience Section Reversion & Enhancements */
 
@@ -719,4 +673,56 @@ pre,
 
 .project-card:hover .cta-arrow {
     transform: translateX(4px);
+}
+
+/* ===================================
+   SHOWCASE — UNDER CONSTRUCTION
+   =================================== */
+.showcase-under-construction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 5rem 2rem;
+    border: 1px dashed rgba(100, 255, 218, 0.2);
+    border-radius: 20px;
+    background: rgba(100, 255, 218, 0.02);
+}
+
+.construction-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+    display: block;
+    text-align: center;
+    animation: emoji-bounce 2s ease-in-out infinite;
+}
+
+@keyframes emoji-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.construction-title {
+    font-family: "Poppins", "Sora", sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: #e6f1ff;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.construction-desc {
+    font-family: "Inter", "IBM Plex Sans", sans-serif;
+    font-size: 1rem;
+    color: #8892b0;
+    line-height: 1.6;
+    max-width: 36ch;
+    margin: 0;
 }

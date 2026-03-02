@@ -12,7 +12,7 @@
         }, 200);
 
         // Smooth Scrolling for all nav links (Desktop + Mobile)
-        const navLinks = document.querySelectorAll('#navbar a[href^="#"]');
+        const navScrollLinks = document.querySelectorAll('#navbar a[href^="#"]');
 
         // Mobile Menu Elements
         const mobileBtn = document.getElementById("mobile-menu-btn");
@@ -21,25 +21,32 @@
         // Toggle Mobile Menu
         if (mobileBtn && mobileMenu) {
             mobileBtn.addEventListener("click", () => {
+                const isOpen = !mobileMenu.classList.contains("hidden");
                 mobileMenu.classList.toggle("hidden");
+                mobileBtn.setAttribute("aria-expanded", String(isOpen));
+                mobileBtn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
             });
         }
 
-        navLinks.forEach(link => {
+        navScrollLinks.forEach(link => {
             link.addEventListener("click", (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute("href").substring(1);
                 const targetElement = document.getElementById(targetId);
 
                 if (targetElement) {
-                    // Close mobile menu on click
+                    // Close mobile menu on click and reset aria state
                     if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
                         mobileMenu.classList.add("hidden");
+                        if (mobileBtn) {
+                            mobileBtn.setAttribute("aria-expanded", "false");
+                            mobileBtn.setAttribute("aria-label", "Open navigation menu");
+                        }
                     }
 
                     const offset = 80; // Navbar height + cushion
                     const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    const offsetPosition = elementPosition + window.scrollY - offset;
 
                     window.scrollTo({
                         top: offsetPosition,
@@ -141,6 +148,16 @@
         }
 
         animateGradientDrift();
+
+        // Pause animation when tab is not visible to save CPU
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationId);
+            } else {
+                startTime = Date.now();
+                animateGradientDrift();
+            }
+        });
     }
 
     /* ======================
@@ -160,19 +177,25 @@
         mouseY = e.clientY;
     });
 
-    // Smooth cursor glow follow
-    function updateCursorGlow() {
-        // Smooth interpolation
-        currentX += (mouseX - currentX) * 0.1;
-        currentY += (mouseY - currentY) * 0.1;
+    // Smooth cursor glow follow (desktop only — skip on touch devices)
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
-        cursorGlow.style.left = currentX + 'px';
-        cursorGlow.style.top = currentY + 'px';
+    if (!isTouchDevice) {
+        function updateCursorGlow() {
+            currentX += (mouseX - currentX) * 0.1;
+            currentY += (mouseY - currentY) * 0.1;
 
-        requestAnimationFrame(updateCursorGlow);
+            cursorGlow.style.left = currentX + 'px';
+            cursorGlow.style.top = currentY + 'px';
+
+            requestAnimationFrame(updateCursorGlow);
+        }
+
+        updateCursorGlow();
+    } else {
+        // Hide the glow element entirely on touch devices
+        cursorGlow.style.display = 'none';
     }
-
-    updateCursorGlow();
 
     /* ======================
        Scroll Reveal Animations
@@ -256,7 +279,9 @@
         scrollIndicator.addEventListener('click', () => {
             const aboutSection = document.getElementById('about');
             if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: 'smooth' });
+                const offset = 80;
+                const top = aboutSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
             }
         });
     }
