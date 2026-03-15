@@ -66,7 +66,7 @@ const Experience = () => {
             <button
               key={exp.id}
               onClick={() => setActiveTab(exp.id)}
-              className={`text-left px-6 py-4 rounded-xl border transition-all duration-300 ${
+              className={`btn-shine text-left px-6 py-4 rounded-xl border transition-all duration-300 ${
                 activeTab === exp.id
                   ? 'bg-moonstone text-arctic-black font-bold border-moonstone'
                   : 'bg-moonstone-dim border-moonstone-border/10 text-text-primary hover:bg-moonstone-dim/20'

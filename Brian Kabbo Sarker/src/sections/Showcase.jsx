@@ -25,7 +25,7 @@ const Showcase = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={revealVariants}
-        className="glass-card rounded-[2rem] py-32 text-center"
+        className="holographic-card rounded-[2rem] py-32 text-center"
       >
         <motion.div
           animate={{ rotate: [0, 10, -10, 0] }}

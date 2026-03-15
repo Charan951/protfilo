@@ -69,7 +69,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-text-heading text-xl font-bold hover:text-moonstone transition-colors"
+                className="btn-shine w-full text-center py-2 text-text-heading text-xl font-bold hover:text-moonstone transition-colors"
               >
                 {link.name}
               </a>
