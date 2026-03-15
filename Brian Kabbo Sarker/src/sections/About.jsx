@@ -1,0 +1,108 @@
+import { motion } from 'framer-motion';
+// Profile photo path from src/assets/images
+import profilePhoto from '../assets/images/profile-photo.jpg';
+
+const About = () => {
+  const revealVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    },
+  };
+
+  const techStack = [
+    { category: 'Languages & Frameworks', items: ['C#', 'TypeScript', 'React', 'Tailwind CSS', 'Python', 'MySQL'] },
+    { category: 'AI & Machine Learning', items: ['OpenAI API', 'Google Generative AI', 'Claude Sonnet', 'Gemini'] },
+    { category: 'Tools', items: ['Git', 'GitHub'] },
+  ];
+
+  return (
+    <section id="about" className="py-24 max-w-6xl mx-auto px-6">
+      {/* Section Heading */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={revealVariants}
+        className="flex items-center justify-center gap-4 mb-20"
+      >
+        <div className="h-[1px] w-12 md:w-24 bg-moonstone/30" />
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-widest text-text-heading">ABOUT</h2>
+        <div className="h-[1px] w-12 md:w-24 bg-moonstone/30" />
+      </motion.div>
+
+      <div className="flex flex-col md:flex-row items-start justify-between gap-16 mb-24">
+        {/* Bio Text */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={revealVariants}
+          className="md:w-3/5 space-y-8"
+        >
+          <p className="text-xl leading-relaxed">
+            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a software developer focused
+            on building interactive and reliable web applications.
+          </p>
+          <p className="text-xl leading-relaxed">
+            I hold a degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
+          </p>
+          <p className="text-xl leading-relaxed text-text-primary/90">
+            My strongest skill is learning fast and adapting quickly. I work well in team environments, value clear
+            communication, and enjoy improving ideas through collaboration and iteration.
+          </p>
+        </motion.div>
+
+        {/* Profile Photo */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={revealVariants}
+          className="md:w-2/5 flex justify-center"
+        >
+          <div className="relative group">
+            <div className="absolute -inset-4 border border-moonstone/20 rounded-2xl group-hover:border-moonstone/40 transition-colors duration-500" />
+            <img 
+              src={profilePhoto} 
+              alt="Brian Kabbo Sarker" 
+              className="w-64 h-64 md:w-80 md:h-80 rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative z-10"
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Tech Stack */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={revealVariants}
+        className="glass-card p-10 md:p-16 rounded-[2rem]"
+      >
+        <h3 className="text-3xl font-bold mb-12 text-text-heading">How I build things</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {techStack.map((stack) => (
+            <div key={stack.category}>
+              <h4 className="text-xs uppercase tracking-[0.3em] font-bold text-text-secondary mb-6">{stack.category}</h4>
+              <div className="flex flex-wrap gap-3">
+                {stack.items.map((item) => (
+                  <span 
+                    key={item}
+                    className="px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium hover:bg-moonstone-dim/20 transition-colors"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default About;
