@@ -80,7 +80,7 @@ const About = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={revealVariants}
-        className="holographic-card p-10 md:p-16 rounded-[2rem]"
+        className="glass-card p-10 md:p-16 rounded-[2rem]"
       >
         <h3 className="text-3xl font-bold mb-12 text-text-heading">How I build things</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

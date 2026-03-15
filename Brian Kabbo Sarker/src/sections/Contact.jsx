@@ -41,7 +41,7 @@ const Contact = () => {
         <div className="flex flex-wrap justify-center gap-6 mt-24">
           <a
             href="mailto:braiankabbo@gmail.com"
-            className="btn-shine flex items-center gap-3 px-10 py-5 rounded-2xl glass-card hover:bg-moonstone-dim/20 transition-all duration-300 text-moonstone font-bold text-lg"
+            className="btn-shine flex items-center gap-3 px-10 py-5 rounded-2xl border border-moonstone-border bg-transparent hover:bg-white transition-all duration-300 text-moonstone font-bold text-lg"
           >
             <Mail className="w-5 h-5" />
             Email Me
@@ -50,7 +50,7 @@ const Contact = () => {
             href="https://linkedin.com/in/brian-kabbo-sarker"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-shine flex items-center gap-3 px-10 py-5 rounded-2xl glass-card hover:bg-moonstone-dim/20 transition-all duration-300 text-moonstone font-bold text-lg"
+            className="btn-shine flex items-center gap-3 px-10 py-5 rounded-2xl border border-moonstone-border bg-transparent hover:bg-white transition-all duration-300 text-moonstone font-bold text-lg"
           >
             <Linkedin className="w-5 h-5" />
             LinkedIn

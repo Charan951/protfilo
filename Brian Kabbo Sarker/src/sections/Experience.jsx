@@ -69,7 +69,7 @@ const Experience = () => {
               className={`btn-shine text-left px-6 py-4 rounded-xl border transition-all duration-300 ${
                 activeTab === exp.id
                   ? 'bg-moonstone text-arctic-black font-bold border-moonstone'
-                  : 'bg-moonstone-dim border-moonstone-border/10 text-text-primary hover:bg-moonstone-dim/20'
+                  : 'bg-transparent border-moonstone-border/20 text-text-primary hover:bg-white'
               }`}
             >
               {exp.company}

@@ -124,30 +124,25 @@
   }
 }
 
+.btn-shine-revert-flag { }
+
 .btn-shine {
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
 }
 
-.btn-shine::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -100%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transform: rotate(30deg);
-  transition: none;
+.btn-shine:hover {
+  transform: translateY(-3px);
+  background-color: #eef2ff !important; /* Moonlight White Fill */
+  color: #04080f !important; /* Arctic Black labels */
+  border-color: #e0e7ff;
+  box-shadow: 0 10px 25px -5px rgba(224, 231, 255, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-shine:hover::after {
-  animation: shine 1.2s ease-in-out;
+.btn-shine:hover svg {
+  color: #04080f !important;
 }
 
 .film-grain {

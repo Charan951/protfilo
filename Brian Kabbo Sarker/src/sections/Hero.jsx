@@ -58,7 +58,7 @@ const Hero = () => {
         >
           <a
             href="#showcase"
-            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-moonstone-dim hover:bg-moonstone-dim/20 transition-all duration-300"
+            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             View Work
           </a>
@@ -66,7 +66,7 @@ const Hero = () => {
             href="https://drive.google.com/file/d/1ERIkqExyzmGRm_Hhst7v-mMBce7TGdWh/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-moonstone-dim hover:bg-moonstone-dim/20 transition-all duration-300"
+            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             Download CV
           </a>
