@@ -1,83 +1,115 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Linkedin, Instagram, Github, Mail, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Work', href: '#showcase' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', id: 'home' },
+    { name: 'About Me', href: '#about', id: 'about' },
+    { name: 'Journey', href: '#journey', id: 'journey' },
+    { name: 'Works', href: '#works', id: 'works' },
+    { name: 'Contact Me', href: '#contact', id: 'contact' },
   ];
 
-  return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0, x: '-50%' }}
-      animate={{ y: 0, opacity: 1, x: '-50%' }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      id="navbar"
-      className="fixed top-6 left-1/2 z-50 w-[90%] max-w-4xl"
-    >
-      {/* Desktop Nav (Pill) */}
-      <div className={`hidden md:flex justify-center items-center space-x-10 px-10 py-4 rounded-full border border-moonstone-border/10 shadow-2xl transition-all duration-400 ${isScrolled ? 'bg-arctic-black/80 backdrop-blur-2xl' : 'bg-arctic-black/70 backdrop-blur-xl'}`}>
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            className="nav-link font-inter font-medium text-text-secondary hover:text-moonstone transition-colors duration-300"
-          >
-            {link.name}
-          </a>
-        ))}
-      </div>
+  const socialLinks = [
+    { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/brian-kabbo-sarker' },
+    { icon: <Instagram size={20} />, href: 'https://instagram.com' },
+    { icon: <Github size={20} />, href: 'https://github.com' },
+    { icon: <Mail size={20} />, href: 'mailto:braiankabbo@gmail.com' },
+  ];
 
-      {/* Mobile Nav Bar (Top Bar) */}
-      <div className={`md:hidden flex justify-between items-center px-6 py-4 rounded-full border border-moonstone-border/10 shadow-2xl bg-arctic-black/90 backdrop-blur-xl transition-all duration-300`}>
-        <div className="text-text-heading font-extrabold text-2xl tracking-tighter">BKS</div>
-        <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-text-heading focus:outline-none"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-          </svg>
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px',
+      threshold: 0,
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    navLinks.forEach((link) => {
+      const element = document.getElementById(link.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="fixed left-0 top-1/2 -translate-y-1/2 w-[120px] z-50 hidden lg:flex flex-col items-start pl-6">
+        <div className="flex flex-col items-start space-y-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className={`relative group text-[13px] tracking-[0.2em] transition-colors duration-300 min-h-[44px] flex items-center whitespace-nowrap ${
+                activeSection === link.id ? 'text-white' : 'text-[#aaa] hover:text-white'
+              }`}
+            >
+              {link.name}
+              <span 
+                className={`absolute left-0 bottom-[-4px] h-[1px] bg-white transition-transform duration-300 ease-out origin-left ${
+                  activeSection === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
+                style={{ width: '100%' }}
+              />
+            </a>
+          ))}
+        </div>
+      </aside>
+
+      {/* Mobile Nav Top Bar */}
+      <nav className="fixed top-0 left-0 w-full z-50 lg:hidden px-6 py-4 flex justify-end items-center">
+        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white min-h-[44px] min-w-[44px] flex items-center justify-center">
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            className="absolute top-20 left-0 right-0 p-8 rounded-3xl border border-moonstone-border/10 shadow-2xl bg-arctic-black/98 backdrop-blur-2xl flex flex-col items-center space-y-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center space-y-8 lg:hidden"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-shine w-full text-center py-2 text-text-heading text-xl font-bold hover:text-moonstone transition-colors"
+                className={`text-2xl tracking-[0.3em] min-h-[44px] flex items-center transition-colors duration-300 ${
+                  activeSection === link.id ? 'text-white' : 'text-[#aaa]'
+                }`}
               >
                 {link.name}
               </a>
             ))}
+            <div className="flex space-x-8 mt-12 text-[#aaa]">
+              {socialLinks.map((social, index) => (
+                <a key={index} href={social.href} className="hover:text-white transition-colors min-h-[44px] flex items-center">
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </>
   );
 };
 

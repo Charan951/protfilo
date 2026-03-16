@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-20 px-6">
+    <section id="home" className="relative h-[80vh] lg:h-screen flex flex-col items-center justify-center px-6">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -57,7 +57,7 @@ const Hero = () => {
           className="flex flex-wrap items-center justify-center gap-6"
         >
           <a
-            href="#showcase"
+            href="#works"
             className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             View Work

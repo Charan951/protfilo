@@ -46,17 +46,15 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-24 max-w-6xl mx-auto px-6">
+    <section id="journey" className="py-24 max-w-6xl mx-auto px-6">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={revealVariants}
-        className="flex items-center justify-center gap-4 mb-20"
+        className="mb-20 border-b border-white/10 pb-4"
       >
-        <div className="h-[1px] w-12 md:w-24 bg-moonstone/30" />
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-widest text-text-heading">EXPERIENCE</h2>
-        <div className="h-[1px] w-12 md:w-24 bg-moonstone/30" />
+        <h2 className="text-xl md:text-2xl font-bold tracking-[0.3em] text-[#aaa] uppercase px-0">MY JOURNEY</h2>
       </motion.div>
 
       <div className="flex flex-col md:flex-row gap-12 md:gap-24">

@@ -3,21 +3,35 @@ import { Mail, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-48 px-6 text-center">
+    <section id="contact" className="py-24 max-w-6xl mx-auto px-6">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+        }}
+        className="mb-20 border-b border-white/10 pb-4"
+      >
+        <h2 className="text-xl md:text-2xl font-bold tracking-[0.3em] text-[#aaa] uppercase px-0">CONTACT ME</h2>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true }}
+        className="text-center"
       >
-        <p className="text-text-secondary uppercase tracking-[0.4em] mb-12 font-bold text-sm">Have a project in mind?</p>
+        <p className="text-text-secondary uppercase tracking-[0.4em] mb-8 font-bold text-xs">Have a project in mind?</p>
         
         <a 
           href="mailto:braiankabbo@gmail.com" 
           className="group inline-block"
         >
           <div className="overflow-hidden">
-            <h2 className="text-7xl md:text-9xl lg:text-[12rem] font-bold text-text-heading leading-[0.85] transition-transform duration-700 group-hover:scale-[1.02]">
+            <h2 className="text-3xl md:text-5xl font-bold text-text-heading leading-[0.85] transition-transform duration-700 group-hover:scale-[1.02]">
               {"LET'S TALK".split('').map((char, i) => (
                 <motion.span
                   key={i}
