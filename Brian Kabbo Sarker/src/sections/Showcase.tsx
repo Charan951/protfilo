@@ -50,28 +50,7 @@ const Showcase: React.FC = () => {
   const [activeProject, setActiveProject] = useState<number>(0);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const mid = window.innerHeight / 2;
-      let closestIndex = 0;
-      let closestDist = Infinity;
-      imageRefs.current.forEach((ref, i) => {
-        if (!ref) return;
-        const rect = ref.getBoundingClientRect();
-        const cardMid = rect.top + rect.height / 2;
-        const dist = Math.abs(cardMid - mid);
-        if (dist < closestDist) {
-          closestDist = dist;
-          closestIndex = i;
-        }
-      });
-      setActiveProject(closestIndex);
-    };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const project = projects[activeProject];
 
@@ -194,30 +173,52 @@ const Showcase: React.FC = () => {
           Page scrolls naturally through this stacked column.
         */}
         <div className="w-[55%]">
-          {projects.map((item, index) => (
+          {projects.slice(0, 1).map((item, index) => (
             <div
               key={item.id}
               ref={(el) => { imageRefs.current[index] = el; }}
-              className="flex items-center justify-center px-8"
+              className="flex items-center justify-end px-8"
               style={{ minHeight: '100vh' }}
             >
-              <div className="relative w-full max-w-[420px] aspect-[16/10]">
+              <div className="relative w-full max-w-[500px] aspect-[16/10]">
                 <div className="absolute -inset-3 border border-moonstone/20 rounded-2xl" />
-                <div className="relative z-10 w-full h-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/30 border border-white/5">
+                <div className="relative z-10 w-full h-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/10 backdrop-blur-2xl border border-white/5 flex items-center justify-center">
                   {item.image ? (
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full"
+                      style={{
+                        objectFit: 'contain',
+                        objectPosition: 'center',
+                        position: 'absolute',
+                        inset: 0,
+                        width: '100%',
+                        height: '100%',
+                      }}
                     />
                   ) : (
                     <div className="w-full h-full bg-neutral-900/50 flex items-center justify-center">
                       <span className="text-white/5 text-[10px] tracking-widest uppercase">No Preview available</span>
                     </div>
                   )}
+
+                  {item.github && (
+                    <motion.a
+                      href={item.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]"
+                    >
+                      <div className="flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md transform translate-y-2 hover:translate-y-0 transition-transform duration-300">
+                        <Github size={18} className="text-white" />
+                        <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">View Project</span>
+                      </div>
+                    </motion.a>
+                  )}
+                  </div>
                 </div>
               </div>
-            </div>
           ))}
         </div>
       </div>
@@ -236,7 +237,7 @@ const Showcase: React.FC = () => {
 
         {/* Cards */}
         <div className="flex flex-col gap-16 py-16 px-6">
-          {projects.map((item, index) => (
+          {projects.slice(0, 1).map((item, index) => (
             <div key={item.id} className="space-y-8">
               <div className="space-y-6">
                 <div className="text-xs tracking-[0.3em] text-white/40 font-mono">
@@ -262,8 +263,33 @@ const Showcase: React.FC = () => {
               {item.image && (
                 <div className="relative w-full aspect-video">
                   <div className="absolute -inset-2 border border-moonstone/10 rounded-xl" />
-                  <div className="relative z-10 w-full h-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/30 border border-white/5">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  <div className="relative z-10 w-full h-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/10 backdrop-blur-2xl border border-white/5">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full"
+                      style={{
+                        objectFit: 'contain',
+                        objectPosition: 'center',
+                        position: 'absolute',
+                        inset: 0,
+                        width: '100%',
+                        height: '100%',
+                      }}
+                    />
+                    {item.github && (
+                      <motion.a
+                        href={item.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]"
+                      >
+                        <div className="flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md transform translate-y-2 hover:translate-y-0 transition-transform duration-300">
+                          <Github size={16} className="text-white" />
+                          <span className="text-[9px] font-bold text-white tracking-[0.2em] uppercase">View Project</span>
+                        </div>
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               )}
