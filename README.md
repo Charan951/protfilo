@@ -47,15 +47,9 @@ This project is fully responsive. Developed from scratch using a hybrid modern w
 * TypeScript
 * React (for interactive components)
 
-### Backend / Server
-
-* C#
-* .NET
-* ASP.NET Core Razor Pages
-
 ### Tools and Development
 
-* Visual Studio / VS Code
+* Visual Studio
 * Git and GitHub
 * Modern browser DevTools
 
@@ -88,7 +82,6 @@ This portfolio was built to:
 * Demonstrate strong frontend and backend integration skills
 * Showcase modern UI/UX development capabilities
 * Highlight real‑world project experience
-* Reflect clean code and scalable architecture principles
 * Serve as a professional representation of my development work
 
 
