@@ -9,7 +9,7 @@ const About: React.FC = () => {
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } 
     },
   };
 
@@ -32,7 +32,25 @@ const About: React.FC = () => {
         <h2 className="text-xl md:text-2xl font-bold tracking-[0.3em] text-[#aaa] uppercase px-0">ABOUT ME</h2>
       </motion.div>
 
-      <div className="flex flex-col md:flex-row items-start justify-between gap-16 mb-24">
+      <div className="flex flex-col md:flex-row-reverse items-start justify-between gap-16 mb-24">
+        {/* Profile Photo */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={revealVariants}
+          className="md:w-2/5 flex justify-center"
+        >
+          <div className="relative group">
+            <div className="absolute -inset-4 border border-moonstone/20 rounded-2xl group-hover:border-moonstone/40 transition-colors duration-500" />
+            <img 
+              src={profilePhoto} 
+              alt="Brian Kabbo Sarker" 
+              className="w-64 h-64 md:w-80 md:h-80 rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative z-10"
+            />
+          </div>
+        </motion.div>
+
         {/* Bio Text */}
         <motion.div 
           initial="hidden"
@@ -52,24 +70,6 @@ const About: React.FC = () => {
             My strongest skill is learning fast and adapting quickly. I work well in team environments, value clear
             communication, and enjoy improving ideas through collaboration and iteration.
           </p>
-        </motion.div>
-
-        {/* Profile Photo */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={revealVariants}
-          className="md:w-2/5 flex justify-center"
-        >
-          <div className="relative group">
-            <div className="absolute -inset-4 border border-moonstone/20 rounded-2xl group-hover:border-moonstone/40 transition-colors duration-500" />
-            <img 
-              src={profilePhoto} 
-              alt="Brian Kabbo Sarker" 
-              className="w-64 h-64 md:w-80 md:h-80 rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative z-10"
-            />
-          </div>
         </motion.div>
       </div>
 
