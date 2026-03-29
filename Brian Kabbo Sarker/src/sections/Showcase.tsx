@@ -107,7 +107,7 @@ const Showcase: React.FC = () => {
                   </AnimatePresence>
                 </div>
                 <span>/</span>
-                <span className="px-3">0{projects.length}</span>
+                <span className="px-3">01</span>
                 <span>]</span>
               </div>
 
@@ -236,7 +236,7 @@ const Showcase: React.FC = () => {
             <div key={item.id} className="space-y-8">
               <div className="space-y-6">
                 <div className="text-xs tracking-[0.3em] text-white/40 font-mono">
-                  [ 0{index + 1} / 0{projects.length} ]
+                  [ 0{index + 1} / 01 ]
                 </div>
                 <div className="flex justify-between items-start gap-4">
                   <h3 className="text-2xl font-bold text-white tracking-tight uppercase leading-tight">
