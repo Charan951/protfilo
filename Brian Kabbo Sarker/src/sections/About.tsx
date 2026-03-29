@@ -15,8 +15,8 @@ const About: React.FC = () => {
 
   const techStack = [
     { category: 'Languages & Frameworks', items: ['C#', 'ASP.NET Core', 'Javascript', 'Typescript', 'React', 'Tailwind', 'Python', 'MySQL','PostgreSQL'] },
-    { category: 'AI & Machine Learning', items: ['Claude SDK','OpenAI API','Gemini', 'Google Generative AI'] },
-    { category: 'Infrastructure & Tools', items: ['Git', 'GitHub', 'Docker', 'Vercel', 'Azure'] },
+    { category: 'AI & Machine Learning', items: ['Claude SDK','OpenAI API','RAG', 'Gemini'] },
+    { category: 'Infrastructure & Tools', items: ['Git', 'GitHub', 'Figma', 'Docker', 'Vercel', 'Azure'] },
   ];
 
   return (
