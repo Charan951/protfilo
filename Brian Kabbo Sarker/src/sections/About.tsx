@@ -14,9 +14,9 @@ const About: React.FC = () => {
   };
 
   const techStack = [
-    { category: 'Languages & Frameworks', items: ['C#', 'TypeScript', 'React', 'Tailwind CSS', 'Python', 'MySQL'] },
-    { category: 'AI & Machine Learning', items: ['OpenAI API', 'Google Generative AI', 'Claude Sonnet', 'Gemini'] },
-    { category: 'Tools', items: ['Git', 'GitHub'] },
+    { category: 'Languages & Frameworks', items: ['C#', 'ASP.NET Core', 'Javascript', 'Typescript', 'React', 'Tailwind CSS', 'Python', 'MySQL','PostgreSQL'] },
+    { category: 'AI & Machine Learning', items: ['Claude SDK','OpenAI API','Gemini', 'Google Generative AI'] },
+    { category: 'Infrastructure & Tools', items: ['Git', 'GitHub', 'Docker', 'Vercel'] },
   ];
 
   return (
@@ -64,7 +64,7 @@ const About: React.FC = () => {
             on building interactive and reliable web applications.
           </p>
           <p className="text-xl text-white leading-relaxed">
-            I hold a degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
+            I hold a Bachelor degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
           </p>
           <p className="text-xl leading-relaxed text-white/90">
             My strongest skill is learning fast and adapting quickly. I work well in team environments, value clear
