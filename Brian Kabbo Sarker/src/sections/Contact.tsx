@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'motion/react';
 import { Mail, Linkedin } from 'lucide-react';
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-24 max-w-6xl mx-auto px-6">
       <motion.div
@@ -24,14 +25,14 @@ const Contact = () => {
         viewport={{ once: true }}
         className="text-center"
       >
-        <p className="text-text-secondary uppercase tracking-[0.4em] mb-8 font-bold text-xs">Have a project in mind?</p>
+        <p className="text-[#aaa] uppercase tracking-[0.4em] mb-8 font-bold text-xs">Have a project in mind?</p>
         
         <a 
           href="mailto:braiankabbo@gmail.com" 
           className="group inline-block"
         >
           <div className="overflow-hidden">
-            <h2 className="text-3xl md:text-5xl font-bold text-text-heading leading-[0.85] transition-transform duration-700 group-hover:scale-[1.02]">
+            <h2 className="text-3xl md:text-5xl font-bold text-white leading-[0.85] transition-transform duration-700 group-hover:scale-[1.02]">
               {"LET'S TALK".split('').map((char, i) => (
                 <motion.span
                   key={i}

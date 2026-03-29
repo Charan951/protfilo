@@ -1,3 +1,4 @@
+import React from 'react';
 import { Linkedin, Instagram, Github, Mail } from 'lucide-react';
 import Navbar from './components/Navbar';
 import CursorGlow from './components/CursorGlow';
@@ -8,9 +9,9 @@ import Experience from './sections/Experience';
 import Showcase from './sections/Showcase';
 import Contact from './sections/Contact';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="relative min-h-screen overflow-x-hidden selection:bg-moonstone/30 selection:text-moonstone-light">
+    <div className="relative min-h-screen selection:bg-moonstone/30 selection:text-moonstone-light">
       <BackgroundEffects />
       <CursorGlow />
       
@@ -25,13 +26,12 @@ function App() {
           <Contact />
           
           <footer className="py-12 text-center opacity-40">
-            <p className="text-text-primary text-sm tracking-widest uppercase">
+            <p className="text-[#aaa] text-sm tracking-widest uppercase">
               Brian Kabbo Sarker
             </p>
           </footer>
         </main>
 
-        {/* Right Social Icons Panel (Desktop only) */}
         <aside className="fixed right-0 top-1/2 -translate-y-1/2 w-[60px] z-50 hidden lg:flex flex-col items-center space-y-6 text-[#aaa] pr-4">
           <a href="https://linkedin.com/in/brian-kabbo-sarker" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
             <Linkedin size={20} />

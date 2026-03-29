@@ -1,4 +1,6 @@
-const BackgroundEffects = () => {
+import React from 'react';
+
+const BackgroundEffects: React.FC = () => {
   return (
     <>
       {/* Film Grain */}

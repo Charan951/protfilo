@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
-const Experience = () => {
+const Experience: React.FC = () => {
   const [activeTab, setActiveTab] = useState('company1');
 
   const experienceData = [
@@ -66,8 +66,8 @@ const Experience = () => {
               onClick={() => setActiveTab(exp.id)}
               className={`btn-shine text-left px-6 py-4 rounded-xl border transition-all duration-300 ${
                 activeTab === exp.id
-                  ? 'bg-moonstone text-arctic-black font-bold border-moonstone'
-                  : 'bg-transparent border-moonstone-border/20 text-text-primary hover:bg-white'
+                  ? 'bg-moonstone text-zinc-950 font-bold border-moonstone'
+                  : 'bg-transparent border-moonstone-border/20 text-white hover:bg-white'
               }`}
             >
               {exp.company}
@@ -88,11 +88,11 @@ const Experience = () => {
                   transition={{ duration: 0.4 }}
                   className="space-y-6"
                 >
-                  <h3 className="text-2xl font-bold text-text-heading">{exp.role}</h3>
+                  <h3 className="text-2xl font-bold text-white">{exp.role}</h3>
                   <p className="font-mono text-moonstone text-sm">{exp.period}</p>
                   <ul className="space-y-4">
                     {exp.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-4 text-text-primary text-lg">
+                      <li key={i} className="flex items-start gap-4 text-white text-lg">
                         <span className="text-moonstone mt-1.5">•</span>
                         <span>{point}</span>
                       </li>

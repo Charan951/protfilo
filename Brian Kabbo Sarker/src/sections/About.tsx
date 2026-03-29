@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'motion/react';
 // Profile photo path from src/assets/images
 import profilePhoto from '../assets/images/profile-photo.jpg';
 
-const About = () => {
+const About: React.FC = () => {
   const revealVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -40,14 +41,14 @@ const About = () => {
           variants={revealVariants}
           className="md:w-3/5 space-y-8"
         >
-          <p className="text-xl leading-relaxed">
+          <p className="text-xl text-white leading-relaxed">
             I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a software developer focused
             on building interactive and reliable web applications.
           </p>
-          <p className="text-xl leading-relaxed">
+          <p className="text-xl text-white leading-relaxed">
             I hold a degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
           </p>
-          <p className="text-xl leading-relaxed text-text-primary/90">
+          <p className="text-xl leading-relaxed text-white/90">
             My strongest skill is learning fast and adapting quickly. I work well in team environments, value clear
             communication, and enjoy improving ideas through collaboration and iteration.
           </p>
@@ -80,11 +81,11 @@ const About = () => {
         variants={revealVariants}
         className="glass-card p-10 md:p-16 rounded-[2rem]"
       >
-        <h3 className="text-3xl font-bold mb-12 text-text-heading">How I build things</h3>
+        <h3 className="text-3xl font-bold mb-12 text-white">How I build things</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {techStack.map((stack) => (
             <div key={stack.category}>
-              <h4 className="text-xs uppercase tracking-[0.3em] font-bold text-text-secondary mb-6">{stack.category}</h4>
+              <h4 className="text-xs uppercase tracking-[0.3em] font-bold text-[#aaa] mb-6">{stack.category}</h4>
               <div className="flex flex-wrap gap-3">
                 {stack.items.map((item) => (
                   <span 

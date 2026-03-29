@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Linkedin, Instagram, Github, Mail, Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const socialLinks = [
     { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/brian-kabbo-sarker' },
-    { icon: <Instagram size={20} />, href: 'https://instagram.com' },
+    { icon: <Instagram size={20} />, href: 'https://instagram.com/brian_kabbo' },
     { icon: <Github size={20} />, href: 'https://github.com' },
     { icon: <Mail size={20} />, href: 'mailto:braiankabbo@gmail.com' },
   ];
@@ -28,7 +28,7 @@ const Navbar = () => {
       threshold: 0,
     };
 
-    const handleIntersection = (entries) => {
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
@@ -49,7 +49,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="fixed left-0 top-1/2 -translate-y-1/2 w-[120px] z-50 hidden lg:flex flex-col items-start pl-6">
+      <aside className="fixed left-0 top-0 h-screen w-[120px] z-50 hidden lg:flex flex-col items-start pl-6 justify-center">
         <div className="flex flex-col items-start space-y-4">
           {navLinks.map((link) => (
             <a

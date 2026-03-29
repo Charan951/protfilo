@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
-const Hero = () => {
+const Hero: React.FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -32,21 +33,21 @@ const Hero = () => {
       >
         <motion.p 
           variants={itemVariants}
-          className="text-text-secondary text-base uppercase tracking-[0.2em] mb-4 font-inter font-medium"
+          className="text-[#aaa] text-base uppercase tracking-[0.2em] mb-4 font-inter font-medium"
         >
           Hello, this is
         </motion.p>
         
         <motion.h1 
           variants={itemVariants}
-          className="text-5xl md:text-8xl lg:text-9xl mb-6 font-bold tracking-tight text-text-heading"
+          className="text-5xl md:text-8xl lg:text-9xl mb-6 font-bold tracking-tight text-white"
         >
           Brian Kabbo
         </motion.h1>
 
         <motion.p 
           variants={itemVariants}
-          className="text-text-primary text-xl md:text-2xl font-inter mb-12 max-w-2xl mx-auto"
+          className="text-white text-xl md:text-2xl font-inter mb-12 max-w-2xl mx-auto"
         >
           <span className="opacity-80">Software Developer Crafting with</span>{' '}
           <span className="text-moonstone font-mono font-semibold bg-moonstone-dim px-3 py-1 rounded border border-moonstone-border/20">.NET</span>
@@ -79,9 +80,9 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
-        onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <span className="text-text-secondary text-xs uppercase tracking-[0.3em] font-medium group-hover:text-moonstone transition-colors">Scroll</span>
+        <span className="text-[#aaa] text-xs uppercase tracking-[0.3em] font-medium group-hover:text-moonstone transition-colors">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
