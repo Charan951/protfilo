@@ -36,10 +36,10 @@ const App: React.FC = () => {
           <a href="https://linkedin.com/in/brian-kabbo-sarker" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
             <Linkedin size={20} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
+          <a href="https://instagram.com/brian_kabbo" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
             <Instagram size={20} />
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
+          <a href="https://github.com/briankabbo" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
             <Github size={20} />
           </a>
           <a href="mailto:braiankabbo@gmail.com" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
