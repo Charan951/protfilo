@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Github } from 'lucide-react';
 
@@ -47,11 +47,7 @@ const projects: Project[] = [
 ];
 
 const Showcase: React.FC = () => {
-  const [activeProject, setActiveProject] = useState<number>(0);
-  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-
-
+  const activeProject = 0;
   const project = projects[activeProject];
 
   return (
@@ -176,7 +172,6 @@ const Showcase: React.FC = () => {
           {projects.slice(0, 1).map((item, index) => (
             <div
               key={item.id}
-              ref={(el) => { imageRefs.current[index] = el; }}
               className="flex items-center justify-end px-8"
               style={{ minHeight: '100vh' }}
             >
