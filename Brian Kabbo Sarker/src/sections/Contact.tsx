@@ -29,31 +29,32 @@ const Contact: React.FC = () => {
         
         <a 
           href="mailto:braiankabbo@gmail.com" 
-          className="group inline-block"
+          className="group inline-block relative"
         >
-          <div className="overflow-hidden">
-            <h2 className="text-3xl md:text-5xl font-bold text-white leading-[0.85] transition-transform duration-700 group-hover:scale-[1.02]">
+          <div className="overflow-hidden py-4">
+            <h2 className="text-5xl md:text-8xl font-black text-white leading-none transition-all duration-700 group-hover:text-moonstone select-none">
               {"LET'S TALK".split('').map((char, i) => (
                 <motion.span
                   key={i}
-                  initial={{ y: "100%" }}
-                  whileInView={{ y: 0 }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ 
-                    duration: 0.8, 
-                    delay: i * 0.05, 
-                    ease: [0.16, 1, 0.3, 1] 
+                    duration: 1.2, 
+                    delay: i * 0.04, 
+                    ease: [0.22, 1, 0.36, 1] 
                   }}
-                  className="inline-block"
+                  className="inline-block group-hover:-translate-y-2 transition-transform duration-500 ease-out"
                 >
                   {char === ' ' ? '\u00A0' : char}
                 </motion.span>
               ))}
             </h2>
           </div>
-          <div className="h-1 w-0 group-hover:w-full bg-moonstone transition-all duration-700 mx-auto mt-6" />
+          <div className="h-[2px] w-0 group-hover:w-full bg-gradient-to-r from-transparent via-moonstone to-transparent transition-all duration-1000 mx-auto mt-4 opacity-50 group-hover:opacity-100 shadow-[0_0_20px_rgba(100,182,172,0.5)]" />
         </a>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-24">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12">
           <a
             href="mailto:braiankabbo@gmail.com"
             className="w-full sm:w-auto btn-shine flex items-center justify-center gap-3 px-10 py-5 rounded-2xl border border-moonstone-border bg-transparent hover:bg-white transition-all duration-300 text-moonstone font-bold text-lg"
