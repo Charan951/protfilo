@@ -11,9 +11,9 @@ const Experience: React.FC = () => {
       role: 'Trainee Software Developer (Full Time)',
       period: 'Nov 2024 – Present',
       points: [
-        'Working on internal tools and web applications using .NET and C#.',
-        'Collaborating with teams to implement modern UI and backend solutions.',
-        'Learning and contributing to real-world enterprise projects.',
+        'Developed and maintained applications using C# and .NET',
+        'Monitored and resolved system issues in a 24/7 NOC environment to ensure service continuity.',
+        'Supported ERP and financial application systems through troubleshooting and performance optimization.',
       ],
     },
     {
@@ -22,9 +22,9 @@ const Experience: React.FC = () => {
       role: 'Video Editor (Full Time)',
       period: 'Aug 2024 – Nov 2024',
       points: [
-        'Created promotional and tutorial videos for marketing campaigns.',
-        'Edited and optimized video content for social media platforms.',
-        'Worked with the creative team to enhance visual storytelling.',
+        'Edited 200+ short-form, promotional, and tutorial videos.',
+        'Collaborated with the creative team to enhance visual storytelling.',
+        'Experienced in color grading, sound design, and motion graphics.',
       ],
     },
     {
@@ -33,9 +33,9 @@ const Experience: React.FC = () => {
       role: 'Compliance Associate (Part-Time)',
       period: 'May 2022 – Oct 2023',
       points: [
-        'Supported software projects with backend and frontend tasks.',
-        'Assisted in database management and UI updates.',
-        'Contributed to multiple small-scale development initiatives.',
+        'Oversaw compliance and quality assurance across 8 branches with 30+ staff each.',
+        'Acted as a central communication link between branch managers to resolve operational challenges.',
+        'Monitored team performance and customer experience metrics.',
       ],
     },
   ];

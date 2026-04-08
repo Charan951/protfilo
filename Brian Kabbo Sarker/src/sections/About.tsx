@@ -60,7 +60,7 @@ const About: React.FC = () => {
           className="md:w-3/5 space-y-8"
         >
           <p className="text-xl text-white leading-relaxed">
-            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a software developer focused
+            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a full-stack software developer focused
             on building interactive and reliable web applications.
           </p>
           <p className="text-xl text-white leading-relaxed">
