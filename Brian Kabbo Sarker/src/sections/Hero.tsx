@@ -19,12 +19,12 @@ const Hero: React.FC = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
   return (
-    <section id="home" className="relative h-screen flex flex-col items-center justify-center px-6">
+    <section id="home" className="relative h-[80vh] lg:h-screen flex flex-col items-center justify-center px-6">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -44,22 +44,32 @@ const Hero: React.FC = () => {
         >
           Brian Kabbo
         </motion.h1>
- 
+
         <motion.p 
           variants={itemVariants}
           className="text-white text-xl md:text-2xl font-inter mb-12 max-w-2xl mx-auto"
         >
-          <span className="opacity-80">Software Developer Crafting with</span>{' '}
-          <span className="text-moonstone font-mono font-semibold bg-moonstone-dim px-3 py-1 rounded border border-moonstone-border/20">.NET</span>
+          <span className="opacity-80">Full-Stack Software Engineer Crafting with</span>{' '}
+          <span className="text-moonstone font-mono font-semibold bg-moonstone-dim px-3 py-1 rounded border border-moonstone-border/20" style={{ display: 'inline-flex', alignItems: 'center', verticalAlign: 'middle', marginLeft: '0.5em' }}>
+            {/* Clip window — exactly one item tall, overflow hidden here */}
+            <span style={{ display: 'block', overflow: 'hidden', height: '1.2em' }}>
+              <span style={{ display: 'flex', flexDirection: 'column', animation: 'tickUp 7s ease-in-out infinite' }}>
+                <span style={{ display: 'block', height: '1.2em', lineHeight: '1.2em', whiteSpace: 'nowrap' }}>.NET</span>
+                <span style={{ display: 'block', height: '1.2em', lineHeight: '1.2em', whiteSpace: 'nowrap' }}>React</span>
+                <span style={{ display: 'block', height: '1.2em', lineHeight: '1.2em', whiteSpace: 'nowrap' }}>TypeScript</span>
+                <span style={{ display: 'block', height: '1.2em', lineHeight: '1.2em', whiteSpace: 'nowrap' }}>.NET</span>
+              </span>
+            </span>
+          </span>
         </motion.p>
- 
+
         <motion.div 
           variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full px-6 sm:px-0"
+          className="flex flex-wrap items-center justify-center gap-6"
         >
           <a
             href="#works"
-            className="w-full sm:w-auto group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300 text-center"
+            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             View Work
           </a>
@@ -67,13 +77,13 @@ const Hero: React.FC = () => {
             href="https://drive.google.com/file/d/1ERIkqExyzmGRm_Hhst7v-mMBce7TGdWh/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300 text-center"
+            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             Download CV
           </a>
         </motion.div>
       </motion.div>
- 
+
       {/* Scroll Hint */}
       <motion.div 
         initial={{ opacity: 0 }}

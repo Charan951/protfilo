@@ -37,6 +37,17 @@
   }
 }
 
+@keyframes tickUp {
+  0%   { transform: translateY(0); }
+  28%  { transform: translateY(0); }
+  33%  { transform: translateY(-1.2em); }
+  61%  { transform: translateY(-1.2em); }
+  66%  { transform: translateY(-2.4em); }
+  94%  { transform: translateY(-2.4em); }
+  99%  { transform: translateY(-3.6em); animation-timing-function: step-end; }
+  100% { transform: translateY(0); }
+}
+
 :root {
   --bg-primary: #04080f;
 }

@@ -7,12 +7,23 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About Me', href: '#about', id: 'about' },
-    { name: 'Journey', href: '#journey', id: 'journey' },
-    { name: 'Works', href: '#works', id: 'works' },
-    { name: 'Contact Me', href: '#contact', id: 'contact' },
+    { name: 'Home', href: '/', id: 'home' },
+    { name: 'About', href: '/about', id: 'about' },
+    { name: 'Journey', href: '/journey', id: 'journey' },
+    { name: 'Works', href: '/works', id: 'works' },
+    { name: 'Contact', href: '/contact', id: 'contact' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string, href: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, '', href);
+      setActiveSection(id);
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   const socialLinks = [
     { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/brian-kabbo-sarker' },
@@ -31,7 +42,14 @@ const Navbar: React.FC = () => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          const id = entry.target.id;
+          setActiveSection(id);
+          
+          // Sync URL with active section
+          const targetPath = id === 'home' ? '/' : `/${id}`;
+          if (window.location.pathname !== targetPath) {
+            window.history.replaceState(null, '', targetPath);
+          }
         }
       });
     };
@@ -55,6 +73,7 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.id, link.href)}
               className={`relative group text-[13px] tracking-[0.2em] transition-colors duration-300 min-h-[44px] flex items-center whitespace-nowrap ${
                 activeSection === link.id ? 'text-white' : 'text-[#aaa] hover:text-white'
               }`}
@@ -91,7 +110,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.id, link.href)}
                 className={`text-2xl tracking-[0.3em] min-h-[44px] flex items-center transition-colors duration-300 ${
                   activeSection === link.id ? 'text-white' : 'text-[#aaa]'
                 }`}
