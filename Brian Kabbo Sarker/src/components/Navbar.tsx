@@ -19,7 +19,6 @@ const Navbar: React.FC = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, '', href);
       setActiveSection(id);
     }
     setIsMobileMenuOpen(false);
@@ -44,12 +43,6 @@ const Navbar: React.FC = () => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
           setActiveSection(id);
-          
-          // Sync URL with active section
-          const targetPath = id === 'home' ? '/' : `/${id}`;
-          if (window.location.pathname !== targetPath) {
-            window.history.replaceState(null, '', targetPath);
-          }
         }
       });
     };

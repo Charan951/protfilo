@@ -10,21 +10,6 @@ import Showcase from './sections/Showcase';
 import Contact from './sections/Contact';
 
 const App: React.FC = () => {
-  React.useEffect(() => {
-    const path = window.location.pathname.replace(/^\//, '');
-    // Mapping for root path
-    const sectionId = path === '' || path === 'home' ? 'home' : path;
-    
-    // Check if the section exists before scrolling
-    const element = document.getElementById(sectionId);
-    if (element) {
-      // Small delay to allow the page and assets to load fully
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
-  }, []);
-
   return (
     <div className="relative min-h-screen selection:bg-moonstone/30 selection:text-moonstone-light">
       <BackgroundEffects />
