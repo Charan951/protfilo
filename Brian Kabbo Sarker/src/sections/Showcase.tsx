@@ -22,11 +22,11 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    name: "PROJECT TWO",
-    description: "A placeholder for your next great project. This section will feature a sleek preview and detailed project information as you scroll.",
-    stack: ["Next.js", "TypeScript", "Node.js"],
-    image: null,
-    github: "https://github.com/briankabbo",
+    name: "PERSONAL PORTFOLIO V1",
+    description: "A dark-themed corner of the internet where I prove I know what I'm doing. Built with React, TypeScript, and Tailwind CSS. Got this after approximately 47 rounds of tweaking the color code.",
+    stack: ["React", "TypeScript", "Tailwind"],
+    image: "/images/Portfolio.png",
+    github: "https://github.com/briankabbo/brian-kabbo-sarker-portfolio",
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const projects: Project[] = [
 ];
 
 const Showcase: React.FC = () => {
-  const activeProject = 0;
+  const [activeProject, setActiveProject] = React.useState(0);
   const project = projects[activeProject];
 
   return (
@@ -107,7 +107,7 @@ const Showcase: React.FC = () => {
                   </AnimatePresence>
                 </div>
                 <span>/</span>
-                <span className="px-3">01</span>
+                <span className="px-3">02</span>
                 <span>]</span>
               </div>
 
@@ -169,15 +169,17 @@ const Showcase: React.FC = () => {
           Page scrolls naturally through this stacked column.
         */}
         <div className="w-[55%]">
-          {projects.slice(0, 1).map((item, index) => (
-            <div
+          {projects.slice(0, 2).map((item, index) => (
+            <motion.div
               key={item.id}
               className="flex items-center justify-end px-8"
               style={{ minHeight: '100vh' }}
+              onViewportEnter={() => setActiveProject(index)}
+              viewport={{ amount: 0.5 }}
             >
               <div className="relative w-full max-w-[500px] aspect-[16/10]">
                 <div className="absolute -inset-3 border border-moonstone/20 rounded-2xl" />
-                <div className="relative z-10 w-full h-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/10 backdrop-blur-2xl border border-white/5 flex items-center justify-center">
+                <div className="relative z-10 w-full h-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5 flex items-center justify-center">
                   {item.image ? (
                     <img
                       src={item.image}
@@ -213,7 +215,7 @@ const Showcase: React.FC = () => {
                   )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
           ))}
         </div>
       </div>
@@ -232,33 +234,26 @@ const Showcase: React.FC = () => {
 
         {/* Cards */}
         <div className="flex flex-col gap-16 py-16 px-6">
-          {projects.slice(0, 1).map((item, index) => (
-            <div key={item.id} className="space-y-8">
+          {projects.slice(0, 2).map((item, index) => (
+            <div key={item.id} className="space-y-6">
               <div className="space-y-6">
                 <div className="text-xs tracking-[0.3em] text-white/40 font-mono">
-                  [ 0{index + 1} / 01 ]
+                  [ 0{index + 1} / 02 ]
                 </div>
                 <div className="flex justify-between items-start gap-4">
                   <h3 className="text-2xl font-bold text-white tracking-tight uppercase leading-tight">
                     {item.name}
                   </h3>
-                  <a href={item.github} target="_blank" rel="noopener noreferrer" className="mt-1 text-white/60 flex-shrink-0">
+                  <a href={item.github} target="_blank" rel="noopener noreferrer" className="mt-1 text-white/60 flex-shrink-0 hover:text-white transition-colors duration-300">
                     <Github size={20} />
                   </a>
                 </div>
-                <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {item.stack.map((tech) => (
-                    <span key={tech} className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </div>
+
               {item.image && (
                 <div className="relative w-full aspect-video">
                   <div className="absolute -inset-2 border border-moonstone/10 rounded-xl" />
-                  <div className="relative z-10 w-full h-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/10 backdrop-blur-2xl border border-white/5">
+                  <div className="relative z-10 w-full h-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -288,6 +283,17 @@ const Showcase: React.FC = () => {
                   </div>
                 </div>
               )}
+
+              <div className="space-y-6">
+                <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {item.stack.map((tech) => (
+                    <span key={tech} className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>

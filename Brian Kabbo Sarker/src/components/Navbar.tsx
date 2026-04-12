@@ -32,29 +32,27 @@ const Navbar: React.FC = () => {
   ];
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-50% 0px',
-      threshold: 0,
-    };
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          setActiveSection(id);
+      navLinks.forEach((link) => {
+        const element = document.getElementById(link.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementBottom = elementTop + rect.height;
+
+          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+            setActiveSection(link.id);
+          }
         }
       });
     };
 
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    setTimeout(handleScroll, 100);
 
-    navLinks.forEach((link) => {
-      const element = document.getElementById(link.id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
