@@ -177,22 +177,14 @@ const Showcase: React.FC = () => {
               onViewportEnter={() => setActiveProject(index)}
               viewport={{ amount: 0.5 }}
             >
-              <div className="relative w-full max-w-[500px] aspect-[16/10]">
+              <div className="relative w-full max-w-[500px]">
                 <div className="absolute -inset-3 border border-moonstone/20 rounded-2xl" />
-                <div className="relative z-10 w-full h-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5 flex items-center justify-center">
+                <div className="relative z-10 w-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5 flex items-center justify-center">
                   {item.image ? (
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full"
-                      style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                        position: 'absolute',
-                        inset: 0,
-                        width: '100%',
-                        height: '100%',
-                      }}
+                      className="w-full h-auto block"
                     />
                   ) : (
                     <div className="w-full h-full bg-neutral-900/50 flex items-center justify-center">
@@ -251,21 +243,13 @@ const Showcase: React.FC = () => {
               </div>
 
               {item.image && (
-                <div className="relative w-full aspect-video">
+                <div className="relative w-full">
                   <div className="absolute -inset-2 border border-moonstone/10 rounded-xl" />
-                  <div className="relative z-10 w-full h-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5">
+                  <div className="relative z-10 w-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full"
-                      style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                        position: 'absolute',
-                        inset: 0,
-                        width: '100%',
-                        height: '100%',
-                      }}
+                      className="w-full h-auto block"
                     />
                     {item.github && (
                       <motion.a
