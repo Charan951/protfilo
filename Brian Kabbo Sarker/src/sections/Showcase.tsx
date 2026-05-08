@@ -30,11 +30,11 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    name: "PROJECT THREE",
-    description: "Another exciting project coming soon. Each card is designed to provide a premium and immersive feeling for the viewer.",
-    stack: ["Three.js", "Framer Motion", "Vite"],
-    image: null,
-    github: "https://github.com/briankabbo",
+    name: "Bible Verse Web Extension",
+    description: "A daily Bible verse Web extension with full Bangla and English support. One of the few that actually serves the Bangla-speaking believers. Comes with save, share, and verse search features baked in."
+    stack: ["React", "Typescript", "Node.js"],
+    image: "/images/Bible Mockup.png",
+    github: "https://github.com/Marg0n/bible_verse_web_extension",
   },
   {
     id: 4,
