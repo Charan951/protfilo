@@ -36,14 +36,6 @@ const projects: Project[] = [
     image: "/images/Bible_Mockup.png",
     github: "https://github.com/Marg0n/bible_verse_web_extension",
   },
-  {
-    id: 4,
-    name: "PROJECT FOUR",
-    description: "The final showcase piece, rounding out the selection of works. Perfect for demonstrating full-stack capabilities.",
-    stack: ["React Native", "Firebase", "PostgreSQL"],
-    image: null,
-    github: "https://github.com/briankabbo",
-  }
 ];
 
 const Showcase: React.FC = () => {
