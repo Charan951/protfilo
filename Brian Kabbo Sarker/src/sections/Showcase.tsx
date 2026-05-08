@@ -31,9 +31,9 @@ const projects: Project[] = [
   {
     id: 3,
     name: "Bible Verse Web Extension",
-    description: "A daily Bible verse Web extension with full Bangla and English support. One of the few that actually serves the Bangla-speaking believers. Comes with save, share, and verse search features baked in."
+    description: "A daily Bible verse Web extension with full Bangla and English support. One of the few that actually serves the Bangla-speaking believers. Comes with save, share, and verse search features baked in.",
     stack: ["React", "Typescript", "Node.js"],
-    image: "/images/Bible Mockup.png",
+    image: "/images/Bible_Mockup.png",
     github: "https://github.com/Marg0n/bible_verse_web_extension",
   },
   {
@@ -226,7 +226,7 @@ const Showcase: React.FC = () => {
 
         {/* Cards */}
         <div className="flex flex-col gap-16 py-16 px-6">
-          {projects.slice(0, 2).map((item, index) => (
+          {projects.slice(0, 3).map((item, index) => (
             <div key={item.id} className="space-y-6">
               <div className="space-y-6">
                 <div className="text-xs tracking-[0.3em] text-white/40 font-mono">
