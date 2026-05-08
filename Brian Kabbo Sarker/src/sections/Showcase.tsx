@@ -107,7 +107,7 @@ const Showcase: React.FC = () => {
                   </AnimatePresence>
                 </div>
                 <span>/</span>
-                <span className="px-3">02</span>
+                <span className="px-3">03</span>
                 <span>]</span>
               </div>
 
@@ -169,7 +169,7 @@ const Showcase: React.FC = () => {
           Page scrolls naturally through this stacked column.
         */}
         <div className="w-[55%]">
-          {projects.slice(0, 2).map((item, index) => (
+          {projects.slice(0, 3).map((item, index) => (
             <motion.div
               key={item.id}
               className="flex items-center justify-end px-8"
@@ -230,7 +230,7 @@ const Showcase: React.FC = () => {
             <div key={item.id} className="space-y-6">
               <div className="space-y-6">
                 <div className="text-xs tracking-[0.3em] text-white/40 font-mono">
-                  [ 0{index + 1} / 02 ]
+                  [ 0{index + 1} / 03 ]
                 </div>
                 <div className="flex justify-between items-start gap-4">
                   <h3 className="text-2xl font-bold text-white tracking-tight uppercase leading-tight">
