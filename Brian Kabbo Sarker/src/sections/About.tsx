@@ -83,10 +83,10 @@ const About: React.FC = () => {
         className="glass-card p-10 md:p-16 rounded-[2rem]"
       >
         <h3 className="text-3xl font-bold mb-12 text-white">How I build things</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="flex flex-col gap-8">
           {techStack.map((stack) => (
-            <div key={stack.category}>
-              <h4 className="text-xs uppercase tracking-[0.3em] font-bold text-[#aaa] mb-6">{stack.category}</h4>
+            <div key={stack.category} className="flex flex-col md:flex-row md:items-start gap-4">
+              <h4 className="text-xs uppercase tracking-[0.3em] font-bold text-[#aaa] md:w-56 shrink-0 pt-2">{stack.category}</h4>
               <div className="flex flex-wrap gap-3">
                 {stack.items.map((item) => (
                   <span 
