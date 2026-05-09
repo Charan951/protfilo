@@ -14,9 +14,10 @@ const About: React.FC = () => {
   };
 
   const techStack = [
-    { category: 'Languages & Frameworks', items: ['C#', 'ASP.NET Core', 'Javascript', 'Typescript', 'React', 'Tailwind', 'Python', 'MySQL','PostgreSQL'] },
-    { category: 'AI & Machine Learning', items: ['Claude SDK','OpenAI API','RAG', 'Gemini'] },
-    { category: 'Infrastructure & Tools', items: ['Git', 'GitHub', 'Figma', 'Docker', 'Vercel', 'Azure'] },
+    { category: 'Languages & Frameworks', items: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Python', 'xUnit / Jest'] },
+    { category: 'Backend & Databases', items: ['REST API','JWT Auth', 'PostgreSQL','MySQL','Redis'] },
+    { category: 'AI Integration', items: ['OpenAI API','LangChain','RAG', 'Embeddings','Vector Database','AI Agents', 'Prompt Engineering'] },
+    { category: 'Infrastructure & DevOps', items: ['Git', 'GitHub', 'Render', 'Vercel', 'Docker', 'Azure','CI/CD'] },
   ];
 
   return (
