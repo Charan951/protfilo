@@ -15,9 +15,9 @@ const About: React.FC = () => {
 
   const techStack = [
     { category: 'Languages & Frameworks', items: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Python', 'xUnit / Jest'] },
-    { category: 'Backend & Databases', items: ['REST API','JWT Auth', 'PostgreSQL','MySQL','Redis'] },
+    { category: 'Backend & DB', items: ['REST API','JWT Auth', 'PostgreSQL','MySQL','Redis'] },
     { category: 'AI Integration', items: ['OpenAI API','LangChain','RAG', 'Embeddings','Vector Database','AI Agents', 'Prompt Engineering'] },
-    { category: 'Infrastructure & DevOps', items: ['Git', 'GitHub', 'Render', 'Vercel', 'Docker', 'Azure','CI/CD'] },
+    { category: 'Infra & Cloud', items: ['Git', 'GitHub', 'Render', 'Vercel', 'Docker', 'Azure','CI/CD Pipelines'] },
   ];
 
   return (
