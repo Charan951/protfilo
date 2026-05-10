@@ -43,7 +43,7 @@ const About: React.FC = () => {
           className="md:w-2/5 flex justify-center"
         >
           <div className="relative group">
-            <div className="absolute -inset-4 border border-moonstone/20 rounded-2xl group-hover:border-moonstone/40 transition-colors duration-500" />
+            <div className="absolute -inset-4 border border-moonstone/20 rounded-2xl group-hover:border-moonstone group-hover:shadow-[0_10px_25px_-5px_rgba(224,231,255,0.25),0_8px_10px_-6px_rgba(0,0,0,0.1)] transition-all duration-500" />
             <img 
               src={profilePhoto} 
               alt="Brian Kabbo Sarker" 
