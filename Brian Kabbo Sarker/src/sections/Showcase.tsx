@@ -142,18 +142,12 @@ const Showcase: React.FC = () => {
                     className="flex flex-wrap gap-2"
                   >
                     {project.stack.map((tech) => (
-                      <motion.span
+                      <span
                         key={tech}
-                        whileHover={{ 
-                          y: -5, 
-                          scale: 1.1,
-                          boxShadow: "0 4px 12px rgba(224, 231, 255, 0.1)"
-                        }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium cursor-default"
+                        className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium hover:-translate-y-0.5 hover:shadow-md hover:shadow-white/5 transition-all duration-300 cursor-default"
                       >
                         {tech}
-                      </motion.span>
+                      </span>
                     ))}
                   </motion.div>
                 </AnimatePresence>
@@ -270,18 +264,9 @@ const Showcase: React.FC = () => {
                 <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {item.stack.map((tech) => (
-                    <motion.span 
-                      key={tech} 
-                      whileHover={{ 
-                        y: -5, 
-                        scale: 1.1,
-                        boxShadow: "0 4px 12px rgba(224, 231, 255, 0.1)"
-                      }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium cursor-default"
-                    >
+                    <span key={tech} className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium hover:-translate-y-0.5 hover:shadow-md hover:shadow-white/5 transition-all duration-300 cursor-default">
                       {tech}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>

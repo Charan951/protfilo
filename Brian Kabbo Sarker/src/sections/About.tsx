@@ -92,12 +92,17 @@ const About: React.FC = () => {
                   <motion.span 
                     key={item}
                     whileHover={{ 
-                      y: -8, 
                       scale: 1.05,
-                      boxShadow: "0 10px 25px -5px rgba(224, 231, 255, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
+                      zIndex: 20,
+                      borderColor: "rgba(224, 231, 255, 0.4)",
+                      boxShadow: "0 0 8px rgba(224, 231, 255, 0.15)"
                     }}
-                    transition={{ type: "spring", stiffness: 200, damping: 8 }}
-                    className="px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium cursor-default"
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300, 
+                      damping: 20
+                    }}
+                    className="px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium cursor-default relative transition-colors duration-300"
                   >
                     {item}
                   </motion.span>
