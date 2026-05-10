@@ -89,12 +89,18 @@ const About: React.FC = () => {
               <h4 className="text-xs uppercase tracking-[0.3em] font-bold text-[#aaa] md:w-56 shrink-0 pt-2">{stack.category}</h4>
               <div className="flex flex-wrap gap-3">
                 {stack.items.map((item) => (
-                  <span 
+                  <motion.span 
                     key={item}
-                    className="px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium hover:bg-moonstone-dim/20 transition-colors"
+                    whileHover={{ 
+                      y: -8, 
+                      scale: 1.05,
+                      boxShadow: "0 10px 25px -5px rgba(224, 231, 255, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
+                    }}
+                    transition={{ type: "spring", stiffness: 200, damping: 8 }}
+                    className="px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium cursor-default"
                   >
                     {item}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
