@@ -26,9 +26,6 @@ This project is fully responsive. Developed from scratch using a hybrid modern w
 ### Tools and Development
 [![My Skills](https://skillicons.dev/icons?i=github,vercel,visualstudio)](https://skillicons.dev)
 
-## 🧩 Architecture Principles
-
-
 ## 📱 Responsive Design
 
 The portfolio is fully responsive and optimized for:
