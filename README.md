@@ -1,24 +1,24 @@
-#  🌏Personal Portfolio Website | [🔗Live Demo](https://briankabbo.vercel.app)
-A personal space to showcase my projects, experiments, and ongoing growth as a software developer.
+# ![user](https://www.readmecodegen.com/api/social-icon?name=user&size=32&animation=glow&color=%233b82f6) Personal Portfolio Website | [🔗Live Demo](https://briankabbo.vercel.app)
+### A personal space to showcase my projects, experiments, and ongoing growth as a software developer.
 
 ![Cover](https://github.com/briankabbo/brian-kabbo-sarker-portfolio/blob/Portfolio/Brian%20Kabbo%20Sarker/public/images/Portfolio.png)
-👆🏻 **This is a preview image. Visit the live demo link for more.**
+> **This is a preview image. Visit the live demo [link](https://briankabbo.vercel.app) for more.**
 
 ---
 
-# 📋Overview
+# 📋 Overview
 
 This project is fully responsive. Developed from scratch using a hybrid modern web stack. It highlights my projects, experience, technical skills, and development philosophy.
 
-### ✨ Key Features
-* **Home Section** — A quick identity snapshot of who I am and what I build.
-* **About Section** — My journey, technical stack, and the mindset I use to build.
-* **Experience Section** — Real-world roles, responsibilities, and contributions.
-* **Showcase Section** — Highlighted projects with detailed descriptions and tech stack
-* **Contact Section** — Direct communication and professional links
+### ![flask](https://www.readmecodegen.com/api/social-icon?name=flask&size=16) Key Features
+* **Home Section** - A quick identity snapshot of who I am and what I build.
+* **About Section** - My journey, technical stack, and the mindset I use to build.
+* **Experience Section** - Real-world roles, responsibilities, and contributions.
+* **Showcase Section** - Highlighted projects with detailed descriptions and tech stack
+* **Contact Section** - Direct communication and professional links
 
 
-## 🛠️ Tech Stack
+## ![code](https://www.readmecodegen.com/api/social-icon?name=code&size=16) Tech Stack
 
 ### Frontend
 [![My Skills](https://skillicons.dev/icons?i=react,ts,tailwind,vite)](https://skillicons.dev)
@@ -26,9 +26,9 @@ This project is fully responsive. Developed from scratch using a hybrid modern w
 ### Tools and Development
 [![My Skills](https://skillicons.dev/icons?i=github,vercel,visualstudio)](https://skillicons.dev)
 
-## 📱 Responsive Design
+## Responsive Design
 
-The portfolio is fully responsive and optimized for:
+This portfolio is fully responsive and optimized for:
 
 * 💻 Desktop ✅
 * 🔳Tablet ✅
@@ -55,6 +55,4 @@ If you'd like to connect, collaborate, or discuss opportunities, please feel fre
 
 This portfolio represents my continuous learning journey and passion for building modern, creative, and scalable software solutions.
 
-If you found this portfolio interesting, consider giving it a star ⭐. 
-
-✌Thank you for visiting. I am Just Getting Started.
+If you found this portfolio interesting, consider giving it a star ⭐ *Thank you for visiting. I am Just Getting Started.*
