@@ -291,7 +291,7 @@ const Showcase: React.FC = () => {
               </div>
 
               {(item.github !== null || item.live !== null) && (
-                <div className="flex flex-wrap gap-3 pt-1">
+                <div className="flex flex-wrap justify-center gap-3 pt-1">
                   {item.github !== null && (
                     <a
                       href={item.github}
