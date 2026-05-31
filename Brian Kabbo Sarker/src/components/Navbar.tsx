@@ -82,8 +82,11 @@ const Navbar: React.FC = () => {
       </aside>
 
       {/* Mobile Nav Top Bar */}
-      <nav className="fixed top-0 left-0 w-full z-50 lg:hidden px-4 sm:px-6 py-3 sm:py-4 flex justify-end items-center bg-arctic-void/80 backdrop-blur-sm border-b border-white/5">
-        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white min-h-[44px] min-w-[44px] flex items-center justify-center">
+      <nav className="fixed top-0 left-0 w-full z-50 lg:hidden px-4 sm:px-6 py-3 sm:py-4 flex justify-end items-center pointer-events-none">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-white min-h-[44px] min-w-[44px] flex items-center justify-center pointer-events-auto"
+        >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
