@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -8,7 +8,8 @@ interface Project {
   description: string;
   stack: string[];
   image: string | null;
-  github: string;
+  github: string | null;
+  live: string | null;
 }
 
 const projects: Project[] = [
@@ -19,6 +20,7 @@ const projects: Project[] = [
     stack: ["React", "JavaScript", "Tailwind CSS"],
     image: "/images/food-picker.png",
     github: "https://github.com/briankabbo/what-am-i-craving-for-frontend",
+    live: "https://cravingwhat.vercel.app",
   },
   {
     id: 2,
@@ -27,14 +29,16 @@ const projects: Project[] = [
     stack: ["React", "TypeScript", "Tailwind"],
     image: "/images/Portfolio.png",
     github: "https://github.com/briankabbo/brian-kabbo-sarker-portfolio",
+    live: null,
   },
   {
     id: 3,
-    name: "Bible Verse Web Extension",
-    description: "A daily Bible verse Web extension with full Bangla and English support. One of the few that actually serves the Bangla-speaking believers. Comes with save, share, and verse search features baked in.",
-    stack: ["React", "Typescript", "Node.js"],
+    name: "BIBLE VERSE EXTENSION",
+    description: "A daily Bible verse web extension with full Bangla and English support. One of the few that actually serves the Bangla-speaking believers. Comes with save, share, and verse search features baked in.",
+    stack: ["React", "TypeScript", "Node.js"],
     image: "/images/Bible_Mockup.png",
     github: "https://github.com/Marg0n/bible_verse_web_extension",
+    live: null,
   },
 ];
 
@@ -48,24 +52,28 @@ const Showcase: React.FC = () => {
       className="max-w-6xl mx-auto px-6"
       style={{ overflow: 'clip' }}
     >
-      {/* ── DESKTOP Two-column flex ────────────────────────────────────────── */}
+      {/*DESKTOP*/}
       <div className="hidden lg:flex" style={{ alignItems: 'flex-start' }}>
 
-        {/* 
-          1. LEFT — Sticky Info Panel
-        */}
+        {/* LEFT — Sticky Info Panel */}
         <div
           className="w-[45%] flex flex-col"
           style={{ position: 'sticky', top: 0, height: '100vh' }}
         >
-          {/* Heading permanently visible at the top of the left panel */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
             variants={{
               hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.8,
+                  ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+                },
+              },
             }}
             className="flex-shrink-0 pt-16 pb-4 border-b border-white/10"
           >
@@ -79,10 +87,10 @@ const Showcase: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Project Info centered below heading */}
           <div className="flex-1 flex flex-col justify-start pt-16 pr-12">
             <div className="flex flex-col">
-              {/* 1. Ticker Counter (Only number animates) */}
+
+              {/* Ticker Counter */}
               <div className="flex items-center text-sm tracking-[0.3em] text-white/40 font-mono mb-3">
                 <span>[</span>
                 <div className="overflow-hidden flex items-center justify-center px-3" style={{ height: '1.4em' }}>
@@ -90,7 +98,13 @@ const Showcase: React.FC = () => {
                     <motion.div
                       key={activeProject}
                       initial={{ y: 24 }}
-                      animate={{ y: 0, transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } }}
+                      animate={{
+                        y: 0,
+                        transition: {
+                          duration: 0.3,
+                          ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+                        },
+                      }}
                       exit={{ y: -24, transition: { duration: 0.15, ease: 'easeIn' } }}
                       className="whitespace-nowrap"
                     >
@@ -103,7 +117,7 @@ const Showcase: React.FC = () => {
                 <span>]</span>
               </div>
 
-              {/* 2. Title (Smooth Fade) */}
+              {/* Title */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`title-${activeProject}`}
@@ -117,7 +131,7 @@ const Showcase: React.FC = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* 3. Description (Slower Smooth Fade) */}
+              {/* Description */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`desc-${activeProject}`}
@@ -137,7 +151,14 @@ const Showcase: React.FC = () => {
                   <motion.div
                     key={`tags-${activeProject}`}
                     initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        duration: 0.4,
+                        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+                      },
+                    }}
                     exit={{ opacity: 0, y: -6, transition: { duration: 0.2 } }}
                     className="flex flex-wrap gap-2"
                   >
@@ -152,14 +173,12 @@ const Showcase: React.FC = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
+
             </div>
           </div>
         </div>
 
-        {/* 
-          2. RIGHT — Image Column 
-          Page scrolls naturally through this stacked column.
-        */}
+        {/* RIGHT — Image Column */}
         <div className="w-[55%]">
           {projects.slice(0, 3).map((item, index) => (
             <motion.div
@@ -172,40 +191,51 @@ const Showcase: React.FC = () => {
               <div className="relative w-full max-w-[500px]">
                 <div className="absolute -inset-3 border border-moonstone/20 rounded-2xl" />
                 <div className="relative z-10 w-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5 flex items-center justify-center">
+
                   {item.image ? (
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-auto block"
-                    />
+                    <img src={item.image} alt={item.name} className="w-full h-auto block" />
                   ) : (
-                    <div className="w-full h-full bg-neutral-900/50 flex items-center justify-center">
-                      <span className="text-white/5 text-[10px] tracking-widest uppercase">No Preview available</span>
+                    <div className="w-full h-64 bg-neutral-900/50 flex items-center justify-center">
+                      <span className="text-white/5 text-[10px] tracking-widest uppercase">No Preview Available</span>
                     </div>
                   )}
 
-                  {item.github && (
-                    <motion.a
-                      href={item.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]"
-                    >
-                      <div className="flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md transform translate-y-2 hover:translate-y-0 transition-transform duration-300">
+                  {/* Desktop Hover Overlay */}
+                  <div className="absolute inset-0 z-30 flex items-center justify-center gap-3 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
+                    {item.github !== null && (
+                      <a
+                        href={item.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md transform translate-y-2 hover:translate-y-0 transition-transform duration-300"
+                      >
                         <Github size={18} className="text-white" />
-                        <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">View Project</span>
-                      </div>
-                    </motion.a>
-                  )}
+                        <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">GitHub</span>
+                      </a>
+                    )}
+                    {item.live !== null && (
+                      <a
+                        href={item.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md transform translate-y-2 hover:translate-y-0 transition-transform duration-300"
+                      >
+                        <ExternalLink size={18} className="text-white" />
+                        <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">Live</span>
+                      </a>
+                    )}
                   </div>
+
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
-      {/* ── MOBILE ───────────────────────────────────────────────────────── */}
+      {/* MOBILE */}
       <div className="flex lg:hidden flex-col">
+
         {/* Heading */}
         <div className="pt-16 pb-4 border-b border-white/10">
           <div className="flex items-center justify-between">
@@ -220,6 +250,7 @@ const Showcase: React.FC = () => {
         <div className="flex flex-col gap-16 py-16 px-6">
           {projects.slice(0, 3).map((item, index) => (
             <div key={item.id} className="space-y-6">
+
               <div className="space-y-6">
                 <div className="text-xs tracking-[0.3em] text-white/40 font-mono">
                   [ 0{index + 1} / 03 ]
@@ -228,34 +259,64 @@ const Showcase: React.FC = () => {
                   <h3 className="text-2xl font-bold text-white tracking-tight uppercase leading-tight">
                     {item.name}
                   </h3>
-                  <a href={item.github} target="_blank" rel="noopener noreferrer" className="mt-1 text-white/60 flex-shrink-0 hover:text-white transition-colors duration-300">
-                    <Github size={20} />
-                  </a>
-                </div>
-              </div>
-
-              {item.image && (
-                <div className="relative w-full">
-                  <div className="absolute -inset-2 border border-moonstone/10 rounded-xl" />
-                  <div className="relative z-10 w-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-auto block"
-                    />
-                    {item.github && (
-                      <motion.a
+                  {/* Mobile Header Icons */}
+                  <div className="flex items-center gap-3 mt-1 flex-shrink-0">
+                    {item.github !== null && (
+                      <a
                         href={item.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]"
+                        className="text-white/60 hover:text-white transition-colors duration-300"
                       >
-                        <div className="flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md transform translate-y-2 hover:translate-y-0 transition-transform duration-300">
-                          <Github size={16} className="text-white" />
-                          <span className="text-[9px] font-bold text-white tracking-[0.2em] uppercase">View Project</span>
-                        </div>
-                      </motion.a>
+                        <Github size={20} />
+                      </a>
                     )}
+                    {item.live !== null && (
+                      <a
+                        href={item.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/60 hover:text-white transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {item.image !== null && (
+                <div className="relative w-full">
+                  <div className="absolute -inset-2 border border-moonstone/10 rounded-xl" />
+                  <div className="relative z-10 w-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5">
+                    <img src={item.image} alt={item.name} className="w-full h-auto block" />
+
+                    {/* Mobile Image Overlay */}
+                    <div className="absolute inset-0 z-30 flex items-center justify-center gap-3 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
+                      {item.github !== null && (
+                        <a
+                          href={item.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md"
+                        >
+                          <Github size={16} className="text-white" />
+                          <span className="text-[9px] font-bold text-white tracking-[0.2em] uppercase">GitHub</span>
+                        </a>
+                      )}
+                      {item.live !== null && (
+                        <a
+                          href={item.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md"
+                        >
+                          <ExternalLink size={16} className="text-white" />
+                          <span className="text-[9px] font-bold text-white tracking-[0.2em] uppercase">Live</span>
+                        </a>
+                      )}
+                    </div>
+
                   </div>
                 </div>
               )}
@@ -264,12 +325,16 @@ const Showcase: React.FC = () => {
                 <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {item.stack.map((tech) => (
-                    <span key={tech} className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium hover:-translate-y-0.5 hover:shadow-md hover:shadow-white/5 transition-all duration-300 cursor-default">
+                    <span
+                      key={tech}
+                      className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium hover:-translate-y-0.5 hover:shadow-md hover:shadow-white/5 transition-all duration-300 cursor-default"
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
+
             </div>
           ))}
         </div>
