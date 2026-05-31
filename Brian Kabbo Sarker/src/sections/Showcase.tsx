@@ -234,26 +234,26 @@ const Showcase: React.FC = () => {
       </div>
 
       {/* MOBILE */}
-      <div className="flex lg:hidden flex-col w-full min-w-0">
+      <div className="flex lg:hidden flex-col items-center w-full min-w-0 text-center">
 
         {/* Heading */}
-        <div className="pb-4 border-b border-white/10">
-          <div className="flex items-center justify-between gap-3 min-w-0">
-            <h2 className="text-lg sm:text-xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase font-poppins truncate">
+        <div className="w-full pb-4 border-b border-white/10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+            <h2 className="text-lg sm:text-xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase font-poppins">
               PET PROJECTS
             </h2>
-            <span className="text-[10px] sm:text-xs text-white/30 tracking-widest uppercase font-mono flex-shrink-0">
+            <span className="text-[10px] sm:text-xs text-white/30 tracking-widest uppercase font-mono">
               / PORTFOLIO
             </span>
           </div>
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col gap-12 sm:gap-16 pt-10 sm:pt-12">
+        <div className="flex flex-col items-center gap-12 sm:gap-16 pt-10 sm:pt-12 w-full">
           {projects.map((item, index) => (
-            <article key={item.id} className="flex flex-col gap-5 sm:gap-6 min-w-0">
+            <article key={item.id} className="flex flex-col items-center gap-5 sm:gap-6 min-w-0 w-full max-w-lg mx-auto">
 
-              <div className="flex flex-col gap-3 sm:gap-4">
+              <div className="flex flex-col items-center gap-3 sm:gap-4">
                 <div className="text-xs tracking-[0.2em] sm:tracking-[0.3em] text-white/40 font-mono">
                   [ 0{index + 1} / {String(projects.length).padStart(2, '0')} ]
                 </div>
@@ -263,7 +263,7 @@ const Showcase: React.FC = () => {
               </div>
 
               {item.image !== null && (
-                <div className="relative w-full min-w-0 max-w-full">
+                <div className="relative w-full min-w-0 max-w-full mx-auto">
                   <div className="absolute -inset-1.5 sm:-inset-2 border border-moonstone/10 rounded-xl pointer-events-none" />
                   <div className="relative z-10 w-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5">
                     <img
@@ -279,7 +279,7 @@ const Showcase: React.FC = () => {
                 {item.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {item.stack.map((tech) => (
                   <span
                     key={tech}
