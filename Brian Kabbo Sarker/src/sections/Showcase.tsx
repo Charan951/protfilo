@@ -238,11 +238,11 @@ const Showcase: React.FC = () => {
 
         {/* Heading */}
         <div className="w-full pb-4 border-b border-white/10">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-            <h2 className="text-lg sm:text-xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase font-poppins">
+          <div className="flex items-center justify-between gap-3 min-w-0">
+            <h2 className="text-lg sm:text-xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase font-poppins truncate">
               PET PROJECTS
             </h2>
-            <span className="text-[10px] sm:text-xs text-white/30 tracking-widest uppercase font-mono">
+            <span className="text-[10px] sm:text-xs text-white/30 tracking-widest uppercase font-mono flex-shrink-0">
               / PORTFOLIO
             </span>
           </div>
