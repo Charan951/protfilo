@@ -18,14 +18,14 @@ const App: React.FC = () => {
       <div className="flex flex-col lg:flex-row min-h-screen">
         <Navbar />
 
-        <main className="flex-1 lg:ml-[120px] lg:mr-[60px] px-4 sm:px-6 lg:pl-5 lg:pr-5 min-w-0 overflow-x-clip">
+        <main className="flex-1 lg:ml-[120px] lg:mr-[60px] px-6 lg:pl-5 lg:pr-5">
           <Hero />
           <About />
           <Experience />
           <Showcase />
           <Contact />
           
-          <footer className="py-8 sm:py-12 text-center opacity-40">
+          <footer className="py-12 text-center opacity-40">
             <p className="text-[#aaa] text-sm tracking-widest uppercase">
              © Brian Kabbo Sarker
             </p>
