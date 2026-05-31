@@ -49,7 +49,7 @@ const Showcase: React.FC = () => {
   return (
     <section
       id="works"
-      className="max-w-6xl mx-auto px-6"
+      className="max-w-6xl mx-auto px-0 lg:px-6 py-12 sm:py-16 lg:py-0"
       style={{ overflow: 'clip' }}
     >
       {/*DESKTOP*/}
@@ -234,108 +234,90 @@ const Showcase: React.FC = () => {
       </div>
 
       {/* MOBILE */}
-      <div className="flex lg:hidden flex-col">
+      <div className="flex lg:hidden flex-col w-full min-w-0">
 
         {/* Heading */}
-        <div className="pt-16 pb-4 border-b border-white/10">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold tracking-[0.3em] text-[#aaa] uppercase font-poppins">
+        <div className="pb-4 border-b border-white/10">
+          <div className="flex items-center justify-between gap-3 min-w-0">
+            <h2 className="text-lg sm:text-xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase font-poppins truncate">
               PET PROJECTS
             </h2>
-            <span className="text-xs text-white/30 tracking-widest uppercase font-mono">/ PORTFOLIO</span>
+            <span className="text-[10px] sm:text-xs text-white/30 tracking-widest uppercase font-mono flex-shrink-0">
+              / PORTFOLIO
+            </span>
           </div>
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col gap-16 py-16 px-6">
-          {projects.slice(0, 3).map((item, index) => (
-            <div key={item.id} className="space-y-6">
+        <div className="flex flex-col gap-12 sm:gap-16 pt-10 sm:pt-12">
+          {projects.map((item, index) => (
+            <article key={item.id} className="flex flex-col gap-5 sm:gap-6 min-w-0">
 
-              <div className="space-y-6">
-                <div className="text-xs tracking-[0.3em] text-white/40 font-mono">
-                  [ 0{index + 1} / 03 ]
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <div className="text-xs tracking-[0.2em] sm:tracking-[0.3em] text-white/40 font-mono">
+                  [ 0{index + 1} / {String(projects.length).padStart(2, '0')} ]
                 </div>
-                <div className="flex justify-between items-start gap-4">
-                  <h3 className="text-2xl font-bold text-white tracking-tight uppercase leading-tight">
-                    {item.name}
-                  </h3>
-                  {/* Mobile Header Icons */}
-                  <div className="flex items-center gap-3 mt-1 flex-shrink-0">
-                    {item.github !== null && (
-                      <a
-                        href={item.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/60 hover:text-white transition-colors duration-300"
-                      >
-                        <Github size={20} />
-                      </a>
-                    )}
-                    {item.live !== null && (
-                      <a
-                        href={item.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/60 hover:text-white transition-colors duration-300"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                  </div>
-                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight uppercase leading-snug break-words">
+                  {item.name}
+                </h3>
               </div>
 
               {item.image !== null && (
-                <div className="relative w-full">
-                  <div className="absolute -inset-2 border border-moonstone/10 rounded-xl" />
+                <div className="relative w-full min-w-0 max-w-full">
+                  <div className="absolute -inset-1.5 sm:-inset-2 border border-moonstone/10 rounded-xl pointer-events-none" />
                   <div className="relative z-10 w-full rounded-lg overflow-hidden shadow-xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5">
-                    <img src={item.image} alt={item.name} className="w-full h-auto block" />
-
-                    {/* Mobile Image Overlay */}
-                    <div className="absolute inset-0 z-30 flex items-center justify-center gap-3 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
-                      {item.github !== null && (
-                        <a
-                          href={item.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md"
-                        >
-                          <Github size={16} className="text-white" />
-                          <span className="text-[9px] font-bold text-white tracking-[0.2em] uppercase">GitHub</span>
-                        </a>
-                      )}
-                      {item.live !== null && (
-                        <a
-                          href={item.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md"
-                        >
-                          <ExternalLink size={16} className="text-white" />
-                          <span className="text-[9px] font-bold text-white tracking-[0.2em] uppercase">Live</span>
-                        </a>
-                      )}
-                    </div>
-
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-auto max-w-full block object-contain"
+                    />
                   </div>
                 </div>
               )}
 
-              <div className="space-y-6">
-                <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {item.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1 uppercase rounded-full font-medium hover:-translate-y-0.5 hover:shadow-md hover:shadow-white/5 transition-all duration-300 cursor-default"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed break-words">
+                {item.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {item.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-[10px] tracking-widest text-white/50 border border-white/20 px-3 py-1.5 uppercase rounded-full font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
 
-            </div>
+              {(item.github !== null || item.live !== null) && (
+                <div className="flex flex-wrap gap-3 pt-1">
+                  {item.github !== null && (
+                    <a
+                      href={item.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 min-h-11 px-5 rounded-full bg-white/10 border border-white/20 text-white/80 hover:text-white hover:bg-white/15 transition-colors duration-300"
+                    >
+                      <Github size={18} aria-hidden="true" />
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase">GitHub</span>
+                    </a>
+                  )}
+                  {item.live !== null && (
+                    <a
+                      href={item.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 min-h-11 px-5 rounded-full bg-white/10 border border-white/20 text-white/80 hover:text-white hover:bg-white/15 transition-colors duration-300"
+                    >
+                      <ExternalLink size={18} aria-hidden="true" />
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Live</span>
+                    </a>
+                  )}
+                </div>
+              )}
+
+            </article>
           ))}
         </div>
       </div>
