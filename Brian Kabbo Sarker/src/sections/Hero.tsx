@@ -24,33 +24,33 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative h-[80vh] lg:h-screen flex flex-col items-center justify-center px-6">
+    <section id="home" className="relative min-h-[80vh] lg:h-screen flex flex-col items-center justify-center px-0 lg:px-6 pt-20 pb-12 lg:pt-0 lg:pb-0">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="text-center z-10"
+        className="text-center z-10 w-full max-w-2xl min-w-0 px-1"
       >
         <motion.p 
           variants={itemVariants}
-          className="text-[#aaa] text-base uppercase tracking-[0.2em] mb-4 font-inter font-medium"
+          className="text-[#aaa] text-sm sm:text-base uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-3 sm:mb-4 font-inter font-medium"
         >
           Hello, this is
         </motion.p>
         
         <motion.h1 
           variants={itemVariants}
-          className="text-5xl md:text-8xl lg:text-9xl mb-6 font-bold tracking-tight text-white"
+          className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl mb-4 sm:mb-6 font-bold tracking-tight text-white leading-tight break-words"
         >
           Brian Kabbo
         </motion.h1>
 
         <motion.p 
           variants={itemVariants}
-          className="text-white text-xl md:text-2xl font-inter mb-12 max-w-2xl mx-auto"
+          className="text-white text-base sm:text-xl md:text-2xl font-inter mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed flex flex-col sm:block items-center gap-3 px-1"
         >
-          <span className="opacity-80">Full-Stack Software Engineer Crafting with</span>{' '}
-          <span className="text-moonstone font-mono font-semibold bg-moonstone-dim px-3 py-1 rounded border border-moonstone-border/20" style={{ display: 'inline-flex', alignItems: 'center', verticalAlign: 'middle', marginLeft: '0.5em' }}>
+          <span className="opacity-80">Full-Stack Software Engineer Crafting with</span>
+          <span className="text-moonstone font-mono font-semibold bg-moonstone-dim px-3 py-1 rounded border border-moonstone-border/20 inline-flex items-center sm:ml-2">
             {/* Clip window — exactly one item tall, overflow hidden here */}
             <span style={{ display: 'block', overflow: 'hidden', height: '1.2em' }}>
               <span style={{ display: 'flex', flexDirection: 'column', animation: 'tickUp 7s ease-in-out infinite' }}>
@@ -65,11 +65,11 @@ const Hero: React.FC = () => {
 
         <motion.div 
           variants={itemVariants}
-          className="flex flex-wrap items-center justify-center gap-6"
+          className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-6 w-full max-w-md sm:max-w-none mx-auto"
         >
           <a
             href="#works"
-            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300"
+            className="group btn-shine inline-flex items-center justify-center min-h-11 px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-base sm:text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             View Work
           </a>
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
             href="https://drive.google.com/file/d/1ERIkqExyzmGRm_Hhst7v-mMBce7TGdWh/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="group btn-shine px-8 py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-lg bg-transparent hover:bg-white transition-all duration-300"
+            className="group btn-shine inline-flex items-center justify-center min-h-11 px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-base sm:text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             Download CV
           </a>
@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <span className="text-[#aaa] text-xs uppercase tracking-[0.3em] font-medium group-hover:text-moonstone transition-colors">Scroll</span>

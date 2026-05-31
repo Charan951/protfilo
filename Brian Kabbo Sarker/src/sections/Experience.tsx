@@ -46,25 +46,25 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section id="journey" className="py-24 max-w-6xl mx-auto px-6">
+    <section id="journey" className="py-12 sm:py-16 lg:py-24 max-w-6xl mx-auto px-0 lg:px-6 min-w-0">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={revealVariants}
-        className="mb-20 border-b border-white/10 pb-4"
+        className="mb-10 sm:mb-12 lg:mb-20 border-b border-white/10 pb-4"
       >
-        <h2 className="text-xl md:text-2xl font-bold tracking-[0.3em] text-[#aaa] uppercase px-0">MY JOURNEY</h2>
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase">MY JOURNEY</h2>
       </motion.div>
 
-      <div className="flex flex-col md:flex-row gap-12 md:gap-24">
+      <div className="flex flex-col md:flex-row gap-8 sm:gap-10 lg:gap-24">
         {/* Tabs */}
-        <div className="flex flex-wrap md:flex-col md:w-1/3 gap-3">
+        <div className="flex flex-col md:flex-col md:w-1/3 gap-3 w-full">
           {experienceData.map((exp) => (
             <button
               key={exp.id}
               onClick={() => setActiveTab(exp.id)}
-              className={`btn-shine text-left px-6 py-4 rounded-xl border transition-all duration-300 ${
+              className={`btn-shine w-full text-left min-h-11 px-4 sm:px-6 py-3 sm:py-4 rounded-xl border transition-all duration-300 break-words ${
                 activeTab === exp.id
                   ? 'bg-moonstone text-zinc-950 font-bold border-moonstone'
                   : 'bg-transparent border-moonstone-border/20 text-white hover:bg-white'
@@ -76,7 +76,7 @@ const Experience: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="md:w-2/3 min-h-[300px]">
+        <div className="md:w-2/3 min-w-0 md:min-h-[300px]">
           <AnimatePresence mode="wait">
             {experienceData.map((exp) => (
               exp.id === activeTab && (
@@ -86,15 +86,15 @@ const Experience: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
-                  <h3 className="text-2xl font-bold text-white">{exp.role}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug break-words">{exp.role}</h3>
                   <p className="font-mono text-moonstone text-sm">{exp.period}</p>
-                  <ul className="space-y-4">
+                  <ul className="space-y-3 sm:space-y-4">
                     {exp.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-4 text-white text-lg">
-                        <span className="text-moonstone mt-1.5">•</span>
-                        <span>{point}</span>
+                      <li key={i} className="flex items-start gap-3 sm:gap-4 text-white text-base sm:text-lg leading-relaxed">
+                        <span className="text-moonstone mt-1.5 flex-shrink-0">•</span>
+                        <span className="break-words">{point}</span>
                       </li>
                     ))}
                   </ul>

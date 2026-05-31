@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
       </aside>
 
       {/* Mobile Nav Top Bar */}
-      <nav className="fixed top-0 left-0 w-full z-50 lg:hidden px-6 py-4 flex justify-end items-center">
+      <nav className="fixed top-0 left-0 w-full z-50 lg:hidden px-4 sm:px-6 py-3 sm:py-4 flex justify-end items-center bg-arctic-void/80 backdrop-blur-sm border-b border-white/5">
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white min-h-[44px] min-w-[44px] flex items-center justify-center">
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -95,23 +95,23 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center space-y-8 lg:hidden"
+            className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-6 sm:gap-8 px-6 lg:hidden"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.id, link.href)}
-                className={`text-2xl tracking-[0.3em] min-h-[44px] flex items-center transition-colors duration-300 ${
+                className={`text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.3em] min-h-11 flex items-center transition-colors duration-300 ${
                   activeSection === link.id ? 'text-white' : 'text-[#aaa]'
                 }`}
               >
                 {link.name}
               </a>
             ))}
-            <div className="flex space-x-8 mt-12 text-[#aaa]">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-8 sm:mt-12 text-[#aaa]">
               {socialLinks.map((social, index) => (
-                <a key={index} href={social.href} className="hover:text-white transition-colors min-h-[44px] flex items-center">
+                <a key={index} href={social.href} className="hover:text-white transition-colors min-h-11 min-w-11 flex items-center justify-center">
                   {social.icon}
                 </a>
               ))}

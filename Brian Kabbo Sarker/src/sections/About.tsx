@@ -21,19 +21,19 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 max-w-6xl mx-auto px-6">
+    <section id="about" className="py-12 sm:py-16 lg:py-24 max-w-6xl mx-auto px-0 lg:px-6 min-w-0">
       {/* Section Heading */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={revealVariants}
-        className="mb-20 border-b border-white/10 pb-4"
+        className="mb-10 sm:mb-12 lg:mb-20 border-b border-white/10 pb-4"
       >
-        <h2 className="text-xl md:text-2xl font-bold tracking-[0.3em] text-[#aaa] uppercase px-0">ABOUT ME</h2>
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase">ABOUT ME</h2>
       </motion.div>
 
-      <div className="flex flex-col md:flex-row-reverse items-start justify-between gap-16 mb-24">
+      <div className="flex flex-col md:flex-row-reverse items-center md:items-start justify-between gap-10 sm:gap-12 lg:gap-16 mb-12 sm:mb-16 lg:mb-24">
         {/* Profile Photo */}
         <motion.div 
           initial="hidden"
@@ -47,7 +47,7 @@ const About: React.FC = () => {
             <img 
               src={profilePhoto} 
               alt="Brian Kabbo Sarker" 
-              className="w-64 h-64 md:w-80 md:h-80 rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative z-10"
+              className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative z-10"
             />
           </div>
         </motion.div>
@@ -58,16 +58,16 @@ const About: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={revealVariants}
-          className="md:w-3/5 space-y-8"
+          className="w-full md:w-3/5 space-y-5 sm:space-y-6 lg:space-y-8 min-w-0"
         >
-          <p className="text-xl text-white leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
             I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a full-stack software developer focused
             on building interactive and reliable web applications.
           </p>
-          <p className="text-xl text-white leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
             I hold a Bachelor degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
           </p>
-          <p className="text-xl leading-relaxed text-white/90">
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-white/90 break-words">
             My strongest skill is learning fast and adapting quickly. I work well in team environments, value clear
             communication, and enjoy improving ideas through collaboration and iteration.
           </p>
@@ -80,13 +80,13 @@ const About: React.FC = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={revealVariants}
-        className="glass-card p-10 md:p-16 rounded-[2rem]"
+        className="glass-card p-6 sm:p-8 lg:p-10 xl:p-16 rounded-2xl sm:rounded-[2rem] min-w-0"
       >
-        <h3 className="text-3xl font-bold mb-12 text-white">How I build things</h3>
-        <div className="flex flex-col gap-8">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10 lg:mb-12 text-white">How I build things</h3>
+        <div className="flex flex-col gap-6 sm:gap-8">
           {techStack.map((stack) => (
-            <div key={stack.category} className="flex flex-col md:flex-row md:items-start gap-4">
-              <h4 className="text-xs uppercase tracking-[0.3em] font-bold text-[#aaa] md:w-56 shrink-0 pt-2">{stack.category}</h4>
+            <div key={stack.category} className="flex flex-col md:flex-row md:items-start gap-3 sm:gap-4 min-w-0">
+              <h4 className="text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-[#aaa] md:w-56 shrink-0 pt-0 md:pt-2 break-words">{stack.category}</h4>
               <div className="flex flex-wrap gap-3">
                 {stack.items.map((item) => (
                   <motion.span 

@@ -49,7 +49,7 @@ const Showcase: React.FC = () => {
   return (
     <section
       id="works"
-      className="max-w-6xl mx-auto px-0 lg:px-6 py-12 sm:py-16 lg:py-0"
+      className="max-w-6xl mx-auto px-0 lg:px-6 py-12 sm:py-16 lg:py-0 min-w-0"
       style={{ overflow: 'clip' }}
     >
       {/*DESKTOP*/}
