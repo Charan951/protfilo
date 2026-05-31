@@ -13,9 +13,10 @@ const Experience: React.FC = () => {
       role: 'Trainee Software Developer (Full Time)',
       period: 'Nov 2024 – Present',
       points: [
-        'Developed and maintained applications using C# and .NET',
-        'Monitored and resolved system issues in a 24/7 NOC environment to ensure service continuity.',
-        'Supported ERP and financial application systems through troubleshooting and performance optimization.',
+        'Exposure to FinTech operations including ERP systems and financial application workflows',
+        'Monitored and resolved system incidents in a 24/7 NOC environment to maintain continuous operation for 48,600+ active credit union members.',
+        'Maintained ERP reliability for approximately 619 staff by performing routine performance troubleshooting, system health checks, and network monitoring on financial application workflows.',
+        'Actively building side projects in .NET, C#, React and TypeScript outside of formal responsibilities.',
       ],
     },
     {
