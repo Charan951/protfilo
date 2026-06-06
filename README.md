@@ -1,4 +1,4 @@
-# ![user](https://www.readmecodegen.com/api/social-icon?name=user&size=32&animation=glow&color=%233b82f6) Personal Portfolio Website | [🔗Live Demo](https://briankabbo.vercel.app)
+# Personal Portfolio Website | [🔗Live Demo](https://briankabbo.vercel.app)
 ### A personal space to showcase my projects, experiments, and ongoing growth as a software developer.
 
 ![Cover](https://github.com/briankabbo/brian-kabbo-sarker-portfolio/blob/Portfolio/Brian%20Kabbo%20Sarker/public/images/Portfolio.png)
