@@ -18,7 +18,7 @@ This project is fully responsive. Developed from scratch using a hybrid modern w
 * **Contact Section** - Direct communication and professional links
 
 
-## ![code](https://www.readmecodegen.com/api/social-icon?name=code&size=16) Tech Stack
+## Tech Stack
 
 ### Frontend
 [![My Skills](https://skillicons.dev/icons?i=react,ts,tailwind,vite)](https://skillicons.dev)
