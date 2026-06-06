@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const [activeTab, setActiveTab] = useState('company1');
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const experienceData = [
     {
@@ -12,6 +10,8 @@ const Experience: React.FC = () => {
       company: 'The Christian Co-Operative Credit Union',
       role: 'Trainee Software Developer (Full Time)',
       period: 'Nov 2024 – Present',
+      isCurrent: true,
+      tags: ['FinTech', 'ERP Systems', 'NOC', '.NET', 'React', 'TypeScript'],
       points: [
         'Exposure to FinTech operations including ERP systems and financial application workflows',
         'Monitored and resolved system incidents in a 24/7 NOC environment to maintain continuous operation for 48,600+ active credit union members.',
@@ -24,6 +24,8 @@ const Experience: React.FC = () => {
       company: 'Wellessia',
       role: 'Video Editor (Full Time)',
       period: 'Aug 2024 – Nov 2024',
+      isCurrent: false,
+      tags: ['Video Editing', 'Color Grading', 'Motion Graphics', 'Sound Design'],
       points: [
         'Edited 200+ short-form, promotional, and tutorial videos.',
         'Collaborated with the creative team to enhance visual storytelling.',
@@ -35,6 +37,8 @@ const Experience: React.FC = () => {
       company: 'Babuland LTD',
       role: 'Compliance Associate (Part-Time)',
       period: 'May 2022 – Oct 2023',
+      isCurrent: false,
+      tags: ['Compliance', 'Quality Assurance', 'Operations', 'Team Leadership'],
       points: [
         'Oversaw compliance and quality assurance across 8 branches with 30+ staff each.',
         'Acted as a central communication link between branch managers to resolve operational challenges.',
@@ -84,82 +88,87 @@ const Experience: React.FC = () => {
         <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase">MY JOURNEY</h2>
       </motion.div>
 
-      {/* Mobile — bottom drawer company picker */}
-      <div className="lg:hidden flex flex-col gap-6">
-        <button
-          type="button"
-          onClick={() => setIsDrawerOpen(true)}
-          className="w-full flex items-center gap-3 min-h-11 px-4 py-3 rounded-xl border border-moonstone-border/20 bg-moonstone-dim text-left transition-colors duration-300"
-          aria-expanded={isDrawerOpen}
-          aria-haspopup="listbox"
-        >
-          <span className="flex-1 text-sm font-bold text-white break-words leading-snug">
-            {activeExperience.company}
-          </span>
-          <ChevronDown size={18} className="flex-shrink-0 text-moonstone" aria-hidden="true" />
-        </button>
+      {/* ─── Mobile — vertical timeline cards (≤ 1023px) ─── */}
+      <div className="lg:hidden">
+        <div className="relative flex flex-col" style={{ paddingLeft: '52px' }}>
+          {/* Vertical timeline line */}
+          <div
+            className="absolute top-4 bottom-4 w-px bg-white/10"
+            style={{ left: '19px' }}
+          />
 
-        <AnimatePresence>
-          {isDrawerOpen && (
-            <>
-              <motion.button
-                type="button"
-                aria-label="Close company list"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-40 bg-black/50 lg:hidden"
-                onClick={() => setIsDrawerOpen(false)}
-              />
-              <motion.div
-                role="listbox"
-                aria-label="Select company"
-                initial={{ y: '100%' }}
-                animate={{ y: 0 }}
-                exit={{ y: '100%' }}
-                transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-                className="fixed bottom-0 left-0 right-0 z-50 lg:hidden rounded-t-2xl border-t border-white/10 bg-arctic-void px-4 pt-3 pb-8 max-h-[75vh] overflow-y-auto"
+          {experienceData.map((exp, index) => (
+            <motion.div
+              key={exp.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, delay: index * 0.15 }}
+              className="relative pb-6 last:pb-0 group"
+            >
+              {/* Timeline dot */}
+              <div
+                className="absolute z-10 flex items-center justify-center"
+                style={{ left: '-33px', top: '18px' }}
               >
-                <div className="w-10 h-1 rounded-full bg-white/20 mx-auto mb-5" />
-                <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-mono mb-4 px-1">
-                  Select experience
-                </p>
-                <div className="flex flex-col gap-2">
-                  {experienceData.map((exp) => (
-                    <button
-                      key={exp.id}
-                      type="button"
-                      role="option"
-                      aria-selected={activeTab === exp.id}
-                      onClick={() => {
-                        setActiveTab(exp.id);
-                        setIsDrawerOpen(false);
-                      }}
-                      className={`w-full text-left min-h-11 px-4 py-3 rounded-xl border transition-all duration-300 break-words ${
-                        activeTab === exp.id
-                          ? 'bg-moonstone text-zinc-950 font-bold border-moonstone'
-                          : 'bg-transparent border-moonstone-border/20 text-white'
-                      }`}
-                    >
-                      <span className="text-sm leading-snug">{exp.company}</span>
-                      <span className={`block text-xs mt-1 ${activeTab === exp.id ? 'text-zinc-700' : 'text-white/50'}`}>
-                        {exp.period}
+                <div className="w-3.5 h-3.5 rounded-full bg-[#04080f] border-2 border-white/20 transition-all duration-300 group-hover:border-moonstone group-hover:bg-moonstone/20" />
+              </div>
+
+              {/* Card */}
+              <div className="rounded-2xl border border-white/10 bg-moonstone-dim backdrop-blur-sm p-4 transition-all duration-300 group-hover:border-moonstone/30 group-hover:-translate-y-0.5">
+                {/* Top row: company + date pill */}
+                <div className="flex items-start justify-between gap-2 flex-wrap mb-1">
+                  <div className="flex items-center gap-2 flex-wrap min-w-0">
+                    <span className="text-base font-bold text-white leading-snug break-words">
+                      {exp.company}
+                    </span>
+                    {exp.isCurrent && (
+                      <span className="inline-flex items-center text-[10px] font-semibold tracking-[0.04em] px-2 py-0.5 rounded-full bg-emerald-950/70 text-emerald-400 border border-emerald-500/20 whitespace-nowrap flex-shrink-0">
+                        Current
                       </span>
-                    </button>
+                    )}
+                  </div>
+                  <span className="text-[11px] font-normal text-white/50 bg-white/5 border border-white/10 rounded-full px-3 py-1 whitespace-nowrap flex-shrink-0 mt-0.5">
+                    {exp.period}
+                  </span>
+                </div>
+
+                {/* Role */}
+                <p className="text-[13px] font-semibold text-moonstone tracking-[0.04em] mb-3">
+                  {exp.role}
+                </p>
+
+                {/* Divider */}
+                <div className="h-px bg-white/8 mb-3" />
+
+                {/* Bullet points */}
+                <ul className="flex flex-col gap-2 mb-3">
+                  {exp.points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[13px] text-white/60 leading-relaxed font-light">
+                      <span className="w-1 h-1 rounded-full bg-moonstone flex-shrink-0 mt-[7px]" />
+                      <span className="break-words">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {exp.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-normal px-2.5 py-1 rounded-full bg-moonstone/10 text-moonstone/70 border border-moonstone/15 tracking-[0.02em]"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
-
-        <AnimatePresence mode="wait">
-          {renderExperienceContent(activeExperience)}
-        </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      {/* Desktop — sidebar tabs (unchanged) */}
+      {/* ─── Desktop — sidebar tabs (unchanged) ─── */}
       <div className="hidden lg:flex gap-24">
         <div className="flex flex-col w-1/3 gap-3">
           {experienceData.map((exp) => (
