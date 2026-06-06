@@ -114,7 +114,7 @@ const Experience: React.FC = () => {
                   {exp.role}
                 </p>
                 {exp.isCurrent && (
-                  <span className="inline-flex items-center text-[10px] font-semibold tracking-[0.04em] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 whitespace-nowrap flex-shrink-0">
+                  <span className="hidden md:inline-flex items-center text-[10px] font-semibold tracking-[0.04em] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 whitespace-nowrap flex-shrink-0">
                     Current
                   </span>
                 )}
