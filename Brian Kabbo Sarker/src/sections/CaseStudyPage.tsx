@@ -553,11 +553,19 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
 
                     {/* Phone Container */}
                     <div className="flex flex-col items-center">
-                      <div className="relative flex items-center justify-center w-[280px] h-[520px] sm:w-[320px] sm:h-[580px]">
+                      <div 
+                        className="relative flex items-center justify-center w-[280px] h-[520px] sm:w-[320px] sm:h-[580px]"
+                        style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
+                      >
                         
-                        {/* Left Screen Preview (Faded) */}
+                        {/* Left Screen Preview (Faded, rotated 3D curve) */}
                         <div 
-                          className="absolute right-full mr-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
+                          className="absolute right-full mr-[-80px] opacity-25 hover:opacity-50 transition-all duration-500 hidden sm:block cursor-pointer z-0 select-none"
+                          style={{ 
+                            transform: "rotateY(25deg) translateZ(-150px) scale(0.85)", 
+                            transformOrigin: "right center",
+                            filter: "blur(0.5px) brightness(0.6)"
+                          }}
                           onClick={() => setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : screens.length - 1))}
                         >
                           {screens[(activeScreenIndex - 1 + screens.length) % screens.length].image ? (
@@ -580,7 +588,11 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
 
                         {/* Center Screen Mockup Frame */}
                         {screens[activeScreenIndex].image ? (
-                          <div className="relative z-10 w-full h-full bg-transparent flex items-center justify-center">
+                          /* Render image directly (without any outer border/background container) */
+                          <div 
+                            className="relative z-10 w-full h-full bg-transparent flex items-center justify-center transition-all duration-500"
+                            style={{ transform: "translateZ(30px) rotateY(0deg) scale(1.02)" }}
+                          >
                             <img 
                               src={screens[activeScreenIndex].image} 
                               alt={screens[activeScreenIndex].name} 
@@ -589,7 +601,10 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                           </div>
                         ) : (
                           /* Fallback CSS Phone Frame for text-only screens */
-                          <div className="relative z-10 w-full h-full rounded-[40px] border-[6px] border-zinc-800 bg-black p-3.5 shadow-2xl transition-all duration-500 flex flex-col hover:border-moonstone/50">
+                          <div 
+                            className="relative z-10 w-full h-full rounded-[40px] border-[6px] border-zinc-800 bg-black p-3.5 shadow-2xl transition-all duration-500 flex flex-col hover:border-moonstone/50"
+                            style={{ transform: "translateZ(30px)" }}
+                          >
                             {/* Dynamic Island */}
                             <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-zinc-900 rounded-full flex items-center justify-center z-30">
                               <div className="w-2.5 h-2.5 rounded-full bg-slate-950 ml-auto mr-4" />
@@ -628,9 +643,14 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                           </div>
                         )}
 
-                        {/* Right Screen Preview (Faded) */}
+                        {/* Right Screen Preview (Faded, rotated 3D curve) */}
                         <div 
-                          className="absolute left-full ml-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
+                          className="absolute left-full ml-[-80px] opacity-25 hover:opacity-50 transition-all duration-500 hidden sm:block cursor-pointer z-0 select-none"
+                          style={{ 
+                            transform: "rotateY(-25deg) translateZ(-150px) scale(0.85)", 
+                            transformOrigin: "left center",
+                            filter: "blur(0.5px) brightness(0.6)"
+                          }}
                           onClick={() => setActiveScreenIndex((prev) => (prev + 1) % screens.length)}
                         >
                           {screens[(activeScreenIndex + 1) % screens.length].image ? (
@@ -650,7 +670,6 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                             </div>
                           )}
                         </div>
-
                       </div>
 
                       {/* Active Screen Details Caption */}
