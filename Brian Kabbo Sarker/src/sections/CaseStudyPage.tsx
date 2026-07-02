@@ -70,24 +70,37 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
           </span>
         </motion.div>
 
-        {/* 1. HEADER SECTION (Side-by-Side: text on left, image on right) */}
+        {/* 1. HEADER SECTION (Full-Width Showcase image with details below) */}
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={revealVariants}
-          className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 items-center"
+          className="space-y-8"
         >
-          {/* Left Text Detail */}
-          <div className="md:col-span-7 space-y-6 text-left">
-            <div>
-              <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono font-bold">
-                [ {project.name} CASE STUDY ]
-              </span>
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight uppercase mt-1">
-                {project.name}
-              </h1>
+          {/* Title Header */}
+          <div className="text-left">
+            <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono font-bold">
+              [ {project.name} CASE STUDY ]
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight uppercase mt-1">
+              {project.name}
+            </h1>
+          </div>
+
+          {/* Showcase Banner Image */}
+          <div className="relative group w-full">
+            <div className="absolute -inset-1.5 bg-gradient-to-r from-moonstone to-indigo-500 rounded-2xl blur-lg opacity-20 group-hover:opacity-35 transition duration-500" />
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/40 backdrop-blur-3xl shadow-2xl p-2 flex justify-center">
+              <img 
+                src={project.image || '/images/logo.png'} 
+                alt={`${project.name} showcase screen banner`}
+                className="w-full h-auto rounded-xl object-contain max-h-[480px]"
+              />
             </div>
-            
+          </div>
+
+          {/* Project Details & Actions Below */}
+          <div className="space-y-6 text-left max-w-3xl">
             <p className="text-[#8aacbe] text-base sm:text-lg leading-relaxed">
               {project.description}
             </p>
@@ -115,18 +128,6 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                   Live Application
                 </a>
               )}
-            </div>
-          </div>
-
-          {/* Right Showcase Image */}
-          <div className="md:col-span-5 relative group w-full flex justify-center">
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-moonstone to-indigo-500 rounded-2xl blur-lg opacity-20 group-hover:opacity-35 transition duration-500" />
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60 backdrop-blur-3xl shadow-2xl p-1.5">
-              <img 
-                src={project.image || '/images/logo.png'} 
-                alt={`${project.name} showcase screen`}
-                className="w-full h-auto max-h-[360px] rounded-xl object-contain"
-              />
             </div>
           </div>
         </motion.div>

@@ -91,7 +91,7 @@ const projects: Project[] = [
       "Docker",
       "Nginx"
     ],
-    image: "/images/carzzi.png",
+    image: "/images/carr.jpg",
     github: "https://github.com/Charan951",
     live: "https://carzzi.com",
     caseStudy: {
