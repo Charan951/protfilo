@@ -23,6 +23,101 @@ interface CaseStudyPageProps {
   onClose: () => void;
 }
 
+const getStepDetails = (step: string) => {
+  if (step.includes("Browse Eyewear Catalog")) {
+    return { title: "Browse Catalog", desc: "Browse eyewear catalog and select from various premium frame styles." };
+  }
+  if (step.includes("Filter by Frame Size")) {
+    return { title: "Filter & Find", desc: "Filter listings by frame size, color, design, and material." };
+  }
+  if (step.includes("Add Eyewear to Cart")) {
+    return { title: "Save to Cart", desc: "Easily add eyewear products to your shopping cart or personal wishlist." };
+  }
+  if (step.includes("Complete Secure Checkout")) {
+    return { title: "Secure Payment", desc: "Complete secure online checkout via encrypted digital payment gateways." };
+  }
+  
+  if (step.includes("Add or Update Eyewear")) {
+    return { title: "Inventory Setup", desc: "Add, update, and manage eyeglasses and frame stock inventories easily." };
+  }
+  if (step.includes("Review Customer Transactions")) {
+    return { title: "Review Orders", desc: "Track customer order details, transactions, and historical purchase logs." };
+  }
+  if (step.includes("Manage Stock Quantities")) {
+    return { title: "Stock Operations", desc: "Manage variations, stock counts, sizes, and colors in real-time." };
+  }
+  if (step.includes("Monitor Real-time Sales")) {
+    return { title: "Sales Monitoring", desc: "Track revenue analytics, checkout logs, and real-time sales dashboards." };
+  }
+
+  // Carzzi
+  if (step.includes("Search Cars by Brand")) {
+    return { title: "Search Vehicles", desc: "Search and discover vehicles by brand, budget, location, and year." };
+  }
+  if (step.includes("Filter by Transmission")) {
+    return { title: "Refine Criteria", desc: "Filter by automatic/manual transmission, fuel type, and mileage." };
+  }
+  if (step.includes("View Comprehensive Automobile")) {
+    return { title: "Inspect Specs", desc: "Review complete vehicle spec sheets, engine layout, and history logs." };
+  }
+  if (step.includes("Submit Lead Inquiry")) {
+    return { title: "Connect Dealer", desc: "Submit inquiries directly to dealers for test drives and quotes." };
+  }
+  if (step.includes("Create and Manage Dealer")) {
+    return { title: "Dealer Portal", desc: "Create, customize, and verify your official dealer brand profile." };
+  }
+  if (step.includes("Post New Vehicle")) {
+    return { title: "Create Listing", desc: "Post new vehicle listings with complete specifications and photos." };
+  }
+  if (step.includes("Receive Real-time Customer")) {
+    return { title: "Lead Alerts", desc: "Get real-time customer purchase lead alerts instantly on your dashboard." };
+  }
+  if (step.includes("Respond to Buyer")) {
+    return { title: "Follow Up", desc: "Chat and follow up with prospective car buyers directly through the portal." };
+  }
+
+  // HRMS
+  if (step.includes("Clock-In/Out")) {
+    return { title: "Attendance Log", desc: "Quickly clock in or clock out on the daily workspace attendance panel." };
+  }
+  if (step.includes("Submit Paid Time Off")) {
+    return { title: "Leave Request", desc: "Submit leave requests and monitor your remaining PTO balances easily." };
+  }
+  if (step.includes("Access Monthly Pay")) {
+    return { title: "View Payslips", desc: "Review and download monthly salaries, allowances, and tax breakdown payslips." };
+  }
+  if (step.includes("Read General Company")) {
+    return { title: "Announcements", desc: "Access the company feed to stay updated with general team announcements." };
+  }
+  if (step.includes("Manage Central Employee")) {
+    return { title: "Employee Roster", desc: "Manage the central employee database roster, roles, and profiles." };
+  }
+  if (step.includes("Approve or Reject Pending")) {
+    return { title: "Process Leaves", desc: "Review and approve/reject pending employee leave applications." };
+  }
+  if (step.includes("Calculate and Disburse")) {
+    return { title: "Payroll Engine", desc: "Generate salary bills and disburse employee payrolls automatically." };
+  }
+  if (step.includes("Post Announcements")) {
+    return { title: "Announce Feed", desc: "Draft and publish new team announcements to the organization." };
+  }
+
+  return { title: "Step Action", desc: step };
+};
+
+const getWorkflowTagline = (projectName: string) => {
+  if (projectName.toUpperCase() === "EYEGLAZE") {
+    return "Eyeglaze makes eyewear e-commerce simple—browse, select, add to cart, and checkout in four easy steps.";
+  }
+  if (projectName.toUpperCase() === "CARZZI") {
+    return "Carzzi makes buying and selling cars simple—search, refine, view specifications, and contact dealers easily.";
+  }
+  if (projectName.toUpperCase() === "SPESHWAY HRMS") {
+    return "Speshway HRMS makes employee operations simple—attendance logs, leaves, payroll, and notices in four easy steps.";
+  }
+  return `${projectName} makes workflows simple, clean, and highly automated.`;
+};
+
 const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
   const [activeScreenIndex, setActiveScreenIndex] = useState(0);
 
@@ -140,23 +235,60 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
               variants={revealVariants}
-              className="border-t border-white/5 pt-12 space-y-8"
+              className="border-t border-white/5 pt-12 space-y-12 text-center"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 01 ]</span>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider">How It Works</h3>
+              {/* Heading */}
+              <div className="flex flex-col items-center">
+                <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono mb-2">[ SECTION 01 ]</span>
+                <h3 className="text-3xl font-extrabold text-white tracking-tight uppercase font-poppins relative">
+                  How It Works
+                </h3>
+                <div className="h-1.5 w-16 bg-orange-500 rounded-full mt-3" />
+                <p className="text-[#8aacbe] text-sm sm:text-base max-w-2xl mt-6 italic font-medium leading-relaxed">
+                  "{getWorkflowTagline(project.name)}"
+                </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {project.caseStudy.workflows.map((flow, i) => (
-                  <div key={i} className="glass-card p-6 rounded-2xl border border-white/5 space-y-4 text-left">
-                    <h4 className="text-base font-bold text-moonstone tracking-wide">{flow.title}</h4>
-                    <div className="relative pl-6 border-l border-white/10 space-y-4">
-                      {flow.steps.map((step, idx) => (
-                        <div key={idx} className="relative">
-                          <span className="absolute -left-[30px] top-[4px] w-3 h-3 rounded-full bg-moonstone border-2 border-zinc-950" />
-                          <p className="text-sm text-white/80 leading-relaxed font-medium">{step}</p>
-                        </div>
-                      ))}
+
+              {/* Loop over workflows */}
+              <div className="space-y-16">
+                {project.caseStudy.workflows.map((flow, flowIdx) => (
+                  <div key={flowIdx} className="space-y-8 text-left">
+                    <h4 className="text-base font-bold text-moonstone tracking-widest uppercase border-l-2 border-moonstone pl-3">
+                      {flow.title}
+                    </h4>
+
+                    {/* Step progress strip */}
+                    <div className="relative">
+                      {/* Connecting Line (Desktop Only) */}
+                      <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-moonstone via-indigo-500 to-white/10 hidden md:block z-0" />
+
+                      {/* Steps Grid */}
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                        {flow.steps.map((step, idx) => {
+                          const details = getStepDetails(step);
+                          return (
+                            <div key={idx} className="flex flex-col items-center md:items-start text-center md:text-left space-y-4 group">
+                              
+                              {/* Circle Bubble Badge */}
+                              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-moonstone to-indigo-600 border-4 border-[#04080f] flex items-center justify-center text-white font-bold text-lg shadow-lg relative group-hover:scale-110 transition-transform duration-300 mx-auto md:mx-0">
+                                {idx + 1}
+                              </div>
+
+                              {/* Step Text details */}
+                              <div className="space-y-2">
+                                <h5 className="text-sm sm:text-base font-bold text-white tracking-wide font-poppins">
+                                  {details.title}
+                                </h5>
+                                <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed max-w-[240px] mx-auto md:mx-0">
+                                  {details.desc}
+                                </p>
+                              </div>
+
+                            </div>
+                          );
+                        })}
+                      </div>
+
                     </div>
                   </div>
                 ))}
