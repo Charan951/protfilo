@@ -1,8 +1,7 @@
-# Personal Portfolio Website | [🔗Live Demo](https://briankabbo.vercel.app)
-### A personal space to showcase my projects, experiments, and ongoing growth as a software developer.
+# Personal Portfolio Website | Charan Teja
+### A personal space to showcase my projects, experience, and ongoing growth as a full stack developer.
 
-![Cover](https://github.com/briankabbo/brian-kabbo-sarker-portfolio/blob/Portfolio/Brian%20Kabbo%20Sarker/public/images/Portfolio.png)
-> **This is a preview image. Visit the live demo [link](https://briankabbo.vercel.app) for more.**
+![Cover](https://github.com/Charan951/brian-kabbo-sarker-portfolio/blob/Portfolio/Brian%20Kabbo%20Sarker/public/images/Portfolio.png)
 
 ---
 

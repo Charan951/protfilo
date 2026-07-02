@@ -27,22 +27,19 @@ const App: React.FC = () => {
           
           <footer className="py-12 text-center opacity-40">
             <p className="text-[#aaa] text-sm tracking-widest uppercase">
-             © Brian Kabbo Sarker
+             © Charan Teja
             </p>
           </footer>
         </main>
 
         <aside className="fixed right-0 top-1/2 -translate-y-1/2 w-[60px] z-50 hidden lg:flex flex-col items-center space-y-6 text-[#aaa] pr-4">
-          <a href="https://linkedin.com/in/brian-kabbo-sarker" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
+          <a href="https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
             <Linkedin size={20} />
           </a>
-          <a href="https://instagram.com/brian_kabbo" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
-            <Instagram size={20} />
-          </a>
-          <a href="https://github.com/briankabbo" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
+          <a href="https://github.com/Charan951" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
             <Github size={20} />
           </a>
-          <a href="mailto:braiankabbo@gmail.com" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
+          <a href="mailto:pcharan214@gmail.com" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center">
             <Mail size={20} />
           </a>
         </aside>

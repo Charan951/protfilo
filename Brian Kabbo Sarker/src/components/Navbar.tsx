@@ -1,10 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Linkedin, Instagram, Github, Mail, Menu, X } from 'lucide-react';
+import { Linkedin, Github, Mail, Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const menuContainerVariants = {
+    hidden: { opacity: 0, y: -15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.08,
+        delayChildren: 0.15,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -15,
+      transition: {
+        duration: 0.35,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
+    },
+  };
+
+  const menuItemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+    },
+    exit: {
+      opacity: 0,
+      y: -10,
+      transition: { duration: 0.25 },
+    },
+  };
 
   const navLinks = [
     { name: 'Home', href: '/', id: 'home' },
@@ -25,10 +63,9 @@ const Navbar: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/brian-kabbo-sarker' },
-    { icon: <Instagram size={20} />, href: 'https://instagram.com/brian_kabbo' },
-    { icon: <Github size={20} />, href: 'https://github.com' },
-    { icon: <Mail size={20} />, href: 'mailto:braiankabbo@gmail.com' },
+    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/' },
+    { icon: <Github size={20} />, href: 'https://github.com/Charan951' },
+    { icon: <Mail size={20} />, href: 'mailto:pcharan214@gmail.com' },
   ];
 
   useEffect(() => {
@@ -95,13 +132,15 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            variants={menuContainerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-6 sm:gap-8 px-6 lg:hidden"
           >
             {navLinks.map((link) => (
-              <a
+              <motion.a
+                variants={menuItemVariants}
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.id, link.href)}
@@ -110,15 +149,18 @@ const Navbar: React.FC = () => {
                 }`}
               >
                 {link.name}
-              </a>
+              </motion.a>
             ))}
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-8 sm:mt-12 text-[#aaa]">
+            <motion.div
+              variants={menuItemVariants}
+              className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-8 sm:mt-12 text-[#aaa]"
+            >
               {socialLinks.map((social, index) => (
                 <a key={index} href={social.href} className="hover:text-white transition-colors min-h-11 min-w-11 flex items-center justify-center">
                   {social.icon}
                 </a>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

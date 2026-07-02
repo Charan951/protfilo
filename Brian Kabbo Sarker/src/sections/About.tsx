@@ -14,10 +14,9 @@ const About: React.FC = () => {
   };
 
   const techStack = [
-    { category: 'Languages & Frameworks', items: ['C#', 'TypeScript', 'React', 'Python', 'Tailwind', 'ASP.NET Core', 'Entity Framework Core'] },
-    { category: 'Backend & DB', items: ['REST API', 'JWT Auth', 'PostgreSQL', 'MySQL', 'Redis'] },
-    { category: 'AI Integration', items: ['OpenAI API', 'RAG', 'Embeddings', 'Vector Database'] },
-    { category: 'Infra & Cloud', items: ['Git', 'GitHub', 'Docker', 'Azure', 'GitHub Actions'] },
+    { category: 'Web & Mobile Apps', items: ['React.js', 'Next.js', 'JavaScript', 'TypeScript', 'Flutter', 'Tailwind CSS', 'HTML5 / CSS3'] },
+    { category: 'Backend & Database', items: ['Node.js', 'Express.js', 'REST API Development', 'MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'] },
+    { category: 'DevOps & Deployment', items: ['AWS Deployment', 'Docker', 'Kubernetes', 'Jenkins', 'CI/CD', 'Git / GitHub', 'Vercel / Netlify'] },
   ];
 
   return (
@@ -26,7 +25,7 @@ const About: React.FC = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, amount: 0.15, margin: "-30px 0px" }}
         variants={revealVariants}
         className="mb-10 sm:mb-12 lg:mb-20 border-b border-white/10 pb-4"
       >
@@ -38,7 +37,7 @@ const About: React.FC = () => {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.15, margin: "-30px 0px" }}
           variants={revealVariants}
           className="md:w-2/5 flex justify-center"
         >
@@ -46,7 +45,7 @@ const About: React.FC = () => {
             <div className="absolute -inset-4 border border-moonstone/20 rounded-2xl group-hover:border-moonstone group-hover:shadow-[0_10px_25px_-5px_rgba(224,231,255,0.25),0_8px_10px_-6px_rgba(0,0,0,0.1)] transition-all duration-500" />
             <img 
               src={profilePhoto} 
-              alt="Brian Kabbo Sarker" 
+              alt="Charan Teja - Freelance Web Developer Hyderabad" 
               className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative z-10"
             />
           </div>
@@ -56,20 +55,18 @@ const About: React.FC = () => {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.15, margin: "-30px 0px" }}
           variants={revealVariants}
           className="w-full md:w-3/5 space-y-5 sm:space-y-6 lg:space-y-8 min-w-0"
         >
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
-            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a full-stack software developer focused
-            on building interactive and reliable web applications.
+            I'm <span className="text-moonstone font-semibold">Charan Teja</span>, a professional <span className="font-semibold text-white">Freelance Web Developer in Hyderabad</span> and <span className="font-semibold text-white">Full Stack Developer</span> specializing in the <span className="font-semibold text-white">MERN Stack</span>. I offer high-quality website development services, custom web applications, and cross-platform mobile apps using <span className="font-semibold text-white">Flutter</span> from conceptual design to cloud deployment.
           </p>
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
-            I hold a Bachelor degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
+            Whether you need custom website development for startups, responsive website design, or business automation software (such as custom HRMS, CRM, and ERP system development), I leverage modern technologies like <span className="font-semibold text-white">AWS Deployment</span>, <span className="font-semibold text-white">Docker</span>, and CI/CD pipelines to ensure secure, scalable, and high-performance business applications.
           </p>
           <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-white/90 break-words">
-            My strongest skill is learning fast and adapting quickly. I work well in team environments, value clear
-            communication, and enjoy improving ideas through collaboration and iteration.
+            Based in Telangana, I offer affordable website development, website speed optimization, and ongoing website maintenance services. As a dedicated local website developer in Hyderabad, I help small businesses and corporate clients build SEO-friendly web products that drive results.
           </p>
         </motion.div>
       </div>
@@ -78,7 +75,7 @@ const About: React.FC = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, amount: 0.15, margin: "-30px 0px" }}
         variants={revealVariants}
         className="glass-card p-6 sm:p-8 lg:p-10 xl:p-16 rounded-2xl sm:rounded-[2rem] min-w-0"
       >
