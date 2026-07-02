@@ -46,6 +46,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
+      aria-label="Charan Teja Website Home Screen"
       className="relative min-h-screen px-0 flex flex-col items-center justify-center lg:px-6"
     >
       <motion.div
@@ -71,6 +72,9 @@ const Hero: React.FC = () => {
         <h2 className="sr-only">
           Freelance Web Developer & Full Stack Developer in Hyderabad, Telangana
         </h2>
+        <h3 className="sr-only">
+          Charan Teja Official Website - Professional Website Development & Software Engineering Services
+        </h3>
 
         <motion.p
           variants={itemVariants}

@@ -75,7 +75,7 @@ const Experience: React.FC = () => {
   );
 
   return (
-    <section id="journey" className="py-12 sm:py-16 lg:py-0 max-w-6xl mx-auto px-0 lg:px-6 min-w-0" style={{ overflow: 'clip' }}>
+    <section id="journey" aria-label="Charan Teja Software Engineering Experience Screen" className="py-12 sm:py-16 lg:py-0 max-w-6xl mx-auto px-0 lg:px-6 min-w-0" style={{ overflow: 'clip' }}>
       {/* ─── Desktop — Scroll-driven Layout ─── */}
       <div className="hidden lg:flex" style={{ alignItems: 'flex-start' }}>
 

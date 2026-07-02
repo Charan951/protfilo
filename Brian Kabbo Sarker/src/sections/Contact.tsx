@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
   const [showEmail, setShowEmail] = useState(false);
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-24 max-w-6xl mx-auto px-0 lg:px-6 min-w-0">
+    <section id="contact" aria-label="Hire Charan Teja - Freelance Web Developer Contact Screen" className="py-12 sm:py-16 lg:py-24 max-w-6xl mx-auto px-0 lg:px-6 min-w-0">
       <motion.div
         initial="hidden"
         whileInView="visible"

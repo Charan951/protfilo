@@ -20,7 +20,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-16 lg:py-24 max-w-6xl mx-auto px-0 lg:px-6 min-w-0">
+    <section id="about" aria-label="About Charan Teja - Freelance Web Developer Screen" className="py-12 sm:py-16 lg:py-24 max-w-6xl mx-auto px-0 lg:px-6 min-w-0">
       {/* Section Heading */}
       <motion.div
         initial="hidden"
