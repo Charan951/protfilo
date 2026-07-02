@@ -580,9 +580,9 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                         <div 
                           className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[380px] cursor-pointer"
                           style={{
-                            transform: "translateX(-230px) translateZ(-160px) rotateY(32deg)",
-                            opacity: 0.2,
-                            filter: "blur(1.5px)",
+                            transform: "translateX(-175px) translateZ(-100px) rotateY(35deg)",
+                            opacity: 0.25,
+                            filter: "blur(1px)",
                             transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
                             transformStyle: "preserve-3d",
                             zIndex: 5,
@@ -672,9 +672,9 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                         <div 
                           className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[380px] cursor-pointer"
                           style={{
-                            transform: "translateX(230px) translateZ(-160px) rotateY(-32deg)",
-                            opacity: 0.2,
-                            filter: "blur(1.5px)",
+                            transform: "translateX(175px) translateZ(-100px) rotateY(-35deg)",
+                            opacity: 0.25,
+                            filter: "blur(1px)",
                             transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
                             transformStyle: "preserve-3d",
                             zIndex: 5,
