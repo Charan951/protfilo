@@ -121,7 +121,7 @@ const About: React.FC = () => {
                       stiffness: 300, 
                       damping: 20
                     }}
-                    className="inline-block align-middle px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium cursor-default relative transition-colors duration-300"
+                    className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium cursor-default relative transition-colors duration-300"
                   >
                     {item}
                   </motion.span>
