@@ -1,6 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Github, ExternalLink, ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
+import { 
+  Github, ExternalLink, ChevronLeft, ChevronRight, ArrowLeft,
+  Filter, ShoppingCart, ShieldCheck, Settings, UserCheck, FileText, 
+  Package, Clock, Calendar, DollarSign, Megaphone, Users, Briefcase
+} from 'lucide-react';
+
+const getFeatureIcon = (title: string) => {
+  const t = title.toLowerCase();
+  if (t.includes("filter") || t.includes("search")) return <Filter className="text-amber-500 w-8 h-8" />;
+  if (t.includes("cart") || t.includes("wishlist")) return <ShoppingCart className="text-emerald-500 w-8 h-8" />;
+  if (t.includes("checkout") || t.includes("payment")) return <ShieldCheck className="text-indigo-500 w-8 h-8" />;
+  if (t.includes("admin") || t.includes("control") || t.includes("management")) return <Settings className="text-purple-500 w-8 h-8" />;
+  if (t.includes("lead") || t.includes("inquiry")) return <UserCheck className="text-teal-500 w-8 h-8" />;
+  if (t.includes("spec") || t.includes("technical")) return <FileText className="text-blue-500 w-8 h-8" />;
+  if (t.includes("inventory") || t.includes("stock")) return <Package className="text-orange-500 w-8 h-8" />;
+  if (t.includes("attendance")) return <Clock className="text-pink-500 w-8 h-8" />;
+  if (t.includes("leave")) return <Calendar className="text-rose-500 w-8 h-8" />;
+  if (t.includes("payroll") || t.includes("salary")) return <DollarSign className="text-green-500 w-8 h-8" />;
+  if (t.includes("announce") || t.includes("notice")) return <Megaphone className="text-yellow-500 w-8 h-8" />;
+  if (t.includes("role") || t.includes("access")) return <Users className="text-sky-500 w-8 h-8" />;
+  
+  return <Briefcase className="text-moonstone w-8 h-8" />;
+};
+
+const getFeatureTagline = (projectName: string) => {
+  if (projectName.toUpperCase() === "EYEGLAZE") {
+    return "Explore powerful commerce tools designed to browse eyewear catalogues, manage items, and process secure payments.";
+  }
+  if (projectName.toUpperCase() === "CARZZI") {
+    return "Explore advanced listing directories, granular searches, and real-time dealer lead management pipelines.";
+  }
+  if (projectName.toUpperCase() === "SPESHWAY HRMS") {
+    return "Explore automated employee clock-ins, leave lifecycles, payroll calculation engines, and roster directories.";
+  }
+  return "Discover the core features designed to automate operations and simplify user interactions.";
+};
+
 
 interface Project {
   id: number;
@@ -301,21 +337,36 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
               variants={revealVariants}
-              className="border-t border-white/5 pt-12 space-y-8"
+              className="border-t border-white/5 pt-12 space-y-12 text-center"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 02 ]</span>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider">App Features</h3>
+              {/* Heading */}
+              <div className="flex flex-col items-center">
+                <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono mb-2">[ SECTION 02 ]</span>
+                <h3 className="text-3xl font-extrabold text-white tracking-tight uppercase font-poppins relative">
+                  App Features
+                </h3>
+                <div className="h-1.5 w-16 bg-orange-500 rounded-full mt-3" />
+                <p className="text-[#8aacbe] text-sm sm:text-base max-w-2xl mt-6 italic font-medium leading-relaxed">
+                  "{getFeatureTagline(project.name)}"
+                </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              {/* 4-Column Grid of Beautiful Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {project.caseStudy.features.map((feat, i) => (
-                  <div key={i} className="flex gap-4 text-left">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-moonstone-dim border border-moonstone-border/20 text-moonstone font-mono font-bold flex items-center justify-center text-sm">
-                      0{i + 1}
-                    </span>
-                    <div>
-                      <h4 className="text-base font-bold text-white mb-1">{feat.title}</h4>
-                      <p className="text-sm text-[#8aacbe] leading-relaxed">{feat.desc}</p>
+                  <div 
+                    key={i} 
+                    className="glass-card p-6 rounded-3xl border border-white/5 bg-zinc-900/30 backdrop-blur-3xl shadow-xl flex flex-col items-center text-center space-y-4 hover:border-moonstone/20 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    {/* Icon Container */}
+                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-inner">
+                      {getFeatureIcon(feat.title)}
+                    </div>
+
+                    {/* Content */}
+                    <div className="space-y-2">
+                      <h4 className="text-base font-bold text-white font-poppins">{feat.title}</h4>
+                      <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed line-clamp-4">{feat.desc}</p>
                     </div>
                   </div>
                 ))}
