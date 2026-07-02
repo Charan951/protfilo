@@ -154,6 +154,119 @@ const getWorkflowTagline = (projectName: string) => {
   return `${projectName} makes workflows simple, clean, and highly automated.`;
 };
 
+const getTechTagline = (projectName: string) => {
+  if (projectName.toUpperCase() === "EYEGLAZE") {
+    return "Our application is built using a powerful blend of frontend interfaces, state management, and lightweight server APIs.";
+  }
+  if (projectName.toUpperCase() === "CARZZI") {
+    return "Our application is built using a robust blend of MERN stack services, AWS storage, containerized engines, and proxy tools.";
+  }
+  if (projectName.toUpperCase() === "SPESHWAY HRMS") {
+    return "Our application is built using a scalable blend of full-stack MERN libraries, containerization, security tokens, and cloud servers.";
+  }
+  return "Our app is built using a powerful blend of frontend, backend, and cloud technologies ensuring speed and reliability.";
+};
+
+const getTechLogoSvg = (techName: string) => {
+  const name = techName.toLowerCase();
+  
+  if (name.includes("react")) {
+    return (
+      <svg viewBox="0 0 100 100" className="w-12 h-12 text-[#61dafb] fill-none stroke-current stroke-2">
+        <ellipse rx="11" ry="4.2" transform="translate(50 50) rotate(0)"/>
+        <ellipse rx="11" ry="4.2" transform="translate(50 50) rotate(60)"/>
+        <ellipse rx="11" ry="4.2" transform="translate(50 50) rotate(120)"/>
+        <circle cx="50" cy="50" r="2" fill="currentColor" stroke="none"/>
+      </svg>
+    );
+  }
+  if (name.includes("tailwind")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#38bdf8] fill-current">
+        <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
+      </svg>
+    );
+  }
+  if (name.includes("mongodb")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#13aa52] fill-current">
+        <path d="M17.19 10.16c-.53-2.92-2.31-5.86-4.69-7.96-.28-.25-.72-.25-1 0-2.38 2.1-4.16 5.04-4.69 7.96-.65 3.59.39 7.02 2.69 9.2a.51.51 0 0 0 .5.12c1.3-.47 1.48-1.89 1.5-2.97.02-1.3-.3-2.61-.5-3.92-.1-.66-.2-1.33-.27-2a.49.49 0 0 1 .43-.54c.26-.03.5.15.54.41.13 1 .32 2 .59 3 .34 1.25.75 2.5 1.32 3.67.57 1.18 1.42 2.23 2.76 2.68a.5.5 0 0 0 .5-.12c2.3-2.18 3.34-5.61 2.69-9.2zM12 22v-2c.55 0 1-.45 1-1h-2v3z"/>
+      </svg>
+    );
+  }
+  if (name.includes("typescript")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#3178c6] fill-current">
+        <path d="M1.5 1.5v21h21v-21H1.5zm14.773 14.542c0 .943-.273 1.7-.82 2.273-.547.573-1.33.86-2.348.86-.713 0-1.344-.13-1.892-.39-.547-.26-.98-.654-1.302-1.182l1.666-1.077c.215.353.473.618.775.795.302.176.657.265 1.066.265.452 0 .807-.1 1.066-.3.258-.2.387-.52.387-.96 0-.324-.09-.594-.27-.81-.18-.216-.492-.423-.934-.622l-.995-.443c-.882-.396-1.527-.88-1.936-1.455-.409-.575-.613-1.285-.613-2.13 0-.82.253-1.488.758-2.006.505-.518 1.2-.777 2.086-.777.678 0 1.259.13 1.745.39.486.26.864.63 1.134 1.112l-1.573 1.002c-.173-.284-.393-.496-.662-.636-.269-.14-.587-.21-.954-.21-.387 0-.694.093-.92.28-.226.187-.339.447-.339.78 0 .285.086.52.257.705.172.186.463.376.874.57l1.01.46c.925.422 1.6.938 2.028 1.548.428.61.642 1.353.642 2.228zm6.227-7.792h-2.617v10.5h-2.164v-10.5h-2.602v-1.858h7.383v1.858z"/>
+      </svg>
+    );
+  }
+  if (name.includes("node")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#339933] fill-current">
+        <path d="M12 1.5a1.5 1.5 0 0 0-.75.2L4.5 5.57a1.5 1.5 0 0 0-.75 1.3v7.26a1.5 1.5 0 0 0 .75 1.3l6.75 3.87a1.5 1.5 0 0 0 1.5 0l6.75-3.87a1.5 1.5 0 0 0 .75-1.3V6.87a1.5 1.5 0 0 0-.75-1.3L12.75 1.7a1.5 1.5 0 0 0-.75-.2zm0 1.8L18 6.18v6.64l-6 3.44-6-3.44V6.18l6-2.88z"/>
+      </svg>
+    );
+  }
+  if (name.includes("express")) {
+    return (
+      <svg viewBox="0 0 100 100" className="w-12 h-12 text-zinc-400 fill-current">
+        <text x="50" y="65" textAnchor="middle" className="font-mono font-extrabold text-5xl tracking-tighter uppercase">ex</text>
+      </svg>
+    );
+  }
+  if (name.includes("redux")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#764abc] fill-current">
+        <path d="M12.43 14.28a3.1 3.1 0 0 1-1.07 0c-.8-.2-1.37-.8-1.57-1.57a3.1 3.1 0 0 1 0-1.07c.2-.8.8-1.37 1.57-1.57.8-.2 1.63 0 2.28.5a.5.5 0 0 0 .6-.8C13.25 9.07 12 8.7 10.74 9c-1.32.32-2.3 1.3-2.62 2.62a4.93 4.93 0 0 0 0 1.76c.32 1.32 1.3 2.3 2.62 2.62 1.32.32 2.7-.13 3.5-.98a.5.5 0 0 0-.74-.68c-.58.6-1.38.93-2.07.96zm4.12-6.53c-.34-.4-.84-.66-1.38-.72s-1.08.08-1.5.38a3.13 3.13 0 0 1-2.28.5.5.5 0 0 0-.1 1c1.26 0 2.45-.6 3.15-1.63a1.12 1.12 0 0 1 1.6.14c.72.82.72 2.05 0 2.87-.7.8-1.9 1.4-3.15 1.4a.5.5 0 0 0 0 1c1.68 0 3.23-.83 4.18-1.9a3.13 3.13 0 0 0-.47-4.04zm-9.1.5c-.42-.3-.96-.44-1.5-.38a1.9 1.9 0 0 0-1.38.72 3.13 3.13 0 0 0-.47 4.04c.95 1.07 2.5 1.9 4.18 1.9a.5.5 0 0 0 0-1c-1.25 0-2.45-.6-3.15-1.4-.72-.82-.72-2.05 0-2.87a1.12 1.12 0 0 1 1.6-.14c.42.36.9.54 1.42.5a.5.5 0 0 0 .1-1c-.32 0-.64-.1-.9-.3z"/>
+      </svg>
+    );
+  }
+  if (name.includes("aws")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#ff9900] fill-current">
+        <path d="M18.8 13.2c-1.8.8-4 1.2-6.2 1.2-3.8 0-7.3-1.6-9.6-4.3-.4-.5-.1-1.1.5-.9 2.2.8 4.7 1.2 7.3 1.2 2.6 0 5-.4 7.2-1.2.6-.2.9.4.5.9-1.3 1.5-2.9 2.6-4.7 3.1zM21.2 9c0-.4-.4-.6-.8-.4-1 .5-2 .8-3.1 1-.4 0-.6.4-.4.8.4 1 1 1.8 1.8 2.5.3.3.8.1.8-.3.3-1.1.6-2.3.7-3.6z"/>
+      </svg>
+    );
+  }
+  if (name.includes("docker")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#2496ed] fill-current">
+        <path d="M13.983 8.871h-1.996V6.885h1.996v1.986zm-2.89 0H9.097V6.885h1.996V8.871zm-2.89 0H6.207V6.885h1.996V8.871zm-2.89 0H3.317V6.885h1.996V8.871zm11.67 0h-1.997V6.885h1.996V8.871zm-2.89 0h-1.996V6.885h1.996V8.871zm5.78 0h-1.996V6.885h1.996V8.871zm-2.89-2.87h-1.996V4.014h1.996V6.001zm-2.89 0h-1.996V4.014h1.996V6.001zm8.67 2.87h-1.996V6.885h1.996V8.871zM22.3 14.28c-.122-.724-.543-1.341-1.218-1.579-.1-.035-.205-.06-.312-.078-.066-.356-.226-.688-.475-.953-.41-.437-.996-.64-1.576-.554a3.1 3.1 0 0 0-.256-.474 3.036 3.036 0 0 0-1.748-1.229 4.195 4.195 0 0 0-.613-.095c-.097-.333-.298-.625-.572-.828A2.08 2.08 0 0 0 14.33 8h-8.66v4.61s.147.28.43.46c.284.18.662.296 1.1.296h8.34c.57 0 1.09-.23 1.48-.61.166-.16.3-.35.4-.55.19.12.4.21.63.26.47.1 1 .01 1.43-.24.16.2.37.37.62.48.51.24 1.12.24 1.63 0a3.03 3.03 0 0 0 .57-.35c.14.23.33.43.57.57a3.03 3.03 0 0 0 1.63 0c.26-.06.51-.17.74-.32.06.27.19.52.37.73.4.45.98.71 1.58.71h.06c.64 0 1.25-.29 1.66-.79a2.08 2.08 0 0 0 .37-1.3z"/>
+      </svg>
+    );
+  }
+  if (name.includes("nginx")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#009639] fill-current">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2V8.5l-3 4.5V16H6V8h2v5.5l3-4.5V8h2v8z"/>
+      </svg>
+    );
+  }
+  if (name.includes("jwt")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#d63aff] fill-current">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6h12c0 3.31-2.69 6-6 6z"/>
+      </svg>
+    );
+  }
+  if (name.includes("vercel")) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-white fill-current">
+        <path d="M12 2L2 22h20L12 2z"/>
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" className="w-12 h-12 text-moonstone fill-none stroke-current stroke-2">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+      <line x1="8" y1="21" x2="16" y2="21"/>
+      <line x1="12" y1="17" x2="12" y2="21"/>
+    </svg>
+  );
+};
+
 const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
   const [activeScreenIndex, setActiveScreenIndex] = useState(0);
 
@@ -379,20 +492,36 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
               variants={revealVariants}
-              className="border-t border-white/5 pt-12 space-y-6"
+              className="border-t border-white/5 pt-12 space-y-12 text-center"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 03 ]</span>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider">Technologies</h3>
+              {/* Heading */}
+              <div className="flex flex-col items-center">
+                <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono mb-2">[ SECTION 03 ]</span>
+                <h3 className="text-3xl font-extrabold text-white tracking-tight uppercase font-poppins relative">
+                  Technologies We Use
+                </h3>
+                <div className="h-1.5 w-16 bg-orange-500 rounded-full mt-3" />
+                <p className="text-[#8aacbe] text-sm sm:text-base max-w-2xl mt-6 italic font-medium leading-relaxed">
+                  "{getTechTagline(project.name)}"
+                </p>
               </div>
-              <div className="flex flex-wrap gap-2.5 justify-start">
+
+              {/* Technologies Row Grid */}
+              <div className="flex flex-wrap justify-center gap-6">
                 {project.stack.map((tech) => (
-                  <span
+                  <div 
                     key={tech}
-                    className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-xs font-semibold uppercase tracking-wider cursor-default"
+                    className="w-32 h-32 rounded-3xl bg-zinc-900/30 border border-white/5 flex flex-col items-center justify-center p-4 gap-3 hover:border-moonstone/20 hover:bg-zinc-900/50 hover:-translate-y-1 transition-all duration-300 shadow-xl"
                   >
-                    {tech}
-                  </span>
+                    {/* SVG Tech Logo */}
+                    <div className="flex items-center justify-center">
+                      {getTechLogoSvg(tech)}
+                    </div>
+                    {/* Tech Name */}
+                    <span className="text-[10px] font-bold text-white tracking-widest uppercase font-poppins text-center truncate w-full">
+                      {tech}
+                    </span>
+                  </div>
                 ))}
               </div>
             </motion.div>
