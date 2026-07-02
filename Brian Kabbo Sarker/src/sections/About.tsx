@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 // Profile photo path from src/assets/images
-import profilePhoto from '../assets/images/profile-photo.jpg';
+import profilePhoto from '../assets/images/charanteja.jpg';
 
 const About: React.FC = () => {
   const revealVariants = {
