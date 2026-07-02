@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -191,11 +191,13 @@ const projects: Project[] = [
 const Showcase: React.FC = () => {
   const [activeProject, setActiveProject] = useState(0);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<Project | null>(null);
+  const [activeScreenIndex, setActiveScreenIndex] = useState(0);
   const project = projects[activeProject];
 
   useEffect(() => {
     if (selectedCaseStudy) {
       document.body.style.overflow = 'hidden';
+      setActiveScreenIndex(0);
     } else {
       document.body.style.overflow = '';
     }
@@ -523,12 +525,12 @@ const Showcase: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-zinc-950/98 backdrop-blur-xl overflow-y-auto px-6 py-12 lg:px-12 cursor-default select-text"
+            className="fixed inset-0 z-[200] bg-[#04080f] overflow-y-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-12 cursor-default select-text scrollbar-thin"
           >
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto space-y-16">
               
-              {/* Header */}
-              <div className="flex justify-between items-center border-b border-white/10 pb-6 mb-10">
+              {/* 1. HEADER SECTION */}
+              <div className="flex justify-between items-center border-b border-white/10 pb-6">
                 <div>
                   <span className="text-[10px] tracking-widest text-[#aaa] uppercase font-mono">
                     [ CASE STUDY ]
@@ -539,27 +541,31 @@ const Showcase: React.FC = () => {
                 </div>
                 <button
                   onClick={() => setSelectedCaseStudy(null)}
-                  className="btn-shine flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer"
+                  className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer text-lg font-bold"
                   title="Close Case Study"
                 >
                   ✕
                 </button>
               </div>
 
-              {/* Tagline & Actions */}
-              <div className="mb-12">
-                <p className="text-[#8aacbe] text-lg sm:text-xl leading-relaxed mb-6">
+              {/* 2. ABOUT THE PROJECT */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 01 ]</span>
+                  <h3 className="text-lg font-bold text-white uppercase tracking-wider">About The Project</h3>
+                </div>
+                <p className="text-[#8aacbe] text-base sm:text-lg leading-relaxed text-left">
                   {selectedCaseStudy.description}
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 pt-2">
                   {selectedCaseStudy.github && (
                     <a
                       href={selectedCaseStudy.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-shine inline-flex items-center gap-2 min-h-11 px-6 py-2.5 rounded-xl border border-white/20 bg-white/5 text-white font-bold text-sm hover:bg-white hover:text-zinc-950 transition-all duration-300"
+                      className="inline-flex items-center gap-2 min-h-11 px-5 py-2.5 rounded-xl border border-white/20 bg-white/5 text-white font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-zinc-950 transition-all duration-300"
                     >
-                      <Github size={18} />
+                      <Github size={16} />
                       View Repository
                     </a>
                   )}
@@ -568,9 +574,9 @@ const Showcase: React.FC = () => {
                       href={selectedCaseStudy.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-shine inline-flex items-center gap-2 min-h-11 px-6 py-2.5 rounded-xl border border-moonstone-border bg-transparent text-moonstone font-bold text-sm hover:bg-white hover:text-zinc-950 transition-all duration-300"
+                      className="inline-flex items-center gap-2 min-h-11 px-5 py-2.5 rounded-xl border border-moonstone-border bg-transparent text-moonstone font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-zinc-950 transition-all duration-300"
                     >
-                      <ExternalLink size={18} />
+                      <ExternalLink size={16} />
                       Live Application
                     </a>
                   )}
@@ -578,16 +584,16 @@ const Showcase: React.FC = () => {
               </div>
 
               {selectedCaseStudy.caseStudy && (
-                <div className="space-y-12">
-                  
-                  {/* WORKFLOWS */}
-                  <div className="border-t border-white/5 pt-10">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-[0.25em] text-[#aaa] uppercase mb-8">
-                      App Workflows
-                    </h3>
+                <>
+                  {/* 3. HOW IT WORKS (WORKFLOWS) */}
+                  <div className="border-t border-white/5 pt-12 space-y-8">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 02 ]</span>
+                      <h3 className="text-lg font-bold text-white uppercase tracking-wider">How It Works</h3>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {selectedCaseStudy.caseStudy.workflows.map((flow, i) => (
-                        <div key={i} className="glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+                        <div key={i} className="glass-card p-6 rounded-2xl border border-white/5 space-y-4 text-left">
                           <h4 className="text-base font-bold text-moonstone tracking-wide">{flow.title}</h4>
                           <div className="relative pl-6 border-l border-white/10 space-y-4">
                             {flow.steps.map((step, idx) => (
@@ -602,14 +608,15 @@ const Showcase: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* CORE FEATURES */}
-                  <div className="border-t border-white/5 pt-10">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-[0.25em] text-[#aaa] uppercase mb-8">
-                      Core Features
-                    </h3>
+                  {/* 4. APP FEATURES */}
+                  <div className="border-t border-white/5 pt-12 space-y-8">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 03 ]</span>
+                      <h3 className="text-lg font-bold text-white uppercase tracking-wider">App Features</h3>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {selectedCaseStudy.caseStudy.features.map((feat, i) => (
-                        <div key={i} className="flex gap-4">
+                        <div key={i} className="flex gap-4 text-left">
                           <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-moonstone-dim border border-moonstone-border/20 text-moonstone font-mono font-bold flex items-center justify-center text-sm">
                             0{i + 1}
                           </span>
@@ -622,42 +629,145 @@ const Showcase: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* SCREENS BREAKDOWN */}
-                  <div className="border-t border-white/5 pt-10">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-[0.25em] text-[#aaa] uppercase mb-8">
-                      Screens Breakdown
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {selectedCaseStudy.caseStudy.screens.map((scr, i) => (
-                        <div key={i} className="glass-card p-5 rounded-xl border border-white/5">
-                          <div className="text-[10px] tracking-widest text-[#aaa] font-mono mb-2 uppercase">[ Screen 0{i + 1} ]</div>
-                          <h4 className="text-base font-bold text-white mb-2">{scr.name}</h4>
-                          <p className="text-sm text-white/60 leading-relaxed">{scr.details}</p>
-                        </div>
+                  {/* 5. TECHNOLOGIES */}
+                  <div className="border-t border-white/5 pt-12 space-y-6">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 04 ]</span>
+                      <h3 className="text-lg font-bold text-white uppercase tracking-wider">Technologies Used</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2.5 justify-start">
+                      {selectedCaseStudy.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-xs font-semibold uppercase tracking-wider cursor-default"
+                        >
+                          {tech}
+                        </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* SYSTEM ARCHITECTURE */}
-                  <div className="border-t border-white/5 pt-10">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-[0.25em] text-[#aaa] uppercase mb-6">
-                      System Architecture
-                    </h3>
-                    <div className="glass-card p-6 rounded-2xl border border-white/5">
+                  {/* 6. APP SCREENS (3D SLIDER) */}
+                  {selectedCaseStudy.caseStudy.screens && selectedCaseStudy.caseStudy.screens.length > 0 && (
+                    <div className="border-t border-white/5 pt-12 space-y-6">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 05 ]</span>
+                        <h3 className="text-lg font-bold text-white uppercase tracking-wider">App Screens</h3>
+                      </div>
+                      <div className="relative w-full flex items-center justify-center py-6 sm:py-10 overflow-hidden">
+                        <div className="flex items-center gap-4 sm:gap-8 max-w-full z-10">
+                          {/* Left Arrow */}
+                          <button
+                            onClick={() => setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : selectedCaseStudy.caseStudy!.screens.length - 1))}
+                            className="p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/15 text-white transition-all duration-300 cursor-pointer flex-shrink-0"
+                            aria-label="Previous Screen"
+                          >
+                            <ChevronLeft size={18} />
+                          </button>
+
+                          {/* Phone Container */}
+                          <div className="relative flex items-center justify-center w-[280px] h-[520px] sm:w-[320px] sm:h-[580px]">
+                            
+                            {/* Left Screen Preview (Faded) */}
+                            <div 
+                              className="absolute right-full mr-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
+                              onClick={() => setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : selectedCaseStudy.caseStudy!.screens.length - 1))}
+                            >
+                              <div className="w-[200px] h-[380px] rounded-2xl bg-zinc-900 border border-white/15 p-4 flex flex-col justify-between shadow-2xl select-none">
+                                <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex - 1 + selectedCaseStudy.caseStudy.screens.length) % selectedCaseStudy.caseStudy.screens.length) + 1} ]</span>
+                                <div className="text-xs font-bold text-white/60 truncate">{selectedCaseStudy.caseStudy.screens[(activeScreenIndex - 1 + selectedCaseStudy.caseStudy.screens.length) % selectedCaseStudy.caseStudy.screens.length].name}</div>
+                                <div className="text-[10px] text-white/40 line-clamp-4">{selectedCaseStudy.caseStudy.screens[(activeScreenIndex - 1 + selectedCaseStudy.caseStudy.screens.length) % selectedCaseStudy.caseStudy.screens.length].details}</div>
+                                <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
+                              </div>
+                            </div>
+
+                            {/* Center Phone Frame */}
+                            <div className="relative z-10 w-full h-full rounded-[40px] border-[6px] border-zinc-800 bg-black p-3.5 shadow-2xl transition-all duration-500 flex flex-col hover:border-moonstone/50">
+                              {/* Dynamic Island */}
+                              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-zinc-900 rounded-full flex items-center justify-center z-30">
+                                <div className="w-2.5 h-2.5 rounded-full bg-slate-950 ml-auto mr-4" />
+                              </div>
+
+                              {/* Screen Mockup */}
+                              <div className="relative flex-1 rounded-[28px] overflow-hidden bg-[#0c1221] border border-white/5 p-6 flex flex-col justify-between pt-12 select-none">
+                                <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-moonstone/10 blur-3xl pointer-events-none" />
+                                
+                                <div className="flex justify-between items-start">
+                                  <span className="text-[10px] font-mono text-moonstone font-semibold tracking-wider">
+                                    [ SCREEN 0{activeScreenIndex + 1} ]
+                                  </span>
+                                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                </div>
+
+                                <div className="my-auto text-left space-y-3">
+                                  <h4 className="text-lg sm:text-xl font-bold text-white leading-snug font-poppins">
+                                    {selectedCaseStudy.caseStudy.screens[activeScreenIndex].name}
+                                  </h4>
+                                  <div className="h-[2px] w-8 bg-moonstone" />
+                                  <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed">
+                                    {selectedCaseStudy.caseStudy.screens[activeScreenIndex].details}
+                                  </p>
+                                </div>
+
+                                <div className="border-t border-white/10 pt-3 flex items-center justify-between">
+                                  <span className="text-[8px] font-mono text-white/30 uppercase">
+                                    {selectedCaseStudy.name}
+                                  </span>
+                                  <span className="text-[9px] text-moonstone font-bold tracking-wider">
+                                    Active Preview
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Right Screen Preview (Faded) */}
+                            <div 
+                              className="absolute left-full ml-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
+                              onClick={() => setActiveScreenIndex((prev) => (prev + 1) % selectedCaseStudy.caseStudy!.screens.length)}
+                            >
+                              <div className="w-[200px] h-[380px] rounded-2xl bg-zinc-900 border border-white/15 p-4 flex flex-col justify-between shadow-2xl select-none">
+                                <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex + 1) % selectedCaseStudy.caseStudy.screens.length) + 1} ]</span>
+                                <div className="text-xs font-bold text-white/60 truncate">{selectedCaseStudy.caseStudy.screens[(activeScreenIndex + 1) % selectedCaseStudy.caseStudy.screens.length].name}</div>
+                                <div className="text-[10px] text-white/40 line-clamp-4">{selectedCaseStudy.caseStudy.screens[(activeScreenIndex + 1) % selectedCaseStudy.caseStudy.screens.length].details}</div>
+                                <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
+                              </div>
+                            </div>
+
+                          </div>
+
+                          {/* Right Arrow */}
+                          <button
+                            onClick={() => setActiveScreenIndex((prev) => (prev + 1) % selectedCaseStudy.caseStudy!.screens.length)}
+                            className="p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/15 text-white transition-all duration-300 cursor-pointer flex-shrink-0"
+                            aria-label="Next Screen"
+                          >
+                            <ChevronRight size={18} />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 7. FINAL (SYSTEM ARCHITECTURE) */}
+                  <div className="border-t border-white/5 pt-12 space-y-6">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] tracking-widest text-moonstone uppercase font-mono">[ SECTION 06 ]</span>
+                      <h3 className="text-lg font-bold text-white uppercase tracking-wider">System Architecture</h3>
+                    </div>
+                    <div className="glass-card p-6 rounded-2xl border border-white/5 text-left">
                       <p className="text-sm text-white/80 leading-relaxed font-mono">
                         {selectedCaseStudy.caseStudy.architecture}
                       </p>
                     </div>
                   </div>
-
-                </div>
+                </>
               )}
 
-              {/* Close footer button */}
-              <div className="flex justify-center border-t border-white/10 pt-10 mt-12">
+              {/* Close Footer Button */}
+              <div className="flex justify-center border-t border-white/10 pt-10">
                 <button
                   onClick={() => setSelectedCaseStudy(null)}
-                  className="btn-shine inline-flex items-center justify-center min-h-11 px-8 py-3 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer text-sm uppercase font-bold"
+                  className="inline-flex items-center justify-center min-h-11 px-8 py-3 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer text-xs uppercase font-bold tracking-wider"
                 >
                   Back to Portfolio
                 </button>
