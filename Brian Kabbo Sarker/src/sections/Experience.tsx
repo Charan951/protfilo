@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const [activeTab, setActiveTab] = useState('company1');
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  const toggleCard = (id: string) => {
+    setExpandedCards((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   const experienceData = [
     {
@@ -285,14 +294,34 @@ const Experience: React.FC = () => {
                 <div className="h-px bg-white/10 mb-3" />
 
                 {/* Bullet points */}
-                <ul className="flex flex-col gap-2">
-                  {exp.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[13px] text-white leading-relaxed flex-row text-left">
-                      <span className="w-1.5 h-1.5 rounded-full bg-moonstone flex-shrink-0 mt-[6px]" />
-                      <span className="break-words text-white/80">{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className={`relative transition-all duration-500 ease-in-out overflow-hidden ${expandedCards[exp.id] ? 'max-h-[1200px]' : 'max-h-[160px]'}`}>
+                  <ul className="flex flex-col gap-2">
+                    {exp.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-white leading-relaxed flex-row text-left">
+                        <span className="w-1.5 h-1.5 rounded-full bg-moonstone flex-shrink-0 mt-[6px]" />
+                        <span className="break-words text-white/80">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {!expandedCards[exp.id] && (
+                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#0e1626] to-transparent pointer-events-none" />
+                  )}
+                </div>
+
+                {/* Show More / Show Less Toggle Button */}
+                <div className="flex justify-center mt-3 pt-2 border-t border-white/5">
+                  <button
+                    onClick={() => toggleCard(exp.id)}
+                    className="flex items-center gap-1.5 text-xs text-moonstone hover:text-white transition-colors duration-300 py-1.5 px-4 rounded-full bg-white/5 border border-white/10 hover:border-moonstone/30 cursor-pointer"
+                  >
+                    <span>{expandedCards[exp.id] ? 'Show Less' : 'Show More'}</span>
+                    {expandedCards[exp.id] ? (
+                      <ChevronUp size={13} className="transition-transform" />
+                    ) : (
+                      <ChevronDown size={13} className="transition-transform" />
+                    )}
+                  </button>
+                </div>
 
               </div>
             </motion.div>
