@@ -269,7 +269,6 @@ const getTechLogoSvg = (techName: string) => {
 
 const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
   const [activeScreenIndex, setActiveScreenIndex] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   // Force scroll to top on page mount
   useEffect(() => {
@@ -277,17 +276,6 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
   }, [project]);
 
   const screens = project.caseStudy?.screens || [];
-
-  // Continuous auto-play loop effect
-  useEffect(() => {
-    if (!isAutoPlay || screens.length <= 1) return;
-    
-    const interval = setInterval(() => {
-      setActiveScreenIndex((prev) => (prev + 1) % screens.length);
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlay, screens.length]);
 
   const revealVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -554,11 +542,7 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                   <h3 className="text-lg font-bold text-white uppercase tracking-wider">App Screens</h3>
                 </div>
                 <div className="relative w-full flex items-center justify-center py-6 sm:py-10 overflow-hidden">
-                  <div 
-                    className="flex items-center gap-4 sm:gap-8 max-w-full z-10"
-                    onMouseEnter={() => setIsAutoPlay(false)}
-                    onMouseLeave={() => setIsAutoPlay(true)}
-                  >
+                  <div className="flex items-center gap-4 sm:gap-8 max-w-full z-10">
                     
                     {/* Left Button */}
                     <button
@@ -568,7 +552,7 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                     >
                       <ChevronLeft size={18} />
                     </button>
-
+ 
                     {/* Phone Container with 3D perspective */}
                     <div className="flex flex-col items-center w-full overflow-visible">
                       <div 
@@ -576,34 +560,39 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                         style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
                       >
                         
-                        {/* Left Screen Preview (Faded & Curved Inward) */}
+                        {/* Left Phone Preview Frame (Faded & Curved Inward) */}
                         <div 
-                          className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[380px] cursor-pointer"
+                          className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[370px] cursor-pointer"
                           style={{
                             transform: "translateX(-175px) translateZ(-100px) rotateY(35deg)",
-                            opacity: 0.25,
-                            filter: "blur(1px)",
+                            opacity: 0.35,
+                            filter: "blur(0.5px)",
                             transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
                             transformStyle: "preserve-3d",
                             zIndex: 5,
                           }}
                           onClick={() => setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : screens.length - 1))}
                         >
-                          <div className="w-full h-full rounded-2xl bg-zinc-900 border border-white/15 overflow-hidden relative shadow-2xl select-none p-4 flex flex-col justify-between">
-                            {screens[(activeScreenIndex - 1 + screens.length) % screens.length].image ? (
-                              <img 
-                                src={screens[(activeScreenIndex - 1 + screens.length) % screens.length].image} 
-                                alt="prev" 
-                                className="absolute inset-0 w-full h-full object-cover"
-                              />
-                            ) : (
-                              <>
-                                <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex - 1 + screens.length) % screens.length) + 1} ]</span>
-                                <div className="text-xs font-bold text-white/60 truncate">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].name}</div>
-                                <div className="text-[10px] text-white/40 line-clamp-4">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].details}</div>
-                                <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
-                              </>
-                            )}
+                          <div className="relative w-full h-full rounded-[30px] border-[4px] border-zinc-800 bg-black p-1.5 shadow-2xl flex flex-col">
+                            {/* Dynamic Island */}
+                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-2.5 bg-zinc-900 rounded-full z-30" />
+                            
+                            {/* Screen Container */}
+                            <div className="relative flex-1 rounded-[22px] overflow-hidden bg-[#0c1221] border border-white/5 select-none">
+                              {screens[(activeScreenIndex - 1 + screens.length) % screens.length].image ? (
+                                <img 
+                                  src={screens[(activeScreenIndex - 1 + screens.length) % screens.length].image} 
+                                  alt="prev" 
+                                  className="absolute inset-0 w-full h-full object-cover"
+                                />
+                              ) : (
+                                <div className="flex flex-col justify-between h-full p-4 text-left">
+                                  <span className="text-[6px] font-mono text-white/35">[ Screen 0{((activeScreenIndex - 1 + screens.length) % screens.length) + 1} ]</span>
+                                  <div className="text-[9px] font-bold text-white/60 truncate">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].name}</div>
+                                  <div className="text-[7px] text-white/40 line-clamp-3">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].details}</div>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
 
@@ -668,37 +657,41 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                           </div>
                         </div>
 
-                        {/* Right Screen Preview (Faded & Curved Inward) */}
+                        {/* Right Phone Preview Frame (Faded & Curved Inward) */}
                         <div 
-                          className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[380px] cursor-pointer"
+                          className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[370px] cursor-pointer"
                           style={{
                             transform: "translateX(175px) translateZ(-100px) rotateY(-35deg)",
-                            opacity: 0.25,
-                            filter: "blur(1px)",
+                            opacity: 0.35,
+                            filter: "blur(0.5px)",
                             transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
                             transformStyle: "preserve-3d",
                             zIndex: 5,
                           }}
                           onClick={() => setActiveScreenIndex((prev) => (prev + 1) % screens.length)}
                         >
-                          <div className="w-full h-full rounded-2xl bg-zinc-900 border border-white/15 overflow-hidden relative shadow-2xl select-none p-4 flex flex-col justify-between">
-                            {screens[(activeScreenIndex + 1) % screens.length].image ? (
-                              <img 
-                                src={screens[(activeScreenIndex + 1) % screens.length].image} 
-                                alt="next" 
-                                className="absolute inset-0 w-full h-full object-cover"
-                              />
-                            ) : (
-                              <>
-                                <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex + 1) % screens.length) + 1} ]</span>
-                                <div className="text-xs font-bold text-white/60 truncate">{screens[(activeScreenIndex + 1) % screens.length].name}</div>
-                                <div className="text-[10px] text-white/40 line-clamp-4">{screens[(activeScreenIndex + 1) % screens.length].details}</div>
-                                <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
-                              </>
-                            )}
+                          <div className="relative w-full h-full rounded-[30px] border-[4px] border-zinc-800 bg-black p-1.5 shadow-2xl flex flex-col">
+                            {/* Dynamic Island */}
+                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-2.5 bg-zinc-900 rounded-full z-30" />
+                            
+                            {/* Screen Container */}
+                            <div className="relative flex-1 rounded-[22px] overflow-hidden bg-[#0c1221] border border-white/5 select-none">
+                              {screens[(activeScreenIndex + 1) % screens.length].image ? (
+                                <img 
+                                  src={screens[(activeScreenIndex + 1) % screens.length].image} 
+                                  alt="next" 
+                                  className="absolute inset-0 w-full h-full object-cover"
+                                />
+                              ) : (
+                                <div className="flex flex-col justify-between h-full p-4 text-left">
+                                  <span className="text-[6px] font-mono text-white/35">[ Screen 0{((activeScreenIndex + 1) % screens.length) + 1} ]</span>
+                                  <div className="text-[9px] font-bold text-white/60 truncate">{screens[(activeScreenIndex + 1) % screens.length].name}</div>
+                                  <div className="text-[7px] text-white/40 line-clamp-3">{screens[(activeScreenIndex + 1) % screens.length].details}</div>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
-
                       </div>
 
                       {/* Active Screen Details Caption */}
