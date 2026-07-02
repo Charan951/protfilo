@@ -13,7 +13,7 @@ interface Project {
   caseStudy?: {
     workflows: { title: string; steps: string[] }[];
     features: { title: string; desc: string }[];
-    screens: { name: string; details: string }[];
+    screens: { name: string; details: string; image?: string }[];
     architecture: string;
   };
 }
@@ -122,10 +122,10 @@ const projects: Project[] = [
         { title: "Inventory Management Panel", desc: "Allows dealers to easily list, update pricing, or mark vehicles as sold." }
       ],
       screens: [
-        { name: "Marketplace Listing Feed", details: "A feed displaying available cars with clean filter tags, prices, and dealer details." },
-        { name: "Vehicle Technical Specification Sheet", details: "Tabbed display showing mechanical specs, history, features, and dealer details." },
-        { name: "Lead Submission Form", details: "A contact overlay allowing buyers to schedule test drives or request pricing quotes." },
-        { name: "Dealer Dashboard Panel", details: "A secure administrative dashboard showing active vehicle posts, leads, and analytics." }
+        { name: "Marketplace Listing Feed", details: "A feed displaying available cars with clean filter tags, prices, and dealer details.", image: "/images/carzzi_screen1.png" },
+        { name: "Vehicle Technical Specification Sheet", details: "Tabbed display showing mechanical specs, history, features, and dealer details.", image: "/images/carzzi_screen2.png" },
+        { name: "Lead Submission Form", details: "A contact overlay allowing buyers to schedule test drives or request pricing quotes.", image: "/images/carzzi_screen3.png" },
+        { name: "Dealer Dashboard Panel", details: "A secure administrative dashboard showing active vehicle posts, leads, and analytics.", image: "/images/carzzi_screen4.png" }
       ],
       architecture: "Developed with the MERN Stack and TypeScript. Implements clean code backend routing for fast lead collection. Containerized using Docker, reverse proxied with Nginx, and hosted on AWS cloud servers for performance and reliability."
     }

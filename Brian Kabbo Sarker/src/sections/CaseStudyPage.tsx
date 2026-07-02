@@ -49,7 +49,7 @@ interface Project {
   caseStudy?: {
     workflows: { title: string; steps: string[] }[];
     features: { title: string; desc: string }[];
-    screens: { name: string; details: string }[];
+    screens: { name: string; details: string; image?: string }[];
     architecture: string;
   };
 }
@@ -552,73 +552,119 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                     </button>
 
                     {/* Phone Container */}
-                    <div className="relative flex items-center justify-center w-[280px] h-[520px] sm:w-[320px] sm:h-[580px]">
-                      
-                      {/* Left Screen Preview (Faded) */}
-                      <div 
-                        className="absolute right-full mr-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
-                        onClick={() => setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : screens.length - 1))}
-                      >
-                        <div className="w-[200px] h-[380px] rounded-2xl bg-zinc-900 border border-white/15 p-4 flex flex-col justify-between shadow-2xl select-none">
-                          <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex - 1 + screens.length) % screens.length) + 1} ]</span>
-                          <div className="text-xs font-bold text-white/60 truncate">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].name}</div>
-                          <div className="text-[10px] text-white/40 line-clamp-4">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].details}</div>
-                          <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
-                        </div>
-                      </div>
-
-                      {/* Center Phone Frame */}
-                      <div className="relative z-10 w-full h-full rounded-[40px] border-[6px] border-zinc-800 bg-black p-3.5 shadow-2xl transition-all duration-500 flex flex-col hover:border-moonstone/50">
-                        {/* Dynamic Island */}
-                        <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-zinc-900 rounded-full flex items-center justify-center z-30">
-                          <div className="w-2.5 h-2.5 rounded-full bg-slate-950 ml-auto mr-4" />
-                        </div>
-
-                        {/* Screen Mockup */}
-                        <div className="relative flex-1 rounded-[28px] overflow-hidden bg-[#0c1221] border border-white/5 p-6 flex flex-col justify-between pt-12 select-none">
-                          <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-moonstone/10 blur-3xl pointer-events-none" />
-                          
-                          <div className="flex justify-between items-start">
-                            <span className="text-[10px] font-mono text-moonstone font-semibold tracking-wider">
-                              [ SCREEN 0{activeScreenIndex + 1} ]
-                            </span>
-                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                          </div>
-
-                          <div className="my-auto text-left space-y-3">
-                            <h4 className="text-lg sm:text-xl font-bold text-white leading-snug font-poppins">
-                              {screens[activeScreenIndex].name}
-                            </h4>
-                            <div className="h-[2px] w-8 bg-moonstone" />
-                            <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed">
-                              {screens[activeScreenIndex].details}
-                            </p>
-                          </div>
-
-                          <div className="border-t border-white/10 pt-3 flex items-center justify-between">
-                            <span className="text-[8px] font-mono text-white/30 uppercase">
-                              {project.name}
-                            </span>
-                            <span className="text-[9px] text-moonstone font-bold tracking-wider">
-                              Active Preview
-                            </span>
+                    <div className="flex flex-col items-center">
+                      <div className="relative flex items-center justify-center w-[280px] h-[520px] sm:w-[320px] sm:h-[580px]">
+                        
+                        {/* Left Screen Preview (Faded) */}
+                        <div 
+                          className="absolute right-full mr-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
+                          onClick={() => setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : screens.length - 1))}
+                        >
+                          <div className="w-[200px] h-[380px] rounded-2xl bg-zinc-900 border border-white/15 overflow-hidden relative shadow-2xl select-none p-4 flex flex-col justify-between">
+                            {screens[(activeScreenIndex - 1 + screens.length) % screens.length].image ? (
+                              <img 
+                                src={screens[(activeScreenIndex - 1 + screens.length) % screens.length].image} 
+                                alt="prev" 
+                                className="absolute inset-0 w-full h-full object-cover"
+                              />
+                            ) : (
+                              <>
+                                <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex - 1 + screens.length) % screens.length) + 1} ]</span>
+                                <div className="text-xs font-bold text-white/60 truncate">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].name}</div>
+                                <div className="text-[10px] text-white/40 line-clamp-4">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].details}</div>
+                                <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
+                              </>
+                            )}
                           </div>
                         </div>
-                      </div>
 
-                      {/* Right Screen Preview (Faded) */}
-                      <div 
-                        className="absolute left-full ml-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
-                        onClick={() => setActiveScreenIndex((prev) => (prev + 1) % screens.length)}
-                      >
-                        <div className="w-[200px] h-[380px] rounded-2xl bg-zinc-900 border border-white/15 p-4 flex flex-col justify-between shadow-2xl select-none">
-                          <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex + 1) % screens.length) + 1} ]</span>
-                          <div className="text-xs font-bold text-white/60 truncate">{screens[(activeScreenIndex + 1) % screens.length].name}</div>
-                          <div className="text-[10px] text-white/40 line-clamp-4">{screens[(activeScreenIndex + 1) % screens.length].details}</div>
-                          <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
+                        {/* Center Phone Frame */}
+                        <div className="relative z-10 w-full h-full rounded-[40px] border-[6px] border-zinc-800 bg-black p-3.5 shadow-2xl transition-all duration-500 flex flex-col hover:border-moonstone/50">
+                          {/* Dynamic Island */}
+                          <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-zinc-900 rounded-full flex items-center justify-center z-30">
+                            <div className="w-2.5 h-2.5 rounded-full bg-slate-950 ml-auto mr-4" />
+                          </div>
+
+                          {/* Screen Mockup */}
+                          <div className="relative flex-1 rounded-[28px] overflow-hidden bg-[#0c1221] border border-white/5 flex flex-col justify-between pt-12 select-none">
+                            {screens[activeScreenIndex].image ? (
+                              <>
+                                <img 
+                                  src={screens[activeScreenIndex].image} 
+                                  alt={screens[activeScreenIndex].name} 
+                                  className="absolute inset-0 w-full h-full object-cover z-0"
+                                />
+                                {/* Subtle bottom gradient overlay for phone depth */}
+                                <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-zinc-950/80 to-transparent z-10" />
+                              </>
+                            ) : (
+                              <>
+                                <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-moonstone/10 blur-3xl pointer-events-none" />
+                                
+                                <div className="flex justify-between items-start p-6">
+                                  <span className="text-[10px] font-mono text-moonstone font-semibold tracking-wider">
+                                    [ SCREEN 0{activeScreenIndex + 1} ]
+                                  </span>
+                                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                </div>
+
+                                <div className="my-auto text-left space-y-3 p-6">
+                                  <h4 className="text-lg sm:text-xl font-bold text-white leading-snug font-poppins">
+                                    {screens[activeScreenIndex].name}
+                                  </h4>
+                                  <div className="h-[2px] w-8 bg-moonstone" />
+                                  <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed">
+                                    {screens[activeScreenIndex].details}
+                                  </p>
+                                </div>
+
+                                <div className="border-t border-white/10 pt-3 flex items-center justify-between p-6">
+                                  <span className="text-[8px] font-mono text-white/30 uppercase">
+                                    {project.name}
+                                  </span>
+                                  <span className="text-[9px] text-moonstone font-bold tracking-wider">
+                                    Active Preview
+                                  </span>
+                                </div>
+                              </>
+                            )}
+                          </div>
                         </div>
+
+                        {/* Right Screen Preview (Faded) */}
+                        <div 
+                          className="absolute left-full ml-[-60px] opacity-10 scale-75 blur-[1.5px] transition-all duration-500 hidden sm:block cursor-pointer"
+                          onClick={() => setActiveScreenIndex((prev) => (prev + 1) % screens.length)}
+                        >
+                          <div className="w-[200px] h-[380px] rounded-2xl bg-zinc-900 border border-white/15 overflow-hidden relative shadow-2xl select-none p-4 flex flex-col justify-between">
+                            {screens[(activeScreenIndex + 1) % screens.length].image ? (
+                              <img 
+                                src={screens[(activeScreenIndex + 1) % screens.length].image} 
+                                alt="next" 
+                                className="absolute inset-0 w-full h-full object-cover"
+                              />
+                            ) : (
+                              <>
+                                <span className="text-[8px] font-mono text-white/35">[ Screen 0{((activeScreenIndex + 1) % screens.length) + 1} ]</span>
+                                <div className="text-xs font-bold text-white/60 truncate">{screens[(activeScreenIndex + 1) % screens.length].name}</div>
+                                <div className="text-[10px] text-white/40 line-clamp-4">{screens[(activeScreenIndex + 1) % screens.length].details}</div>
+                                <div className="h-6 w-6 rounded-full bg-white/5 border border-white/10" />
+                              </>
+                            )}
+                          </div>
+                        </div>
+
                       </div>
 
+                      {/* Active Screen Details Caption */}
+                      <div className="mt-8 text-center max-w-md mx-auto space-y-2 relative z-10 px-4">
+                        <h4 className="text-lg sm:text-xl font-bold text-white font-poppins">
+                          {screens[activeScreenIndex].name}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed">
+                          {screens[activeScreenIndex].details}
+                        </p>
+                      </div>
                     </div>
 
                     {/* Right Button */}
