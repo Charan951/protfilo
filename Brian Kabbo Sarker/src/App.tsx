@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Linkedin, Instagram, Github, Mail } from 'lucide-react';
 import Navbar from './components/Navbar';
 import CursorGlow from './components/CursorGlow';
@@ -10,6 +10,13 @@ import Showcase from './sections/Showcase';
 import Contact from './sections/Contact';
 
 const App: React.FC = () => {
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative min-h-screen selection:bg-moonstone/30 selection:text-moonstone-light">
       <BackgroundEffects />
