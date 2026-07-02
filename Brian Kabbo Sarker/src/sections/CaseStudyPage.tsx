@@ -269,11 +269,25 @@ const getTechLogoSvg = (techName: string) => {
 
 const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
   const [activeScreenIndex, setActiveScreenIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   // Force scroll to top on page mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [project]);
+
+  const screens = project.caseStudy?.screens || [];
+
+  // Continuous auto-play loop effect
+  useEffect(() => {
+    if (!isAutoPlay || screens.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setActiveScreenIndex((prev) => (prev + 1) % screens.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlay, screens.length]);
 
   const revealVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -284,7 +298,7 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
     },
   };
 
-  const screens = project.caseStudy?.screens || [];
+
 
   return (
     <div className="min-h-screen bg-[#04080f] text-white py-12 px-6 sm:px-8 lg:px-16 relative overflow-hidden select-text">
@@ -540,7 +554,11 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                   <h3 className="text-lg font-bold text-white uppercase tracking-wider">App Screens</h3>
                 </div>
                 <div className="relative w-full flex items-center justify-center py-6 sm:py-10 overflow-hidden">
-                  <div className="flex items-center gap-4 sm:gap-8 max-w-full z-10">
+                  <div 
+                    className="flex items-center gap-4 sm:gap-8 max-w-full z-10"
+                    onMouseEnter={() => setIsAutoPlay(false)}
+                    onMouseLeave={() => setIsAutoPlay(true)}
+                  >
                     
                     {/* Left Button */}
                     <button
