@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
     },
   };
 
@@ -70,10 +70,10 @@ const Hero: React.FC = () => {
         </motion.h1>
 
         <h2 className="sr-only">
-          Freelance Web Developer & Full Stack Developer in Hyderabad, Telangana
+          Ramanakulam Charan Teja | Freelance Web Developer & Full Stack Developer in Hyderabad, Telangana
         </h2>
         <h3 className="sr-only">
-          Charan Teja Official Website - Professional Website Development & Software Engineering Services
+          Ramanakulam Charan Teja (Charan) Official Website - Professional Website Development & Software Engineering Services
         </h3>
 
         <motion.p

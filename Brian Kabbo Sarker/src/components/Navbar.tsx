@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
         staggerChildren: 0.08,
         delayChildren: 0.15,
       },
@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
       y: -15,
       transition: {
         duration: 0.35,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
         staggerChildren: 0.05,
         staggerDirection: -1,
       },
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
     },
     exit: {
       opacity: 0,
@@ -63,9 +63,9 @@ const Navbar: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/' },
-    { icon: <Github size={20} />, href: 'https://github.com/Charan951' },
-    { icon: <Mail size={20} />, href: 'mailto:pcharan214@gmail.com' },
+    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/', label: 'Ramanakulam Charan Teja LinkedIn Profile' },
+    { icon: <Github size={20} />, href: 'https://github.com/Charan951', label: 'Ramanakulam Charan Teja GitHub Portfolio' },
+    { icon: <Mail size={20} />, href: 'mailto:pcharan214@gmail.com', label: 'Email Ramanakulam Charan Teja' },
   ];
 
   useEffect(() => {
@@ -156,7 +156,7 @@ const Navbar: React.FC = () => {
               className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-8 sm:mt-12 text-[#aaa]"
             >
               {socialLinks.map((social, index) => (
-                <a key={index} href={social.href} className="hover:text-white transition-colors min-h-11 min-w-11 flex items-center justify-center">
+                <a key={index} href={social.href} aria-label={social.label} title={social.label} className="hover:text-white transition-colors min-h-11 min-w-11 flex items-center justify-center">
                   {social.icon}
                 </a>
               ))}
