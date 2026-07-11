@@ -37,15 +37,15 @@ const App: React.FC = () => {
           <main className="flex-1 lg:ml-[120px] lg:mr-[60px] px-6 lg:pl-5 lg:pr-5">
             <Hero />
             <About />
-            <Experience />
             <Showcase setSelectedCaseStudy={setSelectedCaseStudy} />
+            <Experience />
             <Contact />
             
             <footer className="py-12 text-center opacity-60">
               <div className="flex justify-center gap-6 mb-4 text-[#aaa] text-xs tracking-wider">
-                <a href="https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300" aria-label="Ramanakulam Charan Teja LinkedIn Profile" title="Ramanakulam Charan Teja LinkedIn">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/" target="_blank" rel="noopener noreferrer me" className="hover:text-white transition-colors duration-300" aria-label="Ramanakulam Charan Teja LinkedIn Profile" title="Ramanakulam Charan Teja LinkedIn">LinkedIn</a>
                 <span className="opacity-30">|</span>
-                <a href="https://github.com/Charan951" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300" aria-label="Ramanakulam Charan Teja GitHub Portfolio" title="Ramanakulam Charan Teja GitHub">GitHub</a>
+                <a href="https://github.com/Charan951" target="_blank" rel="noopener noreferrer me" className="hover:text-white transition-colors duration-300" aria-label="Ramanakulam Charan Teja GitHub Portfolio" title="Ramanakulam Charan Teja GitHub">GitHub</a>
                 <span className="opacity-30">|</span>
                 <a href="mailto:pcharan214@gmail.com" className="hover:text-white transition-colors duration-300" aria-label="Email Ramanakulam Charan Teja" title="Email Charan Teja">Email</a>
               </div>
@@ -56,10 +56,10 @@ const App: React.FC = () => {
           </main>
 
           <aside className="fixed right-0 top-1/2 -translate-y-1/2 w-[60px] z-50 hidden lg:flex flex-col items-center space-y-6 text-[#aaa] pr-4">
-            <a href="https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center" aria-label="Ramanakulam Charan Teja LinkedIn Profile" title="Ramanakulam Charan Teja LinkedIn">
+            <a href="https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/" target="_blank" rel="noopener noreferrer me" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center" aria-label="Ramanakulam Charan Teja LinkedIn Profile" title="Ramanakulam Charan Teja LinkedIn">
               <Linkedin size={20} />
             </a>
-            <a href="https://github.com/Charan951" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center" aria-label="Ramanakulam Charan Teja GitHub Portfolio" title="Ramanakulam Charan Teja GitHub">
+            <a href="https://github.com/Charan951" target="_blank" rel="noopener noreferrer me" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center" aria-label="Ramanakulam Charan Teja GitHub Portfolio" title="Ramanakulam Charan Teja GitHub">
               <Github size={20} />
             </a>
             <a href="mailto:pcharan214@gmail.com" className="hover:text-white transition-colors duration-300 min-h-[44px] flex items-center" aria-label="Email Ramanakulam Charan Teja" title="Email Charan Teja">

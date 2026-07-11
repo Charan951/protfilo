@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { TechIcon } from '../components/TechIcon';
 // Profile photo path from src/assets/images
 import profilePhoto from '../assets/images/charanteja.jpg';
 
@@ -16,9 +17,18 @@ const About: React.FC = () => {
   };
 
   const techStack = [
-    { category: 'Web & Mobile Apps', items: ['React.js', 'Next.js', 'JavaScript', 'TypeScript', 'Flutter', 'Tailwind CSS', 'HTML5 / CSS3'] },
-    { category: 'Backend & Database', items: ['Node.js', 'Express.js', 'REST API Development', 'MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'] },
-    { category: 'DevOps & Deployment', items: ['AWS Deployment', 'Docker', 'Kubernetes', 'Jenkins', 'CI/CD', 'Git / GitHub', 'Vercel / Netlify'] },
+    { 
+      category: 'Web & Mobile Apps', 
+      items: ['React.js', 'Next.js', 'JavaScript', 'TypeScript', 'Flutter', 'Tailwind CSS', 'HTML5', 'CSS3'] 
+    },
+    { 
+      category: 'Backend & Database', 
+      items: ['Node.js', 'Express.js', 'REST API', 'MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'] 
+    },
+    { 
+      category: 'DevOps & Deployment', 
+      items: ['AWS', 'Docker', 'Kubernetes', 'Jenkins', 'CI/CD', 'Git', 'Vercel'] 
+    },
   ];
 
   return (
@@ -102,33 +112,41 @@ const About: React.FC = () => {
         className="glass-card p-6 sm:p-8 lg:p-10 xl:p-16 rounded-2xl sm:rounded-[2rem] min-w-0"
       >
         <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10 lg:mb-12 text-white">How I build things</h3>
-        <div className="flex flex-col gap-6 sm:gap-8">
-          {techStack.map((stack) => (
-            <div key={stack.category} className="flex flex-col md:flex-row md:items-start gap-3 sm:gap-4 min-w-0">
-              <h4 className="text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-[#aaa] md:w-56 shrink-0 pt-0 md:pt-2 break-words">{stack.category}</h4>
-              <div className="flex flex-wrap gap-3">
-                {stack.items.map((item) => (
-                  <motion.span 
-                    key={item}
-                    whileHover={{ 
-                      scale: 1.05,
-                      zIndex: 20,
-                      borderColor: "rgba(224, 231, 255, 0.4)",
-                      boxShadow: "0 0 8px rgba(224, 231, 255, 0.15)"
-                    }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 300, 
-                      damping: 20
-                    }}
-                    className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium cursor-default relative transition-colors duration-300"
-                  >
-                    {item}
-                  </motion.span>
-                ))}
+        <div className="flex flex-col gap-8 sm:gap-10">
+          {techStack.map((stack, index) => {
+            // Repeat items 4 times to ensure seamless infinite looping on wider screens
+            const duplicatedItems = [...stack.items, ...stack.items, ...stack.items, ...stack.items];
+            return (
+              <div key={stack.category} className="flex flex-col md:flex-row md:items-center gap-4 sm:gap-6 min-w-0">
+                <h4 className="text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-[#aaa] md:w-52 shrink-0 break-words">{stack.category}</h4>
+                <div className="flex-1 min-w-0 overflow-hidden relative pause-marquee py-3 mask-gradient">
+                  <div className={index % 2 === 0 ? "animate-marquee gap-4 sm:gap-6" : "animate-marquee-reverse gap-4 sm:gap-6"}>
+                    {duplicatedItems.map((item, idx) => (
+                      <motion.div 
+                        key={`${item}-${idx}`}
+                        whileHover={{ 
+                          scale: 1.08,
+                          borderColor: "rgba(224, 231, 255, 0.45)",
+                          boxShadow: "0 0 15px rgba(224, 231, 255, 0.2)"
+                        }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 400, 
+                          damping: 18
+                        }}
+                        className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-xl bg-moonstone-dim border border-moonstone-border/10 flex items-center justify-center relative group cursor-pointer transition-colors duration-300"
+                      >
+                        <TechIcon name={item} className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-300 group-hover:scale-105" />
+                        <span className="absolute -top-10 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all duration-200 bg-[#04080f]/95 backdrop-blur-sm text-moonstone text-[10px] sm:text-xs px-2.5 py-1 rounded-md border border-moonstone-border/20 whitespace-nowrap z-50 pointer-events-none shadow-xl font-medium tracking-wide">
+                          {item}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </motion.div>
     </section>
@@ -136,3 +154,4 @@ const About: React.FC = () => {
 };
 
 export default About;
+

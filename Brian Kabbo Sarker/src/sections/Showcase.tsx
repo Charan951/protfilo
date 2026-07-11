@@ -367,7 +367,7 @@ const Showcase: React.FC<ShowcaseProps> = ({ setSelectedCaseStudy }) => {
                       <a
                         href={item.github}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer me"
                         className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md transform translate-y-2 hover:translate-y-0 transition-transform duration-300"
                       >
                         <Github size={18} className="text-white" />

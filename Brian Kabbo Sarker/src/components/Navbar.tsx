@@ -47,8 +47,8 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '/', id: 'home' },
     { name: 'About', href: '/about', id: 'about' },
-    { name: 'Journey', href: '/journey', id: 'journey' },
     { name: 'Works', href: '/works', id: 'works' },
+    { name: 'Journey', href: '/journey', id: 'journey' },
     { name: 'Contact', href: '/contact', id: 'contact' },
   ];
 
@@ -156,7 +156,15 @@ const Navbar: React.FC = () => {
               className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-8 sm:mt-12 text-[#aaa]"
             >
               {socialLinks.map((social, index) => (
-                <a key={index} href={social.href} aria-label={social.label} title={social.label} className="hover:text-white transition-colors min-h-11 min-w-11 flex items-center justify-center">
+                <a 
+                  key={index} 
+                  href={social.href} 
+                  target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer me'}
+                  aria-label={social.label} 
+                  title={social.label} 
+                  className="hover:text-white transition-colors min-h-11 min-w-11 flex items-center justify-center"
+                >
                   {social.icon}
                 </a>
               ))}

@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
           <a
             href="https://www.linkedin.com/in/ramanakulam-charan-teja-6448ba245/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer me"
             className="w-full sm:w-auto btn-shine flex items-center justify-center gap-3 min-h-11 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl border border-moonstone-border bg-transparent hover:bg-white transition-all duration-300 text-moonstone font-bold text-base sm:text-lg"
           >
             <Linkedin className="w-5 h-5" />

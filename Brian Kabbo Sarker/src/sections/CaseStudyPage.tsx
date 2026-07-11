@@ -5,6 +5,7 @@ import {
   Filter, ShoppingCart, ShieldCheck, Settings, UserCheck, FileText, 
   Package, Clock, Calendar, DollarSign, Megaphone, Users, Briefcase
 } from 'lucide-react';
+import { TechIcon } from '../components/TechIcon';
 
 const getFeatureIcon = (title: string) => {
   const t = title.toLowerCase();
@@ -356,7 +357,7 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                 <a
                   href={project.github}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer me"
                   className="inline-flex items-center gap-2 min-h-11 px-5 py-2.5 rounded-xl border border-white/20 bg-white/5 text-white font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-zinc-950 transition-all duration-300"
                 >
                   <Github size={16} />
@@ -401,36 +402,36 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
               </div>
 
               {/* Loop over workflows */}
-              <div className="space-y-16">
+              <div className="space-y-10">
                 {project.caseStudy.workflows.map((flow, flowIdx) => (
-                  <div key={flowIdx} className="space-y-8 text-left">
-                    <h4 className="text-base font-bold text-moonstone tracking-widest uppercase border-l-2 border-moonstone pl-3">
+                  <div key={flowIdx} className="space-y-6 text-left">
+                    <h4 className="text-sm font-bold text-moonstone tracking-widest uppercase border-l-2 border-moonstone pl-3">
                       {flow.title}
                     </h4>
 
                     {/* Step progress strip */}
                     <div className="relative">
                       {/* Connecting Line (Desktop Only) */}
-                      <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-moonstone via-indigo-500 to-white/10 hidden md:block z-0" />
+                      <div className="absolute top-[16px] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-moonstone via-indigo-500 to-white/10 hidden md:block z-0" />
 
                       {/* Steps Grid */}
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
                         {flow.steps.map((step, idx) => {
                           const details = getStepDetails(step);
                           return (
-                            <div key={idx} className="flex flex-col items-center md:items-start text-center md:text-left space-y-4 group">
+                            <div key={idx} className="flex flex-col items-center md:items-start text-center md:text-left space-y-2 group">
                               
                               {/* Circle Bubble Badge */}
-                              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-moonstone to-indigo-600 border-4 border-[#04080f] flex items-center justify-center text-white font-bold text-lg shadow-lg relative group-hover:scale-110 transition-transform duration-300 mx-auto md:mx-0">
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-moonstone to-indigo-600 border-[3px] border-[#04080f] flex items-center justify-center text-white font-bold text-xs shadow-md relative group-hover:scale-110 transition-transform duration-300 mx-auto md:mx-0">
                                 {idx + 1}
                               </div>
 
                               {/* Step Text details */}
-                              <div className="space-y-2">
-                                <h5 className="text-sm sm:text-base font-bold text-white tracking-wide font-poppins">
+                              <div className="space-y-1">
+                                <h5 className="text-xs sm:text-sm font-bold text-white tracking-wide font-poppins">
                                   {details.title}
                                 </h5>
-                                <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed max-w-[240px] mx-auto md:mx-0">
+                                <p className="text-[11px] sm:text-xs text-[#8aacbe] leading-relaxed max-w-[200px] mx-auto md:mx-0">
                                   {details.desc}
                                 </p>
                               </div>
@@ -508,23 +509,31 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                 </p>
               </div>
 
-              {/* Technologies Row Grid */}
-              <div className="flex flex-wrap justify-center gap-6">
-                {project.stack.map((tech) => (
-                  <div 
-                    key={tech}
-                    className="w-32 h-32 rounded-3xl bg-zinc-900/30 border border-white/5 flex flex-col items-center justify-center p-4 gap-3 hover:border-moonstone/20 hover:bg-zinc-900/50 hover:-translate-y-1 transition-all duration-300 shadow-xl"
-                  >
-                    {/* SVG Tech Logo */}
-                    <div className="flex items-center justify-center">
-                      {getTechLogoSvg(tech)}
-                    </div>
-                    {/* Tech Name */}
-                    <span className="text-[10px] font-bold text-white tracking-widest uppercase font-poppins text-center truncate w-full">
-                      {tech}
-                    </span>
-                  </div>
-                ))}
+              {/* Technologies Infinite Marquee */}
+              <div className="w-full overflow-hidden relative pause-marquee py-3 mask-gradient">
+                <div className="animate-marquee gap-4 sm:gap-6 flex items-center">
+                  {[...project.stack, ...project.stack, ...project.stack, ...project.stack].map((tech, idx) => (
+                    <motion.div 
+                      key={`${tech}-${idx}`}
+                      whileHover={{ 
+                        scale: 1.08,
+                        borderColor: "rgba(224, 231, 255, 0.45)",
+                        boxShadow: "0 0 15px rgba(224, 231, 255, 0.2)"
+                      }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 400, 
+                        damping: 18
+                      }}
+                      className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-xl bg-moonstone-dim border border-moonstone-border/10 flex items-center justify-center relative group cursor-pointer transition-colors duration-300"
+                    >
+                      <TechIcon name={tech} className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-300 group-hover:scale-105" />
+                      <span className="absolute -top-10 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all duration-200 bg-[#04080f]/95 backdrop-blur-sm text-moonstone text-[10px] sm:text-xs px-2.5 py-1 rounded-md border border-moonstone-border/20 whitespace-nowrap z-50 pointer-events-none shadow-xl font-medium tracking-wide">
+                        {tech}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -552,146 +561,103 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ project, onClose }) => {
                     >
                       <ChevronLeft size={18} />
                     </button>
- 
+
                     {/* Phone Container with 3D perspective */}
                     <div className="flex flex-col items-center w-full overflow-visible">
                       <div 
-                        className="relative flex items-center justify-center w-full max-w-[280px] h-[520px] sm:max-w-4xl sm:h-[580px] overflow-visible"
+                        className="relative flex items-center justify-center w-full max-w-[220px] h-[410px] sm:max-w-4xl sm:h-[480px] overflow-visible"
                         style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
                       >
-                        
-                        {/* Left Phone Preview Frame (Faded & Curved Inward) */}
-                        <div 
-                          className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[370px] cursor-pointer"
-                          style={{
-                            transform: "translateX(-175px) translateZ(-100px) rotateY(35deg)",
-                            opacity: 0.35,
-                            filter: "blur(0.5px)",
-                            transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
-                            transformStyle: "preserve-3d",
-                            zIndex: 5,
-                          }}
-                          onClick={() => setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : screens.length - 1))}
-                        >
-                          <div className="relative w-full h-full rounded-[30px] border-[4px] border-zinc-800 bg-black p-1.5 shadow-2xl flex flex-col">
-                            {/* Dynamic Island */}
-                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-2.5 bg-zinc-900 rounded-full z-30" />
-                            
-                            {/* Screen Container */}
-                            <div className="relative flex-1 rounded-[22px] overflow-hidden bg-[#0c1221] border border-white/5 select-none">
-                              {screens[(activeScreenIndex - 1 + screens.length) % screens.length].image ? (
-                                <img 
-                                  src={screens[(activeScreenIndex - 1 + screens.length) % screens.length].image} 
-                                  alt="prev" 
-                                  className="absolute inset-0 w-full h-full object-cover"
-                                />
-                              ) : (
-                                <div className="flex flex-col justify-between h-full p-4 text-left">
-                                  <span className="text-[6px] font-mono text-white/35">[ Screen 0{((activeScreenIndex - 1 + screens.length) % screens.length) + 1} ]</span>
-                                  <div className="text-[9px] font-bold text-white/60 truncate">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].name}</div>
-                                  <div className="text-[7px] text-white/40 line-clamp-3">{screens[(activeScreenIndex - 1 + screens.length) % screens.length].details}</div>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </div>
+                        {screens.map((item, idx) => {
+                          let offset = idx - activeScreenIndex;
+                          // Handle circular wrapping
+                          if (offset < -screens.length / 2) offset += screens.length;
+                          if (offset > screens.length / 2) offset -= screens.length;
 
-                        {/* Center Phone Frame */}
-                        <div 
-                          className="relative z-10 w-[280px] h-[520px] sm:w-[320px] sm:h-[580px] rounded-[40px] border-[6px] border-zinc-800 bg-black p-3.5 shadow-2xl transition-all duration-500 flex flex-col hover:border-moonstone/50"
-                          style={{
-                            transform: "translateX(0) translateZ(0) rotateY(0deg)",
-                            transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
-                            transformStyle: "preserve-3d",
-                            zIndex: 10,
-                          }}
-                        >
-                          {/* Dynamic Island */}
-                          <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-zinc-900 rounded-full flex items-center justify-center z-30">
-                            <div className="w-2.5 h-2.5 rounded-full bg-slate-950 ml-auto mr-4" />
-                          </div>
+                          const isActive = offset === 0;
+                          const isLeft = offset === -1;
+                          const isRight = offset === 1;
+                          const isVisible = isActive || isLeft || isRight;
 
-                          {/* Screen Mockup */}
-                          <div className="relative flex-1 rounded-[28px] overflow-hidden bg-[#0c1221] border border-white/5 flex flex-col justify-between pt-12 select-none">
-                            {screens[activeScreenIndex].image ? (
-                              <>
-                                <img 
-                                  src={screens[activeScreenIndex].image} 
-                                  alt={screens[activeScreenIndex].name} 
-                                  className="absolute inset-0 w-full h-full object-cover z-0"
-                                />
-                                {/* Subtle bottom gradient overlay for phone depth */}
-                                <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-zinc-950/80 to-transparent z-10" />
-                              </>
-                            ) : (
-                              <>
-                                <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-moonstone/10 blur-3xl pointer-events-none" />
+                          return (
+                            <motion.div
+                              key={item.name}
+                              initial={false}
+                              animate={{
+                                x: isActive ? 0 : offset * 170,
+                                z: isActive ? 0 : -100,
+                                rotateY: isActive ? 0 : -offset * 35,
+                                scale: isActive ? 1 : 0.65,
+                                opacity: isActive ? 1 : (isVisible ? 0.35 : 0),
+                              }}
+                              transition={{
+                                duration: 1.2,
+                                ease: [0.16, 1, 0.3, 1],
+                              }}
+                              className={`absolute ${isActive ? 'flex' : 'hidden sm:flex'} items-center justify-center w-[220px] h-[410px] sm:w-[260px] sm:h-[480px]`}
+                              style={{
+                                transformStyle: "preserve-3d",
+                                zIndex: isActive ? 10 : 5,
+                                filter: isActive ? "none" : "blur(0.5px)",
+                              }}
+                              onClick={() => {
+                                if (!isActive) {
+                                  setActiveScreenIndex(idx);
+                                }
+                              }}
+                            >
+                              {/* Phone Frame Box */}
+                              <div className={`relative w-full h-full rounded-[40px] border-[6px] border-zinc-800 bg-black shadow-2xl flex flex-col transition-colors duration-300 ${isActive ? 'hover:border-moonstone/50 cursor-default' : 'cursor-pointer'}`}>
                                 
-                                <div className="flex justify-between items-start p-6">
-                                  <span className="text-[10px] font-mono text-moonstone font-semibold tracking-wider">
-                                    [ SCREEN 0{activeScreenIndex + 1} ]
-                                  </span>
-                                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                </div>
+                                {/* Screen Mockup */}
+                                <div className={`relative flex-1 rounded-[28px] overflow-hidden bg-[#0c1221] border border-white/5 flex flex-col justify-between select-none pt-0`}>
+                                  {item.image ? (
+                                    <>
+                                      <img 
+                                        src={item.image} 
+                                        alt={item.name} 
+                                        className="absolute inset-0 w-full h-full object-cover z-0"
+                                      />
+                                      {isActive && <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-zinc-950/80 to-transparent z-10" />}
+                                    </>
+                                  ) : (
+                                    <>
+                                      <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-moonstone/10 blur-3xl pointer-events-none" />
+                                      
+                                      <div className={`flex justify-between items-start ${isActive ? 'p-6' : 'p-3'}`}>
+                                        <span className={`font-mono text-moonstone font-semibold tracking-wider ${isActive ? 'text-[10px]' : 'text-[6px]'}`}>
+                                          [ SCREEN 0{idx + 1} ]
+                                        </span>
+                                        {isActive && <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />}
+                                      </div>
 
-                                <div className="my-auto text-left space-y-3 p-6">
-                                  <h4 className="text-lg sm:text-xl font-bold text-white leading-snug font-poppins">
-                                    {screens[activeScreenIndex].name}
-                                  </h4>
-                                  <div className="h-[2px] w-8 bg-moonstone" />
-                                  <p className="text-xs sm:text-sm text-[#8aacbe] leading-relaxed">
-                                    {screens[activeScreenIndex].details}
-                                  </p>
-                                </div>
+                                      <div className={`my-auto text-left ${isActive ? 'space-y-3 p-6' : 'space-y-1.5 p-3'}`}>
+                                        <h4 className={`font-bold text-white leading-snug font-poppins ${isActive ? 'text-lg sm:text-xl' : 'text-[9px] truncate'}`}>
+                                          {item.name}
+                                        </h4>
+                                        {isActive && <div className="h-[2px] w-8 bg-moonstone" />}
+                                        <p className={`text-[#8aacbe] leading-relaxed ${isActive ? 'text-xs sm:text-sm' : 'text-[7px] line-clamp-3'}`}>
+                                          {item.details}
+                                        </p>
+                                      </div>
 
-                                <div className="border-t border-white/10 pt-3 flex items-center justify-between p-6">
-                                  <span className="text-[8px] font-mono text-white/30 uppercase">
-                                    {project.name}
-                                  </span>
-                                  <span className="text-[9px] text-moonstone font-bold tracking-wider">
-                                    Active Preview
-                                  </span>
+                                      <div className={`border-t border-white/10 flex items-center justify-between ${isActive ? 'pt-3 p-6' : 'pt-1.5 p-3'}`}>
+                                        <span className={`font-mono text-white/30 uppercase ${isActive ? 'text-[8px]' : 'text-[5px]'}`}>
+                                          {project.name}
+                                        </span>
+                                        {isActive && (
+                                          <span className="text-[9px] text-moonstone font-bold tracking-wider">
+                                            Active Preview
+                                          </span>
+                                        )}
+                                      </div>
+                                    </>
+                                  )}
                                 </div>
-                              </>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Right Phone Preview Frame (Faded & Curved Inward) */}
-                        <div 
-                          className="absolute hidden sm:flex items-center justify-center w-[180px] h-[330px] md:w-[200px] md:h-[370px] cursor-pointer"
-                          style={{
-                            transform: "translateX(175px) translateZ(-100px) rotateY(-35deg)",
-                            opacity: 0.35,
-                            filter: "blur(0.5px)",
-                            transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
-                            transformStyle: "preserve-3d",
-                            zIndex: 5,
-                          }}
-                          onClick={() => setActiveScreenIndex((prev) => (prev + 1) % screens.length)}
-                        >
-                          <div className="relative w-full h-full rounded-[30px] border-[4px] border-zinc-800 bg-black p-1.5 shadow-2xl flex flex-col">
-                            {/* Dynamic Island */}
-                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-2.5 bg-zinc-900 rounded-full z-30" />
-                            
-                            {/* Screen Container */}
-                            <div className="relative flex-1 rounded-[22px] overflow-hidden bg-[#0c1221] border border-white/5 select-none">
-                              {screens[(activeScreenIndex + 1) % screens.length].image ? (
-                                <img 
-                                  src={screens[(activeScreenIndex + 1) % screens.length].image} 
-                                  alt="next" 
-                                  className="absolute inset-0 w-full h-full object-cover"
-                                />
-                              ) : (
-                                <div className="flex flex-col justify-between h-full p-4 text-left">
-                                  <span className="text-[6px] font-mono text-white/35">[ Screen 0{((activeScreenIndex + 1) % screens.length) + 1} ]</span>
-                                  <div className="text-[9px] font-bold text-white/60 truncate">{screens[(activeScreenIndex + 1) % screens.length].name}</div>
-                                  <div className="text-[7px] text-white/40 line-clamp-3">{screens[(activeScreenIndex + 1) % screens.length].details}</div>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </div>
+                              </div>
+                            </motion.div>
+                          );
+                        })}
                       </div>
 
                       {/* Active Screen Details Caption */}
