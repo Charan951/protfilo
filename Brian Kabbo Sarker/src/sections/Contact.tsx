@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [showEmail, setShowEmail] = useState(false);
@@ -73,6 +73,15 @@ const Contact: React.FC = () => {
           >
             <Linkedin className="w-5 h-5" />
             LinkedIn
+          </a>
+          <a
+            href="https://github.com/Charan951"
+            target="_blank"
+            rel="noopener noreferrer me"
+            className="w-full sm:w-auto btn-shine flex items-center justify-center gap-3 min-h-11 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl border border-moonstone-border bg-transparent hover:bg-white transition-all duration-300 text-moonstone font-bold text-base sm:text-lg"
+          >
+            <Github className="w-5 h-5" />
+            GitHub
           </a>
         </div>
 
